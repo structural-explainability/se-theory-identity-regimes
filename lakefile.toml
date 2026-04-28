@@ -1,0 +1,43 @@
+# REQ.FILE.PROJECT.IDENTITY
+#   Declares the externally visible identity and build surface of this package.
+#   Sections marked CUSTOM are expected to vary by repository.
+
+# ============================================================
+# REQUIRED PROJECT IDENTITY
+# ============================================================
+
+name = "IdentityRegimes"
+version = "0.1.0"
+license = "MIT"
+
+keywords = [
+  "structural-explainability",
+  "formal-contract",
+  "neutrality",
+  "identity-regimes",
+  "invariants",
+  "formal-specification",
+  "formal-verification",
+  "proof-carrying",
+  "theorem-proving",
+  "lean4",
+]
+
+# ============================================================
+# Build configuration
+# ============================================================
+
+defaultTargets = ["IdentityRegimes"]
+
+[[require]]
+name = "NeutralSubstrate"
+scope = "git"
+git = "https://github.com/structural-explainability/se-theory-neutral-substrate"
+rev = "main"
+
+# ============================================================
+# Libraries provided by this package
+# ============================================================
+
+[[lean_lib]]
+name = "IdentityRegimes"

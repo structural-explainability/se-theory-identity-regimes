@@ -1,0 +1,16 @@
+{"version": "1.1.0",
+ "packagesDir": ".lake/packages",
+ "packages":
+ [{"url":
+   "https://github.com/structural-explainability/se-theory-neutral-substrate",
+   "type": "git",
+   "subDir": null,
+   "scope": "git",
+   "rev": "7e0c2794026f8bb3463d490b84e8eeb92f68d283",
+   "name": "NeutralSubstrate",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "main",
+   "inherited": false,
+   "configFile": "lakefile.toml"}],
+ "name": "IdentityRegimes",
+ "lakeDir": ".lake"}
