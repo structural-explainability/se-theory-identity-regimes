@@ -15,6 +15,18 @@
 Defines the six canonical identity regimes and the derived regime-profile structure
 over admissible neutral substrates.
 
+## Covers
+
+- Neutral substrate layer
+- 6 regimes, 9 profiles, refinement map
+- Transformation basis and full classification table
+- Split pressure predicates and theorems
+- Three split witness theorems (ENR/BF, CTX/AD, NOR/RF)
+- All 36 pairwise non-collapse proofs
+- Lower bound and classification uniqueness
+- Regime-typed multigraph structure (`RegimeVertex`, `RegimeEdge`, `RegimeGraph`)
+- Representation theorem: each profile uniquely determined by classification behavior
+
 ## Owns
 
 - Six canonical identity regimes:
@@ -24,6 +36,16 @@ over admissible neutral substrates.
   - CTX
   - REC
   - ENR
+- Nine canonical regime profiles after splits:
+  - OBL
+  - OCC
+  - REC
+  - ENR_L
+  - ENR_I
+  - CTX_E
+  - CTX_S
+  - NOR_C
+  - NOR_S
 - Regime requirement structure
 - Regime-profile structure
 - Admissibility conditions for regime application over neutral substrates
@@ -32,13 +54,9 @@ over admissible neutral substrates.
 
 ## Does not own
 
-- Neutral substrate primitives
-- Substrate well-formedness
-- Substrate separation constraints
-- Persistence behavior
-- Mapping semantics
-- Domain examples
-- Operational validation
+- Neutral substrate primitives (see `se-theory-neutral-substrate`)
+- Path grammar and expressive adequacy (SE-400)
+- Domain mappings or operational validation
 - Runtime systems
 
 ## Design Constraints

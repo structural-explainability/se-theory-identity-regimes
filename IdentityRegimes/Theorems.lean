@@ -13,7 +13,7 @@ namespace IdentityRegimes
 theorem canonical_of_profile_well_formed
     (profile : RegimeProfile)
     (h : ProfileWellFormed profile) :
-    IsCanonicalRegime profile.regime := by
+    IsCanonicalRegime profile.kind.regime := by
   exact h
 
 /-- A neutral substrate supports admissible regime application. -/

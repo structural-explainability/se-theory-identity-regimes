@@ -3,7 +3,11 @@ import IdentityRegimes.Regimes
 import IdentityRegimes.Requirements
 import IdentityRegimes.Profiles
 import IdentityRegimes.Admissibility
+import IdentityRegimes.Embedding
+import IdentityRegimes.LowerBound
+import IdentityRegimes.NonCollapse
 import IdentityRegimes.Theorems
+import IdentityRegimes.Transformations
 import IdentityRegimes.Witness
 
 /-!

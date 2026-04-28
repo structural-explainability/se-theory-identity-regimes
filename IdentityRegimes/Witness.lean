@@ -12,6 +12,6 @@ Canonical witness: OBL yields a well-formed regime profile.
 namespace IdentityRegimes
 
 def oblProfile : RegimeProfile :=
-  { regime := Regime.OBL }
+  { kind  := .OBL }
 
 end IdentityRegimes
