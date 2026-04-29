@@ -9,6 +9,7 @@ import IdentityRegimes.NonCollapse
 import IdentityRegimes.Theorems
 import IdentityRegimes.Transformations
 import IdentityRegimes.Witness
+import IdentityRegimes.ReferenceRequirements
 
 /-!
 File: IdentityRegimes.lean

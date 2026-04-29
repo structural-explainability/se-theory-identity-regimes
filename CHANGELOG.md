@@ -11,6 +11,43 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.1.1] - 2026-04-29
+
+### Added
+
+reference/ files (manual creation / Lean checking):
+
+- regime-classification-values.toml
+- regime-families.toml
+- regime-profile-derivation.toml
+- regime-profiles.toml
+- regime-transformations.toml
+
+Reference certification layer is complete:
+
+Classification values:
+
+- IGN/PRS/BRK enumerated, nodup, complete
+
+Regime families:
+
+- 6 families, nodup, complete, order-faithful to TOML
+
+Regime profiles:
+
+- 9 profiles, nodup, complete, order-faithful to TOML order field
+
+Profile derivation:
+
+- flatMap matches profiles by membership,
+- split count verified (3/3), nosplit singleton verified
+
+Transformations:
+
+- 10 transformations, nodup, complete, order-faithful to TOML
+
+---
+
 ## [0.1.0] - 2026-04-28
 
 ### Added
@@ -140,7 +177,7 @@ Repository governance and tooling:
 - Six regimes and nine profiles are distinct layers; profiles refine regimes, they do not replace them
 - Semantic richness lives inside Lean only; no Python validation surface
 - No operational or export layer in theory repos
-- OCC/AD classified as BRK; OBL/BF as IGN; REC/BF as PRS — decisions recorded in SE-300 Section 4
+- OCC/AD classified as BRK; OBL/BF as IGN; REC/BF as PRS: decisions recorded in SE-300 Section 4
 
 ---
 

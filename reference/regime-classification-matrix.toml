@@ -1,0 +1,502 @@
+# regime-classification-matrix.toml
+# The 9 × 10 classification matrix assigning IGN/PRS/BRK
+# to every (RegimeProfileKind, Transformation) pair.
+#
+# Axiomatic cells (derivable from transformation semantics alone):
+#   RE → PRS for all profiles  (retaining exact identity preserves it)
+#   BF → BRK for all profiles  (breaking identity breaks it)
+#
+# All other cells are theoretical — marked status = "draft".
+
+[meta]
+source = "se-theory-identity-regimes"
+namespace = "se.identity-regimes"
+artifact = "regime-classification-matrix"
+version = "0.1.0"
+status = "draft"
+
+
+# ---------------------------------------------------------------
+# Row: OBL  (Obligation-bearing entity)
+# Identity is constituted by the normative binding relation.
+# ---------------------------------------------------------------
+
+[matrix.OBL.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.OBL.AN]
+value = "PRS"
+basis = "draft"
+note = "Obligation identity is not label-dependent."
+
+[matrix.OBL.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement preserves normative binding."
+
+[matrix.OBL.AD]
+value = "PRS"
+basis = "draft"
+note = "Format adaptation preserves obligation identity."
+
+[matrix.OBL.RC]
+value = "BRK"
+basis = "draft"
+note = "Reclassification changes normative status."
+
+[matrix.OBL.RA]
+value = "BRK"
+basis = "draft"
+note = "Obligation is constituted by its associations; reassignment breaks it."
+
+[matrix.OBL.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the entity."
+
+[matrix.OBL.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.OBL.SE]
+value = "BRK"
+basis = "draft"
+note = "Obligation identity is not decomposable."
+
+[matrix.OBL.PV]
+value = "IGN"
+basis = "draft"
+note = "Projection does not affect the source obligation."
+
+
+# ---------------------------------------------------------------
+# Row: OCC  (Time-indexed occurrence)
+# Identity is constituted by occurrence at a specific time-index.
+# ---------------------------------------------------------------
+
+[matrix.OCC.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.OCC.AN]
+value = "PRS"
+basis = "draft"
+note = "Occurrence identity is not label-dependent."
+
+[matrix.OCC.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement preserves occurrence identity."
+
+[matrix.OCC.AD]
+value = "PRS"
+basis = "draft"
+note = "Adaptation preserves time-index identity."
+
+[matrix.OCC.RC]
+value = "BRK"
+basis = "draft"
+note = "Reclassification changes what kind of occurrence it is."
+
+[matrix.OCC.RA]
+value = "IGN"
+basis = "draft"
+note = "Association changes do not affect time-indexed occurrence identity."
+
+[matrix.OCC.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the occurrence."
+
+[matrix.OCC.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.OCC.SE]
+value = "BRK"
+basis = "draft"
+note = "Occurrence identity is atomic."
+
+[matrix.OCC.PV]
+value = "IGN"
+basis = "draft"
+note = "Projection does not affect the source occurrence."
+
+
+# ---------------------------------------------------------------
+# Row: REC  (Descriptive record)
+# Identity is constituted through representation.
+# ---------------------------------------------------------------
+
+[matrix.REC.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.REC.AN]
+value = "PRS"
+basis = "draft"
+note = "Records survive renaming."
+
+[matrix.REC.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement of representation preserves record identity."
+
+[matrix.REC.AD]
+value = "PRS"
+basis = "draft"
+note = "Adaptation is definitional for records."
+
+[matrix.REC.RC]
+value = "PRS"
+basis = "draft"
+note = "Records are classification-flexible; reclassification preserves record identity."
+
+[matrix.REC.RA]
+value = "PRS"
+basis = "draft"
+note = "Referential linkage preserved means record identity preserved."
+
+[matrix.REC.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the record."
+
+[matrix.REC.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.REC.SE]
+value = "BRK"
+basis = "draft"
+note = "Separation destroys unified record identity."
+
+[matrix.REC.PV]
+value = "PRS"
+basis = "draft"
+note = "A derived view is a valid record form; projection preserves record identity."
+
+
+# ---------------------------------------------------------------
+# Row: ENR_L  (Enduring non-normative referent, locus-bound)
+# Identity is constituted by persistence at a locus.
+# ---------------------------------------------------------------
+
+[matrix.ENR_L.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.ENR_L.AN]
+value = "PRS"
+basis = "draft"
+note = "Locus-bound identity is not label-dependent."
+
+[matrix.ENR_L.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement preserves locus identity."
+
+[matrix.ENR_L.AD]
+value = "PRS"
+basis = "draft"
+note = "Adaptation preserves locus-bound referent."
+
+[matrix.ENR_L.RC]
+value = "BRK"
+basis = "draft"
+note = "Reclassification breaks locus-bound identity."
+
+[matrix.ENR_L.RA]
+value = "PRS"
+basis = "draft"
+note = "Reassignment with preserved referential linkage maintains locus identity."
+
+[matrix.ENR_L.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the referent."
+
+[matrix.ENR_L.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.ENR_L.SE]
+value = "BRK"
+basis = "draft"
+note = "Separation breaks locus-bound continuity."
+
+[matrix.ENR_L.PV]
+value = "IGN"
+basis = "draft"
+note = "Projection does not affect locus identity."
+
+
+# ---------------------------------------------------------------
+# Row: ENR_I  (Enduring non-normative referent, instrument-bound)
+# Identity is constituted by persistence through an instrument.
+# ---------------------------------------------------------------
+
+[matrix.ENR_I.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.ENR_I.AN]
+value = "PRS"
+basis = "draft"
+note = "Instrument-bound identity is not label-dependent."
+
+[matrix.ENR_I.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement preserves instrument identity."
+
+[matrix.ENR_I.AD]
+value = "PRS"
+basis = "draft"
+note = "Adaptation preserves instrument-bound referent."
+
+[matrix.ENR_I.RC]
+value = "BRK"
+basis = "draft"
+note = "Reclassification breaks instrument-bound identity."
+
+[matrix.ENR_I.RA]
+value = "BRK"
+basis = "draft"
+note = "Instrument identity is constituted by its associations; reassignment breaks it."
+
+[matrix.ENR_I.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the instrument."
+
+[matrix.ENR_I.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.ENR_I.SE]
+value = "BRK"
+basis = "draft"
+note = "Separation breaks instrument-bound continuity."
+
+[matrix.ENR_I.PV]
+value = "IGN"
+basis = "draft"
+note = "Projection does not affect instrument identity."
+
+
+# ---------------------------------------------------------------
+# Row: CTX_E  (Applicability context, event-bound)
+# Identity is constituted by binding to a specific event.
+# ---------------------------------------------------------------
+
+[matrix.CTX_E.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.CTX_E.AN]
+value = "PRS"
+basis = "draft"
+note = "Event-bound context identity is not label-dependent."
+
+[matrix.CTX_E.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement preserves event binding."
+
+[matrix.CTX_E.AD]
+value = "PRS"
+basis = "draft"
+note = "Adaptation preserves event-bound context."
+
+[matrix.CTX_E.RC]
+value = "BRK"
+basis = "draft"
+note = "Reclassification breaks event binding."
+
+[matrix.CTX_E.RA]
+value = "IGN"
+basis = "draft"
+note = "Association changes do not affect event-bound context identity."
+
+[matrix.CTX_E.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the context."
+
+[matrix.CTX_E.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.CTX_E.SE]
+value = "BRK"
+basis = "draft"
+note = "Separation breaks event-bound applicability."
+
+[matrix.CTX_E.PV]
+value = "IGN"
+basis = "draft"
+note = "Projection does not affect event-bound context identity."
+
+
+# ---------------------------------------------------------------
+# Row: CTX_S  (Applicability context, scope-bound)
+# Identity is constituted by binding to a scope.
+# ---------------------------------------------------------------
+
+[matrix.CTX_S.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.CTX_S.AN]
+value = "PRS"
+basis = "draft"
+note = "Scope-bound context identity is not label-dependent."
+
+[matrix.CTX_S.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement preserves scope binding."
+
+[matrix.CTX_S.AD]
+value = "PRS"
+basis = "draft"
+note = "Adaptation preserves scope-bound context."
+
+[matrix.CTX_S.RC]
+value = "BRK"
+basis = "draft"
+note = "Reclassification breaks scope binding."
+
+[matrix.CTX_S.RA]
+value = "PRS"
+basis = "draft"
+note = "Reassignment with preserved linkage maintains scope identity."
+
+[matrix.CTX_S.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the context."
+
+[matrix.CTX_S.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.CTX_S.SE]
+value = "BRK"
+basis = "draft"
+note = "Separation breaks scope-bound applicability."
+
+[matrix.CTX_S.PV]
+value = "IGN"
+basis = "draft"
+note = "Projection does not affect scope-bound context identity."
+
+
+# ---------------------------------------------------------------
+# Row: NOR_C  (Normative structure, context-bound)
+# Identity is constituted by normative applicability within a context.
+# ---------------------------------------------------------------
+
+[matrix.NOR_C.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.NOR_C.AN]
+value = "PRS"
+basis = "draft"
+note = "Normative identity is not label-dependent."
+
+[matrix.NOR_C.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement preserves normative structure."
+
+[matrix.NOR_C.AD]
+value = "PRS"
+basis = "draft"
+note = "Adaptation preserves context-bound normative structure."
+
+[matrix.NOR_C.RC]
+value = "BRK"
+basis = "draft"
+note = "Reclassification breaks context binding."
+
+[matrix.NOR_C.RA]
+value = "BRK"
+basis = "draft"
+note = "Context-bound normative structure is constituted by its associations."
+
+[matrix.NOR_C.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the normative structure."
+
+[matrix.NOR_C.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.NOR_C.SE]
+value = "BRK"
+basis = "draft"
+note = "Separation breaks normative context binding."
+
+[matrix.NOR_C.PV]
+value = "IGN"
+basis = "draft"
+note = "Projection does not affect normative structure identity."
+
+
+# ---------------------------------------------------------------
+# Row: NOR_S  (Normative structure, scope-bound)
+# Identity is constituted by normative applicability within a scope.
+# ---------------------------------------------------------------
+
+[matrix.NOR_S.RE]
+value = "PRS"
+basis = "axiomatic"
+
+[matrix.NOR_S.AN]
+value = "PRS"
+basis = "draft"
+note = "Normative identity is not label-dependent."
+
+[matrix.NOR_S.RF]
+value = "PRS"
+basis = "draft"
+note = "Refinement preserves normative structure."
+
+[matrix.NOR_S.AD]
+value = "PRS"
+basis = "draft"
+note = "Adaptation preserves scope-bound normative structure."
+
+[matrix.NOR_S.RC]
+value = "BRK"
+basis = "draft"
+note = "Reclassification breaks scope binding."
+
+[matrix.NOR_S.RA]
+value = "PRS"
+basis = "draft"
+note = "Reassignment with preserved linkage maintains scope-bound normative identity."
+
+[matrix.NOR_S.SU]
+value = "BRK"
+basis = "draft"
+note = "Substitution replaces the normative structure."
+
+[matrix.NOR_S.BF]
+value = "BRK"
+basis = "axiomatic"
+
+[matrix.NOR_S.SE]
+value = "BRK"
+basis = "draft"
+note = "Separation breaks normative scope binding."
+
+[matrix.NOR_S.PV]
+value = "IGN"
+basis = "draft"
+note = "Projection does not affect normative structure identity."

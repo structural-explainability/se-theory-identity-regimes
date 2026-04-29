@@ -11,7 +11,7 @@ schema = "se-manifest-2"
 name = "se-theory-identity-regimes"
 org = "structural-explainability"
 status = "active"
-version = "0.1.0"
+version = "0.1.1"
 
 [repo]
 class = "theory"
@@ -30,6 +30,12 @@ required = [
 artifacts = [
   "lean-library",
   "theorem-set",
+  "regime-classification-matrix.toml",
+  "reference/regime-classification-values.toml",
+  "reference/regime-families.toml",
+  "reference/regime-profile-derivation.toml",
+  "reference/regime-profiles.toml",
+  "reference/regime-transformations.toml",
 ]
 
 [scope]

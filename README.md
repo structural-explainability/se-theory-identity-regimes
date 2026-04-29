@@ -15,6 +15,19 @@
 Defines the six canonical identity regimes and the derived regime-profile structure
 over admissible neutral substrates.
 
+## Provides Reference Files
+
+Files are manually generated and verified by Lean.
+
+```text
+regime-classification-matrix.toml
+regime-classification-values.toml
+regime-families.toml
+regime-profile-derivation.toml
+regime-profiles.toml
+regime-transformations.toml
+```
+
 ## Covers
 
 - Neutral substrate layer
