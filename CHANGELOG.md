@@ -281,5 +281,5 @@ git push origin :refs/tags/vX.Z.Y
 ```
 
 [Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.2.0...HEAD
-[0.2.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.1.0..v0.2.0
+[0.2.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.2.0
 [0.1.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.1.0
