@@ -1,0 +1,15 @@
+[vocabulary.classify]
+id = "classify"
+lean_symbol = "classify"
+
+[vocabulary.derivedRegimeSet]
+id = "derivedRegimeSet"
+lean_symbol = "derivedRegimeSet"
+
+[vocabulary.IsPreserving]
+id = "IsPreserving"
+lean_symbol = "IsPreserving"
+
+[vocabulary.IsBreaking]
+id = "IsBreaking"
+lean_symbol = "IsBreaking"

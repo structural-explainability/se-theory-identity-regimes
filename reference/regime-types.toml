@@ -1,0 +1,51 @@
+# ============================================================
+# Regime Types
+# se-theory-identity-regimes
+# ============================================================
+
+schema = "se-regime-type-registry-1"
+repo = "se-theory-identity-regimes"
+surface_module = "IdentityRegimes"
+namespace = "IdentityRegimes"
+
+[type.Regime]
+id = "Regime"
+name = "Regime"
+lean_symbol = "Regime"
+source_module = "IdentityRegimes.Regimes"
+description = "Canonical regime family type."
+
+[type.RegimeProfile]
+id = "RegimeProfile"
+name = "Regime profile"
+lean_symbol = "RegimeProfile"
+source_module = "IdentityRegimes.Profiles"
+description = "Derived regime profile type."
+
+[type.RegimeProfileKind]
+id = "RegimeProfileKind"
+name = "Regime profile kind"
+lean_symbol = "RegimeProfileKind"
+source_module = "IdentityRegimes.Profiles"
+description = "Enumeration or classifier for derived regime profile kinds."
+
+[type.Requirement]
+id = "Requirement"
+name = "Requirement"
+lean_symbol = "Requirement"
+source_module = "IdentityRegimes.Requirements"
+description = "Requirement type used to define or check regime applicability."
+
+[type.Transformation]
+id = "Transformation"
+name = "Transformation"
+lean_symbol = "Transformation"
+source_module = "IdentityRegimes.Transformations"
+description = "Transformation type over which regime behavior is classified."
+
+[type.TransformationClassification]
+id = "TransformationClassification"
+name = "Transformation classification"
+lean_symbol = "TransformationClassification"
+source_module = "IdentityRegimes.Transformations"
+description = "Classification value assigned by the regime transformation classifier."

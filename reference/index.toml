@@ -3,10 +3,96 @@
 # se-theory-identity-regimes
 # ============================================================
 
-[artifacts]
-regime-classification-matrix = "reference/regime-classification-matrix.toml"
-regime-classification-values = "reference/regime-classification-values.toml"
-regime-families = "reference/regime-families.toml"
-regime-profile-derivation = "reference/regime-profile-derivation.toml"
-regime-profiles = "reference/regime-profiles.toml"
-regime-transformations = "reference/regime-transformations.toml"
+schema = "se-reference-index-1"
+repo = "se-theory-identity-regimes"
+ref_kind = "formal-theory-reference"
+surface_module = "IdentityRegimes"
+
+[[artifact]]
+id = "regime-types"
+path = "reference/regime-types.toml"
+kind = "regime-type-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-predicates"
+path = "reference/regime-predicates.toml"
+kind = "regime-predicate-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-vocabulary"
+path = "reference/regime-vocabulary.toml"
+kind = "regime-vocabulary-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-theorems"
+path = "reference/regime-theorems.toml"
+kind = "regime-theorem-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-classification-matrix"
+path = "reference/regime-classification-matrix.toml"
+kind = "regime-classification-matrix"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-classification-values"
+path = "reference/regime-classification-values.toml"
+kind = "regime-classification-value-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-families"
+path = "reference/regime-families.toml"
+kind = "regime-family-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-profile-derivation"
+path = "reference/regime-profile-derivation.toml"
+kind = "regime-profile-derivation-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-profiles"
+path = "reference/regime-profiles.toml"
+kind = "regime-profile-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "regime-transformations"
+path = "reference/regime-transformations.toml"
+kind = "regime-transformation-registry"
+format = "toml"
+generated = false
+required = true
+
+[[artifact]]
+id = "proof-registry"
+path = "reference/proof-registry.json"
+kind = "proof-registry"
+format = "json"
+generated = true
+generator = "lean4"
+required = true

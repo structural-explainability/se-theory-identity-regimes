@@ -24,7 +24,7 @@ def mock_loads() -> Generator[None]:
             return_value=manifest,
         ),
         patch(
-            "se_theory_identity_regimes.orchestrate.load_schema", return_value=schema
+            "se_theory_identity_regimes.orchestrate.load_manifest_schema", return_value=schema
         ),
         patch(
             "se_theory_identity_regimes.orchestrate.validate_schema_internal",
@@ -51,7 +51,7 @@ def test_run_validate_errors_returns_1() -> None:
     """run_validate returns 1 when validation errors are found."""
     with (
         patch("se_theory_identity_regimes.orchestrate.load_manifest", return_value={}),
-        patch("se_theory_identity_regimes.orchestrate.load_schema", return_value={}),
+        patch("se_theory_identity_regimes.orchestrate.load_manifest_schema", return_value={}),
         patch(
             "se_theory_identity_regimes.orchestrate.validate_schema_internal",
             return_value=["bad schema"],
@@ -76,7 +76,7 @@ def test_run_validate_require_tag_calls_validate_tag() -> None:
     """run_validate calls validate_tag when require_tag=True."""
     with (
         patch("se_theory_identity_regimes.orchestrate.load_manifest", return_value={}),
-        patch("se_theory_identity_regimes.orchestrate.load_schema", return_value={}),
+        patch("se_theory_identity_regimes.orchestrate.load_manifest_schema", return_value={}),
         patch(
             "se_theory_identity_regimes.orchestrate.validate_schema_internal",
             return_value=[],
@@ -96,7 +96,7 @@ def test_run_validate_require_tag_not_called_by_default() -> None:
     """run_validate does not call validate_tag when require_tag=False."""
     with (
         patch("se_theory_identity_regimes.orchestrate.load_manifest", return_value={}),
-        patch("se_theory_identity_regimes.orchestrate.load_schema", return_value={}),
+        patch("se_theory_identity_regimes.orchestrate.load_manifest_schema", return_value={}),
         patch(
             "se_theory_identity_regimes.orchestrate.validate_schema_internal",
             return_value=[],

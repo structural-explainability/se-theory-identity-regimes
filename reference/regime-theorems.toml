@@ -1,0 +1,57 @@
+# ============================================================
+# Regime Theorems
+# se-theory-identity-regimes
+# ============================================================
+
+schema = "se-regime-theorem-registry-1"
+repo = "se-theory-identity-regimes"
+surface_module = "IdentityRegimes"
+namespace = "IdentityRegimes"
+
+[theorem.all_regimes_canonical]
+id = "all_regimes_canonical"
+name = "All regimes canonical"
+lean_symbol = "all_regimes_canonical"
+source_module = "IdentityRegimes.Theorems"
+status = "proved"
+description = "All regimes in the declared canonical set satisfy canonical-regime status."
+
+[theorem.classification_pattern_unique]
+id = "classification_pattern_unique"
+name = "Classification pattern unique"
+lean_symbol = "classification_pattern_unique"
+source_module = "IdentityRegimes.Theorems"
+status = "proved"
+description = "The classification pattern associated with the derived regime profile structure is unique."
+
+[theorem.derivedRegimeSet_card]
+id = "derivedRegimeSet_card"
+name = "Derived regime set cardinality"
+lean_symbol = "derivedRegimeSet_card"
+source_module = "IdentityRegimes.Theorems"
+status = "proved"
+description = "The derived regime set has the expected cardinality."
+
+[theorem.derivedRegimeSet_nodup]
+id = "derivedRegimeSet_nodup"
+name = "Derived regime set has no duplicates"
+lean_symbol = "derivedRegimeSet_nodup"
+source_module = "IdentityRegimes.Theorems"
+status = "proved"
+description = "The derived regime set contains no duplicate regime profiles."
+
+[theorem.nine_regime_lower_bound]
+id = "nine_regime_lower_bound"
+name = "Nine-regime lower bound"
+lean_symbol = "nine_regime_lower_bound"
+source_module = "IdentityRegimes.LowerBound"
+status = "proved"
+description = "The regime profile derivation establishes a lower bound of nine profiles."
+
+[theorem.regime_application_admissible_of_neutral]
+id = "regime_application_admissible_of_neutral"
+name = "Regime application admissible from neutrality"
+lean_symbol = "regime_application_admissible_of_neutral"
+source_module = "IdentityRegimes.Admissibility"
+status = "proved"
+description = "A neutral admissible substrate supports regime application admissibility."

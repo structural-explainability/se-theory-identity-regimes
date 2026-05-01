@@ -1,0 +1,44 @@
+# ============================================================
+# Regime Predicates
+# se-theory-identity-regimes
+# ============================================================
+
+schema = "se-regime-predicate-registry-1"
+repo = "se-theory-identity-regimes"
+surface_module = "IdentityRegimes"
+namespace = "IdentityRegimes"
+
+[predicate.IsCanonicalRegime]
+id = "IsCanonicalRegime"
+name = "Is canonical regime"
+lean_symbol = "IsCanonicalRegime"
+source_module = "IdentityRegimes.Regimes"
+description = "Predicate indicating that a regime belongs to the canonical regime set."
+
+[predicate.NonCollapsing]
+id = "NonCollapsing"
+name = "Non-collapsing"
+lean_symbol = "NonCollapsing"
+source_module = "IdentityRegimes.NonCollapse"
+description = "Predicate asserting that relevant regime distinctions do not collapse."
+
+[predicate.ProfileWellFormed]
+id = "ProfileWellFormed"
+name = "Profile well-formed"
+lean_symbol = "ProfileWellFormed"
+source_module = "IdentityRegimes.Profiles"
+description = "Predicate indicating that a regime profile satisfies well-formedness requirements."
+
+[predicate.RequirementSatisfied]
+id = "RequirementSatisfied"
+name = "Requirement satisfied"
+lean_symbol = "RequirementSatisfied"
+source_module = "IdentityRegimes.Requirements"
+description = "Predicate indicating that a requirement is satisfied."
+
+[predicate.RegimeApplicationAdmissible]
+id = "RegimeApplicationAdmissible"
+name = "Regime application admissible"
+lean_symbol = "RegimeApplicationAdmissible"
+source_module = "IdentityRegimes.Admissibility"
+description = "Predicate indicating that applying a regime is admissible over the relevant substrate conditions."
