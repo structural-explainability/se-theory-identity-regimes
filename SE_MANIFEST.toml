@@ -4,39 +4,54 @@
 # ============================================================
 
 schema = "se-manifest-2"
+schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/v0.2.0/manifest-schema.toml"
 
 # === Identity ===
 
 [meta]
-name = "se-theory-identity-regimes"
-org = "structural-explainability"
-status = "active"
-version = "0.1.1"
+purpose = "Declares the identity-regimes theory repository for the Structural Explainability ecosystem."
 
 [repo]
+name = "se-theory-identity-regimes"
+org = "structural-explainability"
 class = "theory"
+kind = "foundation"
+status = "active"
+since = "2026"
 summary = "Lean 4 formalization of the six identity regimes, their requirement structure, and derived regime-profile structure over admissible neutral substrates."
 
-# === Structural contract ===
+[layer]
+space = "formal-theory"
+role = "theory"
+
+# === Dependencies ===
 
 [depends]
-optional = []
+# Required upstream repository dependencies.
 required = [
   "se-theory-neutral-substrate",
 ]
 
+# Optional upstream repository dependencies.
+optional = []
+
+# === Provided artifacts ===
+
 [provides]
-# theory repos expose Lean modules, not operational artifacts
+# Logical artifacts exposed by this repository.
+# These are stable identifiers, not file paths.
 artifacts = [
   "lean-library",
   "theorem-set",
-  "regime-classification-matrix.toml",
-  "reference/regime-classification-values.toml",
-  "reference/regime-families.toml",
-  "reference/regime-profile-derivation.toml",
-  "reference/regime-profiles.toml",
-  "reference/regime-transformations.toml",
+  "regime-classification-matrix",
+  "regime-classification-values",
+  "regime-families",
+  "regime-profile-derivation",
+  "regime-profiles",
+  "regime-transformations",
 ]
+
+# === Scope ===
 
 [scope]
 includes = [
@@ -60,10 +75,6 @@ excludes = [
   "domain-specific mappings or data",
   "runtime systems",
 ]
-
-[validation]
-# no runtime entrypoint; validation occurs via Lean build/check
-entrypoint = "none"
 
 # === Behavior / governance ===
 
