@@ -28,11 +28,14 @@ regime-profiles.toml
 regime-transformations.toml
 ```
 
+## Imports
+
+- Neutral substrate interface (imported from `se-theory-neutral-substrate`)
+
 ## Covers
 
-- Neutral substrate layer
-- 6 regimes, 9 profiles, refinement map
-- Transformation basis and full classification table
+- 6 regimes, 9 profile kinds, refinement map
+- Transformation basis and full classification function (with matrix-form reference)
 - Split pressure predicates and theorems
 - Three split witness theorems (ENR/BF, CTX/AD, NOR/RF)
 - All 36 pairwise non-collapse proofs
@@ -49,7 +52,7 @@ regime-transformations.toml
   - CTX
   - REC
   - ENR
-- Nine canonical regime profiles after splits:
+- Nine canonical regime profile kinds after splits:
   - OBL
   - OCC
   - REC
@@ -60,7 +63,7 @@ regime-transformations.toml
   - NOR_C
   - NOR_S
 - Regime requirement structure
-- Regime-profile structure
+- Regime-profile structure (currently a thin wrapper over RegimeProfileKind, designed for extension)
 - Admissibility conditions for regime application over neutral substrates
 - Necessity and sufficiency theorem structure
 - Machine-checked theorems
@@ -123,6 +126,8 @@ import IdentityRegimes
 elan self update
 lake update
 lake build
+lake build TestImport
+lake build TestExport
 ```
 
 ## Tooling

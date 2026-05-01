@@ -1,4 +1,7 @@
+import NeutralSubstrate
 import IdentityRegimes.Theorems
+
+open SE.NeutralSubstrate
 
 /-!
 File: IdentityRegimes/Witness.lean

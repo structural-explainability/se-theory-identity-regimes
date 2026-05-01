@@ -1,4 +1,8 @@
+import NeutralSubstrate
 import IdentityRegimes.Profiles
+
+open SE.NeutralSubstrate
+
 
 /-!
 File: IdentityRegimes/Admissibility.lean
@@ -13,8 +17,8 @@ namespace IdentityRegimes
 
 /-- A regime may be applied only over an admissible neutral substrate. -/
 def RegimeApplicationAdmissible
-    (S : NeutralSubstrate.Substrate)
+    (S : Ontology)
     (_profile : RegimeProfile) : Prop :=
-  NeutralSubstrate.Admissible S
+  Neutral S
 
 end IdentityRegimes

@@ -1,4 +1,7 @@
+import NeutralSubstrate
 import IdentityRegimes.ReferenceRequirements
+
+open SE.NeutralSubstrate
 
 /-!
 File: IdentityRegimes/ClassificationMatrix.lean

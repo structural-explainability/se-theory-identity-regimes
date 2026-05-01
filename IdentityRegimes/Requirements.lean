@@ -1,4 +1,7 @@
+import NeutralSubstrate
 import IdentityRegimes.Regimes
+
+open SE.NeutralSubstrate
 
 /-!
 File: IdentityRegimes/Requirements.lean
@@ -15,7 +18,7 @@ structure Requirement where
 
 /-- Predicate asserting that a requirement is satisfied over a substrate. -/
 def RequirementSatisfied
-    (_S : NeutralSubstrate.Substrate)
+    (_S : Ontology)
     (_req : Requirement) : Prop :=
   True
 

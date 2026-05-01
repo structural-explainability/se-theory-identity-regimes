@@ -1,5 +1,6 @@
 import IdentityRegimes.LowerBound
 
+
 /-!
 File: IdentityRegimes/Embedding.lean
 
@@ -42,7 +43,7 @@ deriving Repr, DecidableEq
 /-- A regime-typed vertex: an identity carrier tagged with its profile. -/
 structure RegimeVertex where
   kind    : RegimeProfileKind
-  carrier : NeutralSubstrate.Substrate
+  carrier : Ontology
 
 /-- The regime type of a vertex. -/
 def RegimeVertex.regimeType (v : RegimeVertex) : RegimeProfileKind :=
@@ -59,13 +60,13 @@ structure RegimeGraph where
   vertices : List RegimeVertex
   edges    : List RegimeEdge
 
-/-- The regime assignment of a vertex is determined by its kind. -/
-def regimeAssignment (v : RegimeVertex) : RegimeProfileKind :=
+/-- The profile kind of a vertex is determined by its kind. -/
+def profileKind (v : RegimeVertex) : RegimeProfileKind :=
   v.kind
 
-/-- Regime assignment is injective up to classification pattern:
-    vertices with identical classification patterns have the same regime type. -/
-theorem regimeAssignment_determined_by_classification
+/-- Profile kind is injective up to classification pattern:
+    vertices with identical classification patterns have the same profile kind. -/
+theorem profileKind_determined_by_classification
     (p q : RegimeProfileKind)
     (h : ∀ t : Transformation, classify p t = classify q t) :
     p = q :=
@@ -73,7 +74,7 @@ theorem regimeAssignment_determined_by_classification
 
 /-- Every vertex in a well-formed graph has a canonical regime. -/
 def GraphWellFormed (g : RegimeGraph) : Prop :=
-  ∀ v ∈ g.vertices, IsCanonicalRegime v.kind.regime
+  ∀ v ∈ g.vertices, IsCanonicalRegime (RegimeProfileKind.regime v.kind)
 
 /-- Representation theorem:
     For every regime profile kind, there exists a unique canonical profile
@@ -84,7 +85,7 @@ theorem representation_theorem (k : RegimeProfileKind) :
       (∀ t : Transformation, classify p t = classify k t) ∧
       (∀ q : RegimeProfileKind,
         (∀ t : Transformation, classify q t = classify k t) → q = k) := by
-  exact ⟨k, rfl, fun _ => rfl,
+  exact ⟨k, rfl, fun t => rfl,
          fun q hq => classification_pattern_unique q k hq⟩
 
 /-- No two distinct profiles in the derived regime set

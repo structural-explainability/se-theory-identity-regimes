@@ -11,9 +11,36 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
-## [0.1.1] - 2026-05-01
+## [0.2.0] - 2026-05-01
 
 ### Added
+
+- Added curated public Lean surface via `IdentityRegimes.Surface`.
+- Added single downstream import boundary:
+
+  ```lean
+  import IdentityRegimes
+  open IdentityRegimes
+  ```
+
+- Added public exports for:
+  - `Regime`
+  - `RegimeProfile`
+  - `RegimeProfileKind`
+  - `Requirement`
+  - `Transformation`
+  - `TransformationClassification`
+  - `IsCanonicalRegime`
+  - `IsPreserving`
+  - `IsBreaking`
+  - `NonCollapsing`
+  - `ProfileWellFormed`
+  - `RequirementSatisfied`
+  - `RegimeApplicationAdmissible`
+  - `classify`
+  - `derivedRegimeSet`
+  - `classification_pattern_unique`
+  - `nine_regime_lower_bound`
 
 reference/ files (manual creation / Lean checking):
 
@@ -23,28 +50,30 @@ reference/ files (manual creation / Lean checking):
 - regime-profiles.toml
 - regime-transformations.toml
 
-Reference certification layer is complete:
+### Changed
 
-Classification values:
+- Migrated Identity Regimes from the previous Neutral Substrate API to new public `NeutralSubstrate` import surface.
+- Replaced legacy substrate references with `Ontology`.
+- Replaced ontology-level `Admissible` usage with `Neutral`.
+- Renamed transformation classification vocabulary to `TransformationClassification`.
+- Clarified distinction between:
+  - six canonical `Regime` values
+  - nine derived `RegimeProfileKind` values
+  - structured `RegimeProfile` objects
 
-- IGN/PRS/BRK enumerated, nodup, complete
+### Fixed
 
-Regime families:
+- Fixed Lean theorem binders incorrectly treating `Neutral S` as a typeclass.
+- Fixed recursive proof error in `regime_application_admissible_of_neutral`.
+- Corrected public surface exports to include only valid, stable identifiers.
+- Restored successful `lake build` after Neutral Substrate interface migration.
 
-- 6 families, nodup, complete, order-faithful to TOML
+### Notes
 
-Regime profiles:
+This release establishes a stable public Lean interface for identity-regime theory.
 
-- 9 profiles, nodup, complete, order-faithful to TOML order field
-
-Profile derivation:
-
-- flatMap matches profiles by membership,
-- split count verified (3/3), nosplit singleton verified
-
-Transformations:
-
-- 10 transformations, nodup, complete, order-faithful to TOML
+- the canonical classification matrix may be refined
+- the reference certification layer may expand
 
 ---
 
@@ -197,7 +226,8 @@ Follow these steps exactly when creating a new release.
 ### Task 1. Update release metadata (manual edits)
 
 1.1. CITATION.cff: update version and date-released
-1.2. CHANGELOG.md: add section, move unreleased entries, update links
+1.2. lakefile.toml: update version
+1.3. CHANGELOG.md: add section, move unreleased entries, update links
 
 ### Task 2. Sync
 
@@ -250,6 +280,6 @@ git tag -d vX.Z.Y
 git push origin :refs/tags/vX.Z.Y
 ```
 
-[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.1.1...HEAD
-[0.1.1]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.1.1
+[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.1.0..v0.2.0
 [0.1.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.1.0

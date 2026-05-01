@@ -1,0 +1,12 @@
+# ============================================================
+# Reference Artifact Index
+# se-theory-identity-regimes
+# ============================================================
+
+[artifacts]
+regime-classification-matrix = "reference/regime-classification-matrix.toml"
+regime-classification-values = "reference/regime-classification-values.toml"
+regime-families = "reference/regime-families.toml"
+regime-profile-derivation = "reference/regime-profile-derivation.toml"
+regime-profiles = "reference/regime-profiles.toml"
+regime-transformations = "reference/regime-transformations.toml"

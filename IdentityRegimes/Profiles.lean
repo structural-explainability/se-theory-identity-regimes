@@ -1,4 +1,7 @@
+import NeutralSubstrate
 import IdentityRegimes.Requirements
+
+open SE.NeutralSubstrate
 
 /-!
 File: IdentityRegimes/Profiles.lean

@@ -1,4 +1,6 @@
+import IdentityRegimes.Profiles
 import IdentityRegimes.Transformations
+
 
 /-!
 File: IdentityRegimes/NonCollapse.lean
@@ -30,15 +32,15 @@ def NonCollapsing (p q : RegimeProfileKind) : Prop :=
 
 /-- ENR_L and ENR_I are non-collapsing: they classify BF differently. -/
 theorem noncollapse_ENR_L_ENR_I : NonCollapsing .ENR_L .ENR_I :=
-  ⟨.BF, by native_decide⟩
+  ⟨.BF, by decide⟩
 
 /-- CTX_E and CTX_S are non-collapsing: they classify AD differently. -/
 theorem noncollapse_CTX_E_CTX_S : NonCollapsing .CTX_E .CTX_S :=
-  ⟨.AD, by native_decide⟩
+  ⟨.AD, by decide⟩
 
 /-- NOR_C and NOR_S are non-collapsing: they classify RF differently. -/
 theorem noncollapse_NOR_C_NOR_S : NonCollapsing .NOR_C .NOR_S :=
-  ⟨.RF, by native_decide⟩
+  ⟨.RF, by decide⟩
 
 -- ============================================================
 -- GEN-CAR pairs: separated by distinct parent regimes
@@ -52,11 +54,11 @@ theorem noncollapse_of_distinct_regime
   cases p <;> cases q <;>
     simp_all [RegimeProfileKind.regime] <;>
     first
-    | exact ⟨.BF, by native_decide⟩
-    | exact ⟨.AD, by native_decide⟩
-    | exact ⟨.SE, by native_decide⟩
-    | exact ⟨.AN, by native_decide⟩
-    | exact ⟨.RC, by native_decide⟩
+    | exact ⟨.BF, by decide⟩
+    | exact ⟨.AD, by decide⟩
+    | exact ⟨.SE, by decide⟩
+    | exact ⟨.AN, by decide⟩
+    | exact ⟨.RC, by decide⟩
 
 /-- All 36 pairs in the derived regime set are non-collapsing. Order matters. -/
 theorem noncollapse_all_pairs
@@ -65,14 +67,14 @@ theorem noncollapse_all_pairs
     NonCollapsing p q := by
   cases p <;> cases q <;> simp_all <;>
     first
-    | exact ⟨.BF, by native_decide⟩
-    | exact ⟨.AD, by native_decide⟩
-    | exact ⟨.RF, by native_decide⟩
-    | exact ⟨.SE, by native_decide⟩
-    | exact ⟨.AN, by native_decide⟩
-    | exact ⟨.RC, by native_decide⟩
-    | exact ⟨.PV, by native_decide⟩
-    | exact ⟨.RA, by native_decide⟩
-    | exact ⟨.RE, by native_decide⟩
+    | exact ⟨.BF, by decide⟩
+    | exact ⟨.AD, by decide⟩
+    | exact ⟨.RF, by decide⟩
+    | exact ⟨.SE, by decide⟩
+    | exact ⟨.AN, by decide⟩
+    | exact ⟨.RC, by decide⟩
+    | exact ⟨.PV, by decide⟩
+    | exact ⟨.RA, by decide⟩
+    | exact ⟨.RE, by decide⟩
 
 end IdentityRegimes

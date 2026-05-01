@@ -61,6 +61,7 @@ includes = [
   "admissibility conditions for regime application over neutral substrates",
   "necessity and sufficiency theorem structure",
   "machine-checked Lean theorems",
+  "machine-readable reference artifacts for transformation and classification layers",
 ]
 
 excludes = [
@@ -94,6 +95,7 @@ authority = "structural-explainability"
 
 [citation]
 cff = "CITATION.cff"
+preferred = "CITATION.cff"
 
 [traceability]
-identifier_map = "none"
+identifier_map = "reference/index.toml"

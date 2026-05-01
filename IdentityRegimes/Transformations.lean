@@ -1,3 +1,4 @@
+import NeutralSubstrate
 import IdentityRegimes.Profiles
 
 /-!
@@ -31,7 +32,7 @@ inductive Transformation where
 deriving Repr, DecidableEq
 
 /-- Classification of a transformation under a regime profile. -/
-inductive TransformationClass where
+inductive TransformationClassification where
   | IGN  -- identity-ignoring: transformation does not affect identity
   | PRS  -- identity-preserving: transformation preserves identity
   | BRK  -- identity-breaking: transformation breaks identity
@@ -40,7 +41,7 @@ deriving Repr, DecidableEq
 
 /-- Classification function: maps each profile and transformation
     to its classification, as fixed by the paper. -/
-def classify : RegimeProfileKind → Transformation → TransformationClass
+def classify : RegimeProfileKind → Transformation → TransformationClassification
 -- OBL: verified against SE-300 Section 4 canonical classification tables
   | .OBL, .RE => .IGN  | .OBL, .AN => .IGN  | .OBL, .RF => .PRS
   | .OBL, .AD => .PRS  | .OBL, .RC => .IGN  | .OBL, .RA => .IGN
@@ -89,21 +90,21 @@ def classify : RegimeProfileKind → Transformation → TransformationClass
 
 /-- A transformation is identity-preserving under a profile. -/
 def IsPreserving (k : RegimeProfileKind) (t : Transformation) : Prop :=
-  classify k t = TransformationClass.PRS
+  classify k t = TransformationClassification.PRS
 
 /-- A transformation is identity-breaking under a profile. -/
 def IsBreaking (k : RegimeProfileKind) (t : Transformation) : Prop :=
-  classify k t = TransformationClass.BRK
+  classify k t = TransformationClassification.BRK
 
 /-- Both are decidable since classify is a total function into a type
     with DecidableEq. -/
 instance (k : RegimeProfileKind) (t : Transformation) :
     Decidable (IsPreserving k t) :=
-  show Decidable (classify k t = TransformationClass.PRS) from inferInstance
+  show Decidable (classify k t = TransformationClassification.PRS) from inferInstance
 
 instance (k : RegimeProfileKind) (t : Transformation) :
     Decidable (IsBreaking k t) :=
-  show Decidable (classify k t = TransformationClass.BRK) from inferInstance
+  show Decidable (classify k t = TransformationClassification.BRK) from inferInstance
 
 /-- The split-forcing transformation for ENR is BF. -/
 theorem enr_splits_on_BF :

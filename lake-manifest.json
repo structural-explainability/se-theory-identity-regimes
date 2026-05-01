@@ -6,7 +6,7 @@
    "type": "git",
    "subDir": null,
    "scope": "git",
-   "rev": "7e0c2794026f8bb3463d490b84e8eeb92f68d283",
+   "rev": "296ba496c59b12f9c7a5517d267e9700f907de7f",
    "name": "NeutralSubstrate",
    "manifestFile": "lake-manifest.json",
    "inputRev": "main",

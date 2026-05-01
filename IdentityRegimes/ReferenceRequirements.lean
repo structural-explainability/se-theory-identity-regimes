@@ -1,4 +1,7 @@
+import NeutralSubstrate
 import IdentityRegimes.LowerBound
+
+open SE.NeutralSubstrate
 
 /-!
 File: IdentityRegimes/ReferenceRequirements.lean

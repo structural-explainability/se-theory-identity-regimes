@@ -1,5 +1,3 @@
-import NeutralSubstrate
-
 /-!
 File: IdentityRegimes/Basic.lean
 

@@ -1,4 +1,8 @@
 import IdentityRegimes.NonCollapse
+import IdentityRegimes.Transformations
+import IdentityRegimes.Profiles
+
+open SE.NeutralSubstrate
 
 /-!
 File: IdentityRegimes/LowerBound.lean
@@ -60,7 +64,7 @@ theorem classification_pattern_unique
 
 /-- Lower bound: any substrate realizing all derived profiles
     must realize at least nine pairwise non-collapsing profiles. -/
-theorem lower_bound :
+theorem nine_regime_lower_bound :
     ∀ p q : RegimeProfileKind, p ≠ q → NonCollapsing p q :=
   derivedRegimeSet_pairwise_noncollapse
 
