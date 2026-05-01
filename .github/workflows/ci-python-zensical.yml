@@ -87,8 +87,6 @@ jobs:
         # OBS: Pre-commit hook order (lint then format) differs from manual
         #      command order (format then lint). See .pre-commit-config.yaml.
 
-
-
       # ============================================================
       # D) Docs build (no deployment)
       # ============================================================

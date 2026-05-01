@@ -76,6 +76,12 @@ excludes = [
   "runtime systems",
 ]
 
+# === Validation ===
+
+[validation]
+# no runtime entrypoint; validation occurs via Lean build/check
+entrypoint = "none"
+
 # === Behavior / governance ===
 
 [naming]
