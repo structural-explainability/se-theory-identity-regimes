@@ -1,5 +1,5 @@
 /-!
-File: IdentityRegimes/Basic.lean
+File: IdentityRegimes/Vocab/Basic.lean
 
 Purpose:
 Basic vocabulary for identity-regime theory.

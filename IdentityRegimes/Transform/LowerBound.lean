@@ -1,11 +1,9 @@
-import IdentityRegimes.NonCollapse
-import IdentityRegimes.Transformations
-import IdentityRegimes.Profiles
-
-open SE.NeutralSubstrate
+import IdentityRegimes.Transform.NonCollapse
+import IdentityRegimes.Transform.Core
+import IdentityRegimes.Profile.Core
 
 /-!
-File: IdentityRegimes/LowerBound.lean
+File: IdentityRegimes/Transform/LowerBound.lean
 
 Purpose:
 Lower bound and determinacy theorems for the derived regime set.
@@ -13,8 +11,14 @@ Lower bound and determinacy theorems for the derived regime set.
 Results:
   - The derived regime set has exactly nine elements.
   - All nine profiles are pairwise non-collapsing.
+  - Each profile is realized by a distinct classification pattern
+    under the canonical classification matrix.
   - No admissible substrate can realize fewer than nine profiles.
-  - Each profile is realized by a distinct classification pattern.
+
+The nine profiles have distinct classification patterns:
+unique discriminating transformations include BF (values: IGN/IGN/PRS/PRS/BRK/PRS/BRK/BRK/BRK),
+SE (IGN/PRS/IGN/PRS/PRS/IGN/IGN/IGN/IGN), AN (IGN/IGN/PRS/IGN/IGN/IGN/IGN/IGN/IGN),
+AD (PRS/BRK/PRS/PRS/PRS/PRS/BRK/PRS/BRK), and RC (IGN/IGN/IGN/IGN/IGN/PRS/BRK/IGN/IGN).
 
 Source: SE-300, Section 5, lower bound and determinacy.
 -/
@@ -38,16 +42,19 @@ theorem derivedRegimeSet_complete (k : RegimeProfileKind) :
     k ∈ derivedRegimeSet := by
   cases k <;> native_decide
 
-/-- All profiles in the derived regime set are pairwise non-collapsing. -/
+/-- All profiles in the derived regime set are pairwise non-collapsing
+    under the canonical classification matrix. -/
 theorem derivedRegimeSet_pairwise_noncollapse :
     ∀ p q : RegimeProfileKind, p ≠ q → NonCollapsing p q :=
   noncollapse_all_pairs
 
-/-- Each profile has a unique classification pattern:
-    no two distinct profiles classify all transformations identically. -/
+/-- Each profile has a unique classification pattern under the canonical matrix:
+    no two distinct profiles assign identical values to all transformations.
+    This is the injectivity result corresponding to the faithful embedding
+    theorem in SE-300 Section 5. -/
 theorem classification_pattern_unique
     (p q : RegimeProfileKind)
-    (h : ∀ t : Transformation, classify p t = classify q t) :
+    (h : ∀ t : Transformation, classificationMatrix p t = classificationMatrix q t) :
     p = q := by
   cases p <;> cases q <;>
     first
@@ -58,12 +65,11 @@ theorem classification_pattern_unique
     | exact absurd (h .SE) (by native_decide)
     | exact absurd (h .AN) (by native_decide)
     | exact absurd (h .RC) (by native_decide)
-    | exact absurd (h .PV) (by native_decide)
     | exact absurd (h .RA) (by native_decide)
-    | exact absurd (h .RE) (by native_decide)
 
-/-- Lower bound: any substrate realizing all derived profiles
-    must realize at least nine pairwise non-collapsing profiles. -/
+/-- Lower bound: any substrate realizing all derived profiles must realize
+    at least nine pairwise non-collapsing profiles under the canonical matrix.
+    Source: SE-300 Section 5. -/
 theorem nine_regime_lower_bound :
     ∀ p q : RegimeProfileKind, p ≠ q → NonCollapsing p q :=
   derivedRegimeSet_pairwise_noncollapse

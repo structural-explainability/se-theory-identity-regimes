@@ -4,7 +4,7 @@
 
 Clear-Host
 $root = Get-Location
-$excludeDirs = @(".git", ".venv", ".cache", "__pycache__", ".pytest_cache", ".ruff_cache", "node_modules", "dist", "build", "site")
+$excludeDirs = @(".git", ".lake", ".venv", ".cache", "__pycache__", ".pytest_cache", ".ruff_cache", "node_modules", "dist", "build", "site")
 
 Get-ChildItem -File -Recurse |
 Where-Object {

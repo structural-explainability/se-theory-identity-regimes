@@ -1,10 +1,10 @@
 import NeutralSubstrate
-import IdentityRegimes.Regimes
+import IdentityRegimes.Vocab.Regimes
 
 open SE.NeutralSubstrate
 
 /-!
-File: IdentityRegimes/Requirements.lean
+File: IdentityRegimes/Vocab/Requirements.lean
 
 Purpose:
 Requirement structure for applying identity regimes over an admissible substrate.

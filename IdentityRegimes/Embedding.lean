@@ -1,5 +1,7 @@
-import IdentityRegimes.LowerBound
+import NeutralSubstrate
+import IdentityRegimes.Transform.LowerBound
 
+open SE.NeutralSubstrate
 
 /-!
 File: IdentityRegimes/Embedding.lean
@@ -9,24 +11,12 @@ Regime-typed multigraph embedding and representation theorem.
 
 The embedding sends each identity carrier to its equivalence class
 under its unique regime profile. Uniqueness follows from
-classification_pattern_unique. The representation theorem states
-that every identity carrier in an admissible ontology is realized
-by exactly one profile in the derived regime set.
+classification_pattern_unique applied to classificationMatrix.
+The representation theorem states that every identity carrier in an
+admissible ontology is realized by exactly one profile in the derived
+regime set.
 
 Source: SE-300, Section 5, faithful embedding and representation theorem.
-
-The key theorems are
-
-representation_theorem. Each profile is uniquely determined
-by its classification behavior
-
-nine_regime_lower_bound. The derived regime set witnesses
-the lower bound with all three conditions in one statement.
-
-RegimeVertex and RegimeGraph give the multigraph structure
-a Lean type, with regimeAssignment_determined_by_classification
-as the injectivity result that corresponds to the
-paper's faithful embedding theorem.
 -/
 
 namespace IdentityRegimes
@@ -60,15 +50,16 @@ structure RegimeGraph where
   vertices : List RegimeVertex
   edges    : List RegimeEdge
 
-/-- The profile kind of a vertex is determined by its kind. -/
+/-- The profile kind of a vertex is determined by its kind field. -/
 def profileKind (v : RegimeVertex) : RegimeProfileKind :=
   v.kind
 
-/-- Profile kind is injective up to classification pattern:
-    vertices with identical classification patterns have the same profile kind. -/
+/-- Profile kind is injective up to classification pattern under the canonical matrix:
+    vertices whose profiles assign identical values to all transformations
+    have the same profile kind. -/
 theorem profileKind_determined_by_classification
     (p q : RegimeProfileKind)
-    (h : ∀ t : Transformation, classify p t = classify q t) :
+    (h : ∀ t : Transformation, classificationMatrix p t = classificationMatrix q t) :
     p = q :=
   classification_pattern_unique p q h
 
@@ -78,32 +69,32 @@ def GraphWellFormed (g : RegimeGraph) : Prop :=
 
 /-- Representation theorem:
     For every regime profile kind, there exists a unique canonical profile
-    that determines its classification behavior. -/
+    that determines its classification behavior under the canonical matrix. -/
 theorem representation_theorem (k : RegimeProfileKind) :
     ∃ p : RegimeProfileKind,
       p = k ∧
-      (∀ t : Transformation, classify p t = classify k t) ∧
+      (∀ t : Transformation, classificationMatrix p t = classificationMatrix k t) ∧
       (∀ q : RegimeProfileKind,
-        (∀ t : Transformation, classify q t = classify k t) → q = k) := by
-  exact ⟨k, rfl, fun t => rfl,
-         fun q hq => classification_pattern_unique q k hq⟩
+        (∀ t : Transformation, classificationMatrix q t = classificationMatrix k t) → q = k) :=
+  ⟨k, rfl, fun _t => rfl,
+   fun q hq => classification_pattern_unique q k hq⟩
 
-/-- No two distinct profiles in the derived regime set
-    are behaviorally equivalent. -/
+/-- No two distinct profiles in the derived regime set are behaviorally equivalent
+    under the canonical classification matrix. -/
 theorem derived_regime_set_no_behavioral_collapse
     (p q : RegimeProfileKind)
     (h : p ≠ q) :
-    ∃ t : Transformation, classify p t ≠ classify q t :=
+    ∃ t : Transformation, classificationMatrix p t ≠ classificationMatrix q t :=
   noncollapse_all_pairs p q h
 
 /-- The lower bound is witnessed by the derived regime set:
-    it contains exactly nine pairwise non-collapsing profiles. -/
-theorem nine_regime_lower_bound :
+    nine pairwise non-collapsing profiles under the canonical matrix. -/
+theorem nine_regime_lower_bound_witness :
     ∃ S : List RegimeProfileKind,
       S.length = 9 ∧
       S.Nodup ∧
       (∀ p q : RegimeProfileKind, p ≠ q →
-        ∃ t : Transformation, classify p t ≠ classify q t) :=
+        ∃ t : Transformation, classificationMatrix p t ≠ classificationMatrix q t) :=
   ⟨derivedRegimeSet,
    derivedRegimeSet_card,
    derivedRegimeSet_nodup,

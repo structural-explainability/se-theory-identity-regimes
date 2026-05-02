@@ -1,11 +1,10 @@
 import NeutralSubstrate
-import IdentityRegimes.Profiles
+import IdentityRegimes.Profile.Core
 
 open SE.NeutralSubstrate
 
-
 /-!
-File: IdentityRegimes/Admissibility.lean
+File: IdentityRegimes/Profile/Admissibility.lean
 
 Purpose:
 Admissibility of regime application over neutral substrates.

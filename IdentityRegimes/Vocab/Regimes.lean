@@ -1,7 +1,7 @@
-import IdentityRegimes.Basic
+import IdentityRegimes.Vocab.Basic
 
 /-!
-File: IdentityRegimes/Regimes.lean
+File: IdentityRegimes/Vocab/Regimes.lean
 
 Purpose:
 Canonical regime declarations and regime-level predicates.

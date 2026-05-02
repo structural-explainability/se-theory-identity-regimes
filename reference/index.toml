@@ -6,7 +6,7 @@
 schema = "se-reference-index-1"
 repo = "se-theory-identity-regimes"
 ref_kind = "formal-theory-reference"
-surface_module = "IdentityRegimes"
+surface_module = "IdentityRegimes.Surface"
 
 [[artifact]]
 id = "regime-types"
@@ -93,6 +93,5 @@ id = "proof-registry"
 path = "reference/proof-registry.json"
 kind = "proof-registry"
 format = "json"
-generated = true
-generator = "lean4"
+generated = false
 required = true

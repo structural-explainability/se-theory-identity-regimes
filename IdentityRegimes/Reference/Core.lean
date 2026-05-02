@@ -1,17 +1,17 @@
-import NeutralSubstrate
-import IdentityRegimes.LowerBound
-
-open SE.NeutralSubstrate
+import IdentityRegimes.Transform.LowerBound
 
 /-!
-File: IdentityRegimes/ReferenceRequirements.lean
+File: IdentityRegimes/Reference/Core.lean
 
 Purpose:
 Lean-side certification that the canonical reference sets are complete,
 duplicate-free, and aligned with the derived theory.
 
+ClassificationValue is defined in Transform/Core and available here
+transitively via Transform/LowerBound.
+
 TOML sources:
-  regime-classification-values.toml  → ClassificationValue
+  regime-classification-values.toml  → referenceClassificationValues
   regime-families.toml               → RegimeFamily / referenceFamilies
   regime-profiles.toml               → referenceProfiles
   regime-profile-derivation.toml     → profilesForFamily / derivedProfilesFromFamilies
@@ -27,12 +27,8 @@ namespace IdentityRegimes
 
 /- === Classification Values (regime-classification-values.toml) === -/
 
-inductive ClassificationValue
-  | IGN  -- Ignore:   transformation does not affect identity
-  | PRS  -- Preserve: identity is preserved under the transformation
-  | BRK  -- Break:    transformation breaks identity
-  deriving DecidableEq, Repr
-
+-- ClassificationValue is defined in Transform/Core.
+-- referenceClassificationValues certifies the canonical three-value set.
 def referenceClassificationValues : List ClassificationValue :=
   [.IGN, .PRS, .BRK]
 
@@ -135,8 +131,6 @@ theorem derivedProfilesFromFamilies_complete
   cases p <;> native_decide
 
 -- Membership-based alignment with referenceProfiles.
--- List equality is not asserted: regime-profiles.toml `order` field and
--- flatMap-over-families produce distinct but extensionally equivalent orderings.
 theorem derivedProfilesFromFamilies_match_reference
     (p : RegimeProfileKind) :
     p ∈ derivedProfilesFromFamilies ↔ p ∈ referenceProfiles := by

@@ -9,7 +9,7 @@
 # === REQUIRED PROJECT IDENTITY
 
 name = "IdentityRegimes"
-version = "0.2.0"
+version = "0.3.0"
 license = "MIT"
 
 keywords = [
@@ -39,6 +39,8 @@ rev = "main"
 
 [[lean_lib]]
 name = "IdentityRegimes"
+srcDir = "."
+roots = ["IdentityRegimes"]
 
 # === TEST LIBRARIES (internal, not exported)
 

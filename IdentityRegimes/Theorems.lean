@@ -1,5 +1,5 @@
 import NeutralSubstrate
-import IdentityRegimes.Admissibility
+import IdentityRegimes.Profile.Admissibility
 
 open SE.NeutralSubstrate
 

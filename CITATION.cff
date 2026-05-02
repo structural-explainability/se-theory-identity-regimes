@@ -9,8 +9,8 @@ cff-version: "1.2.0"
 type: software
 
 title: "SE Theory: Identity Regimes"
-version: "0.2.0"
-date-released: "2026-05-01"
+version: "0.3.0"
+date-released: "2026-05-02"
 
 authors:
   - family-names: Case

@@ -20,12 +20,18 @@ over admissible neutral substrates.
 Files are manually generated and verified by Lean.
 
 ```text
-regime-classification-matrix.toml
-regime-classification-values.toml
-regime-families.toml
-regime-profile-derivation.toml
-regime-profiles.toml
-regime-transformations.toml
+.\reference\index.toml
+.\reference\proof-registry.json
+.\reference\regime-classification-matrix.toml
+.\reference\regime-classification-values.toml
+.\reference\regime-families.toml
+.\reference\regime-predicates.toml
+.\reference\regime-profile-derivation.toml
+.\reference\regime-profiles.toml
+.\reference\regime-theorems.toml
+.\reference\regime-transformations.toml
+.\reference\regime-types.toml
+.\reference\regime-vocabulary.toml
 ```
 
 ## Imports
@@ -34,11 +40,12 @@ regime-transformations.toml
 
 ## Covers
 
-- 6 regimes, 9 profile kinds, refinement map
+- 6 regimes, 9 profile kinds, 10 transformations
+- Refinement map
 - Transformation basis and full classification function (with matrix-form reference)
 - Split pressure predicates and theorems
 - Three split witness theorems (ENR/BF, CTX/AD, NOR/RF)
-- All 36 pairwise non-collapse proofs
+- All pairwise non-collapse proofs
 - Lower bound and classification uniqueness
 - Regime-typed multigraph structure (`RegimeVertex`, `RegimeEdge`, `RegimeGraph`)
 - Representation theorem: each profile uniquely determined by classification behavior
@@ -62,6 +69,7 @@ regime-transformations.toml
   - CTX_S
   - NOR_C
   - NOR_S
+- Transformations: ten-family basis RE, AN, RF, AD, RC, RA, SU, BF, PV, SE
 - Regime requirement structure
 - Regime-profile structure (currently a thin wrapper over RegimeProfileKind, designed for extension)
 - Admissibility conditions for regime application over neutral substrates
@@ -71,7 +79,7 @@ regime-transformations.toml
 ## Does not own
 
 - Neutral substrate primitives (see `se-theory-neutral-substrate`)
-- Path grammar and expressive adequacy (SE-400)
+- Path grammar and expressive adequacy (SE-300)
 - Domain mappings or operational validation
 - Runtime systems
 
@@ -121,6 +129,9 @@ import IdentityRegimes
 ```
 
 ## Build
+
+Use VS Code Menu:
+View / Command Palette / `Developer: Reload Window` to refresh.
 
 ```shell
 elan self update
@@ -175,18 +186,20 @@ uvx pre-commit run --all-files
 git add -A
 uvx pre-commit run --all-files
 
-uv run python -m se_theory_identity_regimes validate
-uv run python -m se_theory_identity_regimes validate --strict
-uv run python -m se_theory_identity_regimes validate --require-tag
+# OPTIONAL:
+# Scaffold reference/ artifacts from Lean 4 source.
+# Adds stubs for new symbols.
+# Preserves existing descriptions, names, and cite_ids.
+uv run se-ref-scaffold --dry-run
+uv run se-ref-scaffold
 
-uv run python -m se_theory_identity_regimes sync
+# OPTIONAL OVERWRITE:
+# Use carefully. Re-derives scaffolded fields and may overwrite
+# existing descriptions, names, and cite_ids.
+uv run se-ref-scaffold --overwrite
 
-uv run python -m se_theory_identity_regimes scaffold
-uv run python -m se_theory_identity_regimes scaffold --dry-run
-uv run python -m se_theory_identity_regimes scaffold --overwrite
-
-uv run python -m se_theory_identity_regimes ref-validate
-uv run python -m se_theory_identity_regimes ref-validate --strict
+# IMPORTANT: Run checks
+uv run se-validate --strict
 
 # do chores
 uv run python -m pyright
