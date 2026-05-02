@@ -7,7 +7,28 @@ All notable changes to this project will be documented in this file.
 The format is based on **[Keep a Changelog](https://keepachangelog.com/en/1.1.0/)**
 and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0.0.html)**.
 
+---
+
 ## [Unreleased]
+
+### Added
+
+- Added `reference.py` for checking and scaffolding. Runs; needs a bit of tuning.
+- Added `reference/` artifacts for the public theory surface.
+- Added `reference/index.toml` to declare machine-readable reference artifacts.
+- Added reference validation for:
+  - `reference/index.toml` structure.
+  - declared artifact paths.
+  - declared artifact formats.
+  - Lean public surface coverage.
+- Added `lean_surface.py` to mirror the exported symbols from `Surface.lean`.
+- Added `paths.py` for repository path helpers used by reference validation.
+- Added `proof-registry.json` as the planned Lean-generated proof metadata artifact.
+
+### Changed
+
+- Extended repository validation to include the `reference/` artifact surface.
+- Updated validation output to show each reference validation step explicitly.
 
 ---
 
@@ -52,7 +73,8 @@ reference/ files (manual creation / Lean checking):
 
 ### Changed
 
-- Migrated Identity Regimes from the previous Neutral Substrate API to new public `NeutralSubstrate` import surface.
+- Migrated Identity Regimes from the previous Neutral Substrate API
+  to new public `NeutralSubstrate` import surface.
 - Replaced legacy substrate references with `Ontology`.
 - Replaced ontology-level `Admissible` usage with `Neutral`.
 - Renamed transformation classification vocabulary to `TransformationClassification`.

@@ -175,8 +175,18 @@ uvx pre-commit run --all-files
 git add -A
 uvx pre-commit run --all-files
 
-# validate
+uv run python -m se_theory_identity_regimes validate
 uv run python -m se_theory_identity_regimes validate --strict
+uv run python -m se_theory_identity_regimes validate --require-tag
+
+uv run python -m se_theory_identity_regimes sync
+
+uv run python -m se_theory_identity_regimes scaffold
+uv run python -m se_theory_identity_regimes scaffold --dry-run
+uv run python -m se_theory_identity_regimes scaffold --overwrite
+
+uv run python -m se_theory_identity_regimes ref-validate
+uv run python -m se_theory_identity_regimes ref-validate --strict
 
 # do chores
 uv run python -m pyright

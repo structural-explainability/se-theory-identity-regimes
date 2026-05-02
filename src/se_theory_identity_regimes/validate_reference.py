@@ -17,7 +17,7 @@ Reference validation checks that the repo's machine-readable reference surface i
 coherent before se-formal-contract imports it.
 
 Expected local boundary:
-  NeutralSubstrate/Surface.lean declares the public Lean surface.
+  Surface.lean declares the public Lean surface.
   reference/index.toml declares the public reference artifact surface.
   reference/*.toml and reference/*.json describe that surface for automation.
 
