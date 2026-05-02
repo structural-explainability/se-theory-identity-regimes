@@ -4,6 +4,7 @@ Owns:
   - SURFACE_TYPES          - exported public Lean types
   - SURFACE_PREDICATES     - exported public Lean predicates
   - SURFACE_VOCABULARY     - exported classification/transformation vocabulary
+  - SURFACE_WITNESSES      - exported public Lean witness objects (def only)
   - SURFACE_THEOREMS       - exported public Lean theorems
   - SURFACE_SYMBOLS        - combined exported public Lean symbols
 
@@ -13,20 +14,43 @@ Does not own:
   - loading TOML or JSON files
   - CLI or orchestration behavior
 
-This module mirrors IdentityRegimes.lean so Python validation can check
+This module mirrors IdentityRegimes/Surface.lean so Python validation can check
 that reference artifacts cover the public Lean surface.
 
 Current strategy:
-  Keep this file aligned manually with IdentityRegimes.lean.
+  Keep this file aligned manually with IdentityRegimes/Surface.lean.
+  Surface.lean is the authoritative export list. Internal theorems
+  (NonCollapse.lean, ClassificationMatrix.lean helpers) are not listed here
+  even if they are individually correct — they are not part of the public
+  surface contract.
 
 Future strategy:
-  Replace or supplement these constants by parsing IdentityRegimes.lean directly.
+  Replace or supplement these constants by parsing Surface.lean directly.
 
 Call chain:
   __main__.py -> cli.main()
               -> orchestrate.run_validate()
               -> validate_reference.validate_reference()
               -> lean_surface.SURFACE_SYMBOLS
+
+Witness vs theorem convention:
+  SURFACE_WITNESSES contains only Lean `def` declarations (concrete objects).
+  SURFACE_THEOREMS contains all Lean `theorem` declarations re-exported
+  through Surface.lean.
+
+Internal symbols omitted (not re-exported through Surface.lean):
+  noncollapse_of_prs_difference, noncollapse_ENR_L_ENR_I,
+  noncollapse_CTX_E_CTX_S, noncollapse_NOR_C_NOR_S,
+  noncollapse_of_distinct_regime, noncollapse_all_pairs,
+  matrix_RE_always_IGN, matrix_SU_always_BRK,
+  matrix_IGN_nonempty, matrix_PRS_nonempty, matrix_BRK_nonempty,
+  matrix_counts, matrix_PRS_count, matrix_BRK_count, matrix_IGN_count,
+  matrix_enr_split_on_BF, matrix_ctx_split_on_AD, matrix_nor_split_on_RF,
+  allCells, countValue, IsPreserving, IsBreaking
+  RegimeVertex.regimeType, profileKind,
+  profileKind_determined_by_classification,
+  derived_regime_set_no_behavioral_collapse,
+  nine_regime_lower_bound_witness
 """
 
 SURFACE_TYPES: frozenset[str] = frozenset(
@@ -36,7 +60,14 @@ SURFACE_TYPES: frozenset[str] = frozenset(
         "RegimeProfileKind",
         "Requirement",
         "Transformation",
-        "TransformationClassification",
+        "ClassificationValue",
+        "IdentityBasis",
+        "ProfileAxes",
+        "RegimeFamily",
+        "RegimeVertex",
+        "RegimeEdge",
+        "RegimeGraph",
+        "AdmissibleRelation",
     }
 )
 
@@ -48,16 +79,29 @@ SURFACE_PREDICATES: frozenset[str] = frozenset(
         "ProfileWellFormed",
         "RequirementSatisfied",
         "RegimeApplicationAdmissible",
+        "UnderSplitPressure",
+        "GraphWellFormed",
     }
 )
 
 
 SURFACE_VOCABULARY: frozenset[str] = frozenset(
     {
-        "classify",
+        "classificationMatrix",
         "derivedRegimeSet",
-        "IsPreserving",
-        "IsBreaking",
+        "referenceProfiles",
+        "referenceTransformations",
+        "referenceFamilies",
+        "referenceClassificationValues",
+        "profilesForFamily",
+        "derivedProfilesFromFamilies",
+    }
+)
+
+
+SURFACE_WITNESSES: frozenset[str] = frozenset(
+    {
+        "oblProfile",
     }
 )
 
@@ -68,8 +112,11 @@ SURFACE_THEOREMS: frozenset[str] = frozenset(
         "classification_pattern_unique",
         "derivedRegimeSet_card",
         "derivedRegimeSet_nodup",
+        "derivedRegimeSet_complete",
+        "derivedRegimeSet_pairwise_noncollapse",
         "nine_regime_lower_bound",
         "regime_application_admissible_of_neutral",
+        "representation_theorem",
     }
 )
 
@@ -79,6 +126,7 @@ SURFACE_SYMBOLS: frozenset[str] = frozenset(
         *SURFACE_TYPES,
         *SURFACE_PREDICATES,
         *SURFACE_VOCABULARY,
+        *SURFACE_WITNESSES,
         *SURFACE_THEOREMS,
     }
 )
@@ -88,6 +136,7 @@ SURFACE_BY_KIND: dict[str, frozenset[str]] = {
     "type": SURFACE_TYPES,
     "predicate": SURFACE_PREDICATES,
     "vocabulary": SURFACE_VOCABULARY,
+    "witness": SURFACE_WITNESSES,
     "theorem": SURFACE_THEOREMS,
 }
 
@@ -97,7 +146,7 @@ def expected_symbols_for_kind(kind: str) -> frozenset[str]:
 
     Args:
         kind: Surface kind. Expected values are type, predicate, vocabulary,
-            theorem.
+            witness, theorem.
 
     Returns:
         The expected exported Lean symbols for the requested kind.
