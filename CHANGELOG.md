@@ -24,26 +24,31 @@ NA→IGN CONVENTION block added at top of Transform/Core.lean.
 Non-Collapsing def linked to paper:
 
 1. A lemma noncollapse_of_prs_difference.
-  If one profile classifies t as PRS and the other doesn't,
-  they are non-collapsing.
-  Operative step in every paper proof.
+   If one profile classifies t as PRS and the other doesn't,
+   they are non-collapsing.
+   Operative step in every paper proof.
 
 2. A note that for the 9 profiles, every matrix difference
    that appears in a proof involves a PRS cell for
    one of the profiles, so Lean definition is sufficient.
 
-- `reference/index.toml` declaring all machine-readable reference artifacts
-- `reference/substrate-types.toml` - type registry for PrimitiveKind, Primitive, Ontology, Framework
-- `reference/substrate-predicates.toml` - predicate registry for all eight NS predicates
-- `reference/substrate-axioms.toml` - axiom registry for framework_relativity,
-  neutral_primitives_undisputed, causal_normative_affirmed
-- `reference/substrate-theorems.toml` - theorem registry including helper lemmas
-  any_false_implies_none and any_true_implies_exists
-- `reference/proof-registry.json` - proof status for all eight theorems
-- `reference/dependency-registry.toml` - inter-repo dependency constraints
-- `reference/traceability-registry.toml` - proof-term dependency traces for
-  all theorems
-- `reference.py` - scaffold and validate reference artifacts against Lean 4 source
+Scaffolding and verification for:
+
+- .\reference\index.toml
+- .\reference\proof-registry.json
+- .\reference\regime-classification-matrix.toml
+- .\reference\regime-classification-values.toml
+- .\reference\regime-families.toml
+- .\reference\regime-predicates.toml
+- .\reference\regime-profile-derivation.toml
+- .\reference\regime-profiles.toml
+- .\reference\regime-theorems.toml
+- .\reference\regime-transformations.toml
+- .\reference\regime-types.toml
+- .\reference\regime-vocabulary.toml
+
+- `reference.py` - scaffold and validate reference artifacts against
+  Lean 4 source
 - `se-ref-scaffold` CLI command - adds stubs for new Lean symbols,
   preserves existing descriptions and cite_ids
 - `se-ref-validate` CLI command - validates reference artifacts
@@ -52,8 +57,11 @@ Non-Collapsing def linked to paper:
 
 ### Changed
 
-- `run_validate()` extended to include reference artifact validation as final step
-- Release procedure simplified and updated to use CLI entry points
+- README.md workflow commands
+- pyproject.toml [project.scripts]
+- `run_validate()` extended to include reference artifact validation
+  as final step
+- Release procedure simplified and updated to use CLI entry points.
 
 ---
 
