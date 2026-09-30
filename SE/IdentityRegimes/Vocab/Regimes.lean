@@ -1,4 +1,4 @@
-import IdentityRegimes.Vocab.Basic
+import SE.IdentityRegimes.Vocab.Basic
 
 /-!
 File: IdentityRegimes/Vocab/Regimes.lean

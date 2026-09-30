@@ -1,4 +1,4 @@
-import IdentityRegimes.Transform.NonCollapse
+import SE.IdentityRegimes.Transform.NonCollapse
 import IdentityRegimes.Transform.Core
 import IdentityRegimes.Profile.Core
 

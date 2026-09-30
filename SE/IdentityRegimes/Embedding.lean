@@ -1,4 +1,4 @@
-import NeutralSubstrate
+import SE.NeutralSubstrate
 import IdentityRegimes.Transform.LowerBound
 
 open SE.NeutralSubstrate

@@ -1,4 +1,4 @@
-import IdentityRegimes.Transform.LowerBound
+import SE.IdentityRegimes.Transform.LowerBound
 
 /-!
 File: IdentityRegimes/Reference/Core.lean

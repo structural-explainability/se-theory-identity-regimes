@@ -1,30 +1,36 @@
 # ============================================================
 # SE_MANIFEST.toml (Repository Declaration)
-# se-theory-identity-regimes
 # ============================================================
 
-schema = "se-manifest-2"
-schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/v0.2.0/manifest-schema.toml"
+schema = "se-manifest-schema"
+schema_version = "0.5.0"
+schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/main/manifest-schema.toml"
 
-# === Identity ===
+# === Framework Context ===
 
 [meta]
-purpose = "Declares the identity-regimes theory repository for the Structural Explainability ecosystem."
+framework = "Structural Explainability"
+framework_url = "https://github.com/structural-explainability"
+purpose = "Declares this repository's role in the Structural Explainability ecosystem."
 
-[repo]
+# === Repository Identity ===
+
+[repository]
+organization = "structural-explainability"
 name = "se-theory-identity-regimes"
-org = "structural-explainability"
 class = "theory"
 kind = "foundation"
 status = "active"
 since = "2026"
 summary = "Lean 4 formalization of the six identity regimes, their requirement structure, and derived regime-profile structure over admissible neutral substrates."
 
+# === Layer Position ===
+
 [layer]
 space = "formal-theory"
 role = "theory"
 
-# === Dependencies ===
+# === Dependency Declarations ===
 
 [depends]
 # Required upstream repository dependencies.
@@ -35,7 +41,7 @@ required = [
 # Optional upstream repository dependencies.
 optional = []
 
-# === Provided artifacts ===
+# === Provided Artifacts ===
 
 [provides]
 # Logical artifacts exposed by this repository.

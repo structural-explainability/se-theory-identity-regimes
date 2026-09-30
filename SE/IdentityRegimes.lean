@@ -1,4 +1,4 @@
-import IdentityRegimes.Surface
+import SE.IdentityRegimes.Surface
 
 /-!
 File: IdentityRegimes.Surface

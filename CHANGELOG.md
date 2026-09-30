@@ -283,18 +283,56 @@ Follow these steps exactly when creating a new release.
 1.1. CITATION.cff: update version and date-released
 1.2. lakefile.toml: update version
 1.3. CHANGELOG.md: add section, move unreleased entries, update links
+1.4. pyproject.toml: update build fallback-version (near end of the file)
 
-### Task 2. Sync and Validate
-
-Sync reads `CITATION.cff` version and `date-released`
-and updates `pyproject.toml` fallback-version.
+### Task 2. Sync Validate
 
 ```shell
-uv run se-manifest-version-sync
+elan self update
+lake update
+
+uv self update
+uv python pin 3.15
+uv lock --upgrade
 uv sync --extra dev --extra docs --upgrade
-uv run se-validate --strict
+
+# install git hooks once per clone
+uvx pre-commit install
+
+# build Lean (source of truth)
+lake build
+lake build TestAll
+
+# validate reference artifacts against declared Lean public surface
+uv run se-theory-reference validate
+uv run se-theory-reference validate --strict
+
+# add / try / regenerate generated JSON artifacts from reference TOML
+uv run se-theory-reference scaffold
+uv run se-theory-reference scaffold --dry-run
+uv run se-theory-reference scaffold --overwrite
+
+# regenerate / check generated JSON artifacts from reference TOML
+uv run se-theory-reference export
+uv run se-theory-reference export --check
+
+# build / verify generated reference catalog
+uv run se-theory-reference catalog
+uv run se-theory-reference catalog --check
+
+# inspect resolved repo configuration and reference declarations
+uv run se-theory-reference inspect
+
+# validate SE manifest file
+uvx se-manifest-schema validate-manifest --path SE_MANIFEST.toml --strict
+
+# fix issues
 git add -A
 uvx pre-commit run --all-files
+# repeat if changes were made
+uvx pre-commit run --all-files
+
+# type checks, tests, docs
 uv run python -m pyright
 uv run python -m pytest
 uv run python -m zensical build
@@ -315,10 +353,10 @@ git tag vX.Y.Z -m "X.Y.Z"
 git push origin vX.Y.Z
 ```
 
-### Task 4. Verify tag consistency
+### Task 4. After tagging, verify tag consistency
 
 ```shell
-uv run se-validate --require-tag
+uvx --from se-manifest-schema se-manifest check-version --require-tag
 ```
 
 Confirms CITATION.cff version matches the pushed git tag.

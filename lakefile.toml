@@ -1,15 +1,15 @@
 # ============================================================
 # lakefile.toml
 # ============================================================
+# Declares the public Lean package identity, import surface,
+# build targets, dependencies, and verification executables.
 
-# REQ.FILE.PROJECT.IDENTITY
-#   Declares the externally visible identity and build surface of this package.
-#   Sections marked CUSTOM are expected to vary by repository.
+# ============================================================
+# PROJECT IDENTITY
+# ============================================================
 
-# === REQUIRED PROJECT IDENTITY
-
-name = "IdentityRegimes"
-version = "0.3.0"
+name = "SETheoryIdentityRegimes"
+version = "0.4.0"
 license = "MIT"
 
 keywords = [
@@ -25,22 +25,33 @@ keywords = [
   "lean4",
 ]
 
-# === BUILD CONFIGURATION
+# ============================================================
+# BUILD SURFACE
+# ============================================================
+# defaultTargets must include the public Lean library root.
 
-defaultTargets = ["IdentityRegimes"]
+defaultTargets = ["SE.IdentityRegimes"]
 
 [[require]]
-name = "NeutralSubstrate"
+name = "SETheoryNeutralSubstrate"
 scope = "git"
 git = "https://github.com/structural-explainability/se-theory-neutral-substrate"
-rev = "main"
+rev = "v0.6.0"
 
-# === EXPORT LIBRARY (public, exported)
+[[require]]
+name = "SETheoryTransformation"
+scope = "git"
+git = "https://github.com/structural-explainability/se-theory-transformation"
+rev = "v0.3.0"
+
+# ============================================================
+# PUBLIC LIBRARY
+# ============================================================
+# Downstream Lean projects import this library root.
+# Lake discovers modules under the matching source directory.
 
 [[lean_lib]]
-name = "IdentityRegimes"
-srcDir = "."
-roots = ["IdentityRegimes"]
+name = "SE.IdentityRegimes"
 
 # === TEST LIBRARIES (internal, not exported)
 

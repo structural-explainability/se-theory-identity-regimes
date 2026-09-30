@@ -1,4 +1,4 @@
-import IdentityRegimes.Theorems
+import SE.IdentityRegimes.Theorems
 
 /-!
 File: test/TestExport.lean

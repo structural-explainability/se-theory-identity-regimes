@@ -325,7 +325,7 @@ def _process_artifact(
     if art_path.exists():
         try:
             existing_data = _load_toml(art_path)
-        except Exception as exc:
+        except (OSError, UnicodeError, tomllib.TOMLDecodeError) as exc:
             result.fail(f"TOML parse error: {exc}")
             return result
     else:
@@ -458,7 +458,7 @@ def run_scaffold(dry_run: bool = False, overwrite: bool = False) -> int:
 
     try:
         index = _load_toml(index_path)
-    except Exception as exc:
+    except (OSError, UnicodeError, ValueError) as exc:
         print(f"error: cannot parse reference/index.toml: {exc}")
         return 1
 
@@ -478,7 +478,7 @@ def run_scaffold(dry_run: bool = False, overwrite: bool = False) -> int:
                         for e in sv.values():
                             if isinstance(e, dict) and "lean_symbol" in e:
                                 all_registered.add(e["lean_symbol"])
-            except Exception:  # noqa: S110
+            except OSError, UnicodeError, ValueError:
                 pass
 
     all_ok = True
@@ -519,7 +519,7 @@ def run_ref_validate(strict: bool = False) -> int:
 
     try:
         index = _load_toml(index_path)
-    except Exception as exc:
+    except (OSError, UnicodeError, tomllib.TOMLDecodeError) as exc:
         print(f"error: cannot parse reference/index.toml: {exc}")
         return 1
 
@@ -536,7 +536,7 @@ def run_ref_validate(strict: bool = False) -> int:
                         for e in sv.values():
                             if isinstance(e, dict) and "lean_symbol" in e:
                                 all_registered.add(e["lean_symbol"])
-            except Exception:  # noqa: S110
+            except OSError, UnicodeError, ValueError:
                 pass
     all_ok = True
 

@@ -1,4 +1,4 @@
-import IdentityRegimes.Profile.Core
+import SE.IdentityRegimes.Profile.Core
 import IdentityRegimes.Transform.Core
 
 /-!

@@ -1,4 +1,4 @@
-import IdentityRegimes.Vocab.Basic
+import SE.IdentityRegimes.Vocab.Basic
 import IdentityRegimes.Vocab.Regimes
 import IdentityRegimes.Vocab.Requirements
 import IdentityRegimes.Profile.Core

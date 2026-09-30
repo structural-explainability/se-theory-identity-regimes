@@ -1,4 +1,4 @@
-import NeutralSubstrate
+import SE.NeutralSubstrate
 import IdentityRegimes.Profile.Core
 
 open SE.NeutralSubstrate
