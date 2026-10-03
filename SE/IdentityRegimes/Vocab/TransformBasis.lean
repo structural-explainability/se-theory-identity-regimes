@@ -1,17 +1,32 @@
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
+
 /-!
-File: IdentityRegimes/Vocab/TransformBasis.lean
+File: SE/IdentityRegimes/Vocab/TransformBasis.lean
 
 Purpose:
-Defines the fixed transformation basis and canonical classification values.
-Placed in Vocab/ so that Profile/Core can reference Transformation directly
-in ProfileAxes, eliminating the need for a separate SplitTransformation type.
+Defines the fixed transformation basis and
+canonical classification values.
+Placed in Vocab/ so that Profile/Core
+can reference Transformation directly in ProfileAxes,
+eliminating the need for a separate SplitTransformation type.
 
-Both types are pure vocabulary — no regime logic, no matrix, no profile content.
+Both types are pure vocabulary.
+No regime logic, no matrix, no profile content.
 The matrix and its classification behavior live in Transform/Core.
 -/
 
-namespace IdentityRegimes
+namespace SE.IdentityRegimes
 
+public section
+
+-- RR.DEFINES: SEIR.DEF.TRANSFORMATION
+-- RR.IMPLEMENTS: SE300.DEF.TRANSFORMATION_FAMILY
+-- RR.DEFINES: SEIR.DEF.CLASSIFICATION_VALUE
 /-- The three canonical classification values.
     IGN: transformation does not affect identity (or is not applicable, mapped from N/A).
     PRS: transformation preserves identity.
@@ -39,4 +54,6 @@ inductive Transformation where
   | RE | AN | RF | AD | RC | RA | SU | BF | PV | SE
   deriving Repr, DecidableEq
 
-end IdentityRegimes
+end
+
+end SE.IdentityRegimes

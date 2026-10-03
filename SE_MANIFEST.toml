@@ -61,7 +61,7 @@ artifacts = [
 
 [scope]
 includes = [
-  "six canonical identity regimes (OBL, NOR, OCC, CTX, REC, ENR)",
+  "canonical identity regimes",
   "regime requirement structure",
   "regime-profile structure",
   "admissibility conditions for regime application over neutral substrates",
@@ -76,7 +76,6 @@ excludes = [
   "substrate separation constraints",
   "persistence behavior",
   "mapping semantics",
-  "operational validation logic",
   "repository governance rules",
   "schema definitions for other repositories",
   "domain-specific mappings or data",
@@ -87,10 +86,10 @@ excludes = [
 
 [validation]
 # Validates repository declaration, manifest schema conformance,
-# reference artifacts, and Lean public surface coverage.
-entrypoint = "uv run python -m se_theory_identity_regimes validate"
-strict_entrypoint = "uv run python -m se_theory_identity_regimes validate --strict"
-tag_entrypoint = "uv run python -m se_theory_identity_regimes validate --require-tag"
+# reference artifacts, generated artifacts, and Lean public surface coverage.
+export_check_entrypoint = "uv run --locked se-theory-reference export --check"
+reference_entrypoint = "uv run --locked se-theory-reference validate"
+strict_entrypoint = "uv run --locked se-theory-reference validate --strict"
 
 # === Behavior / governance ===
 
@@ -107,4 +106,4 @@ cff = "CITATION.cff"
 preferred = "CITATION.cff"
 
 [traceability]
-identifier_map = "reference/index.toml"
+identifier_map = "reference/theory-reference.toml"

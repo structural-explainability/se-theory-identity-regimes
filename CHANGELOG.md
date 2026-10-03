@@ -11,6 +11,55 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Corrected the N/A → IGN convention documentation in
+  `SE/IdentityRegimes/Transform/Core.lean`.
+- Updated project tooling.
+
+### Added
+
+- Refactored `ClassificationMatrix` into named rows so each regime row is
+  independently readable and testable.
+- Added the N/A → IGN convention block to the top of
+  `SE/IdentityRegimes/Transform/Core.lean`.
+- Linked the non-collapsing definition more explicitly to the paper:
+  - Added `noncollapse_of_prs_difference`, establishing that if one profile
+    classifies a transformation as PRS and another does not, the profiles are
+    non-collapsing.
+  - Documented that this PRS difference is the operative step used in the
+    corresponding paper proofs.
+  - Documented the relationship between matrix differences and the Lean
+    non-collapsing definition for the nine profiles.
+- Added scaffolding and verification for:
+  - `reference/index.toml`
+  - `reference/proof-registry.json`
+  - `reference/regime-classification-matrix.toml`
+  - `reference/regime-classification-values.toml`
+  - `reference/regime-families.toml`
+  - `reference/regime-predicates.toml`
+  - `reference/regime-profile-derivation.toml`
+  - `reference/regime-profiles.toml`
+  - `reference/regime-theorems.toml`
+  - `reference/regime-transformations.toml`
+  - `reference/regime-types.toml`
+  - `reference/regime-vocabulary.toml`
+- Added `reference.py` to scaffold and validate reference artifacts against
+  Lean 4 source.
+- Added the `se-ref-scaffold` CLI command to add stubs for new Lean symbols
+  while preserving existing descriptions and `cite_ids`.
+- Added the `se-ref-validate` CLI command to validate reference artifacts
+  against Lean source without writing changes.
+- Added `se-manifest-validate` and `se-manifest-version-sync` CLI entry points.
+
+### Changed
+
+- Updated README workflow commands.
+- Updated `[project.scripts]` in `pyproject.toml`.
+- Extended `run_validate()` to include reference artifact validation as its
+  final step.
+- Simplified the release procedure and updated it to use CLI entry points.
+
 ---
 
 ## [0.3.0] - 2026-05-02
@@ -147,7 +196,7 @@ Canonical identity regimes (`IdentityRegimes.Basic`):
 - Six canonical regimes: `OBL`, `NOR`, `OCC`, `CTX`, `REC`, `ENR`
 - `DecidableEq`, `Repr` derived
 
-Regime predicates (`IdentityRegimes.Regimes`):
+Regime predicates (`IdentityRegimes.Vocab.Regimes`):
 
 - `IsCanonicalRegime` predicate
 - `all_regimes_canonical` theorem
@@ -283,60 +332,66 @@ Follow these steps exactly when creating a new release.
 1.1. CITATION.cff: update version and date-released
 1.2. lakefile.toml: update version
 1.3. CHANGELOG.md: add section, move unreleased entries, update links
-1.4. pyproject.toml: update build fallback-version (near end of the file)
 
-### Task 2. Sync Validate
+### Task 2. Set up and Validate
 
 ```shell
+# set up or update Python environment
+# Run repository checks.
+.\sit.ps1
+
+# Update GitHub Actions and pin all action references to immutable SHAs.
+uvx gha-tools autoupdate --pin=all --write .github/workflows
+
+# Update hooks.
+uvx prek update
+git add -A
+uvx prek run --all-files
+
+# Audit the resulting GitHub configuration for security findings.
+# NO .github\workflows\deploy-zensical.yml
+# YES  .github\workflows\deploy-zensical-lean.yml
+uvx zizmor@latest .github/
+
+# Validate.
+uvx cffconvert --validate
+uvx se-manifest-schema validate-manifest --strict
+
+# Format Markdown.
+npx markdownlint-cli2 --fix
+
+# update lean
 elan self update
 lake update
 
-uv self update
-uv python pin 3.15
-uv lock --upgrade
-uv sync --extra dev --extra docs --upgrade
-
-# install git hooks once per clone
-uvx pre-commit install
-
 # build Lean (source of truth)
+# lake clean
 lake build
-lake build TestAll
+lake test
+lake lint
 
-# validate reference artifacts against declared Lean public surface
-uv run se-theory-reference validate
-uv run se-theory-reference validate --strict
+# check docs (may not work on windows/runs via gh action)
+# cd docbuild
+# lake build SE.Transformation:docs
+# cd ..
 
-# add / try / regenerate generated JSON artifacts from reference TOML
-uv run se-theory-reference scaffold
-uv run se-theory-reference scaffold --dry-run
-uv run se-theory-reference scaffold --overwrite
+# Generate JSON artifacts and catalog from reference TOML.
+uvx se-theory-reference-kit@latest inspect
+uvx se-theory-reference-kit@latest export
+uvx se-theory-reference-kit@latest catalog
 
-# regenerate / check generated JSON artifacts from reference TOML
-uv run se-theory-reference export
-uv run se-theory-reference export --check
+# Validate the reference artifacts against the Lean public surface.
+uvx se-theory-reference-kit@latest validate --strict
 
-# build / verify generated reference catalog
-uv run se-theory-reference catalog
-uv run se-theory-reference catalog --check
+# Verify generated artifacts are current without rewriting them.
+uvx se-theory-reference-kit@latest export --check
+uvx se-theory-reference-kit@latest catalog --check
 
-# inspect resolved repo configuration and reference declarations
-uv run se-theory-reference inspect
-
-# validate SE manifest file
-uvx se-manifest-schema validate-manifest --path SE_MANIFEST.toml --strict
-
-# fix issues
-git add -A
-uvx pre-commit run --all-files
-# repeat if changes were made
-uvx pre-commit run --all-files
-
-# type checks, tests, docs
-uv run python -m pyright
-uv run python -m pytest
-uv run python -m zensical build
+.\rel.ps1
+.\sit.ps1
 ```
+
+Review all generated and modified files before committing.
 
 ### Task 3. Commit, tag, push
 

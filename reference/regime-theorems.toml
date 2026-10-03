@@ -4,78 +4,646 @@
 # ============================================================
 
 schema = "se-regime-theorem-registry-1"
+kind = "theorem"
 repo = "se-theory-identity-regimes"
-surface_module = "SE.IdentityRegimes.Surface"
-namespace = "IdentityRegimes"
+surface_module = "SE.IdentityRegimes"
+namespace = "SE.IdentityRegimes"
+
+[meta]
+source = "se-theory-identity-regimes"
+namespace = "se.identity_regimes"
+artifact = "regime-theorems"
+version = "0.3.0"
+status = "canonical"
 
 [theorem.all_regimes_canonical]
+order = 1
 id = "all_regimes_canonical"
-cite_id = "IR.THEOREM.all_regimes_canonical"
-name = "All regimes canonical"
-lean_symbol = "all_regimes_canonical"
+cite_id = "SEIR.THM.ALL_REGIMES_CANONICAL"
+name = "all_regimes_canonical"
+lean_symbol = "SE.IdentityRegimes.all_regimes_canonical"
 source_module = "SE.IdentityRegimes.Vocab.Regimes"
 status = "proved"
-description = "Every declared Regime satisfies IsCanonicalRegime. Follows trivially from the intentionally minimal definition of IsCanonicalRegime as Prop := True."
+description = "Every declared Regime is canonical."
 
-[theorem.classification_pattern_unique]
-id = "classification_pattern_unique"
-cite_id = "IR.THEOREM.classification_pattern_unique"
-name = "Classification pattern unique"
-lean_symbol = "classification_pattern_unique"
-source_module = "SE.IdentityRegimes.Transform.LowerBound"
+[theorem.splitPressure_iff_refined_family]
+order = 2
+id = "splitPressure_iff_refined_family"
+cite_id = "SEIR.THM.SPLIT_PRESSURE_IFF_REFINED_FAMILY"
+name = "splitPressure_iff_refined_family"
+lean_symbol = "SE.IdentityRegimes.splitPressure_iff_refined_family"
+source_module = "SE.IdentityRegimes.Profile.Core"
 status = "proved"
-description = "No two distinct profiles classify all transformations identically. If classify p t = classify q t for all t, then p = q. This is the injectivity result corresponding to the faithful embedding theorem in SE-300 Section 5."
+description = "Split pressure holds exactly for regimes in the refined ENR, CTX, or NOR families."
 
-[theorem.derivedRegimeSet_card]
-id = "derivedRegimeSet_card"
-cite_id = "IR.THEOREM.derivedRegimeSet_card"
-name = "Derived regime set cardinality"
-lean_symbol = "derivedRegimeSet_card"
-source_module = "SE.IdentityRegimes.Transform.LowerBound"
+[theorem.family_map_not_injective]
+order = 3
+id = "family_map_not_injective"
+cite_id = "SEIR.THM.FAMILY_MAP_NOT_INJECTIVE"
+name = "family_map_not_injective"
+lean_symbol = "SE.IdentityRegimes.family_map_not_injective"
+source_module = "SE.IdentityRegimes.Profile.Core"
 status = "proved"
-description = "The derived regime set contains exactly nine elements."
+description = "Distinct canonical regimes may map to the same parent family."
+
+[theorem.no_split_family_injective]
+order = 4
+id = "no_split_family_injective"
+name = "no_split_family_injective"
+lean_symbol = "SE.IdentityRegimes.no_split_family_injective"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "Among regimes without split pressure, equality of parent family implies equality of regime."
+
+[theorem.no_split_OBL]
+order = 5
+id = "no_split_OBL"
+cite_id = "SEIR.THM.NO_SPLIT_OBL"
+name = "no_split_OBL"
+lean_symbol = "SE.IdentityRegimes.no_split_OBL"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "OBL is not under split pressure."
+
+[theorem.no_split_OCC]
+order = 6
+id = "no_split_OCC"
+cite_id = "SEIR.THM.NO_SPLIT_OCC"
+name = "no_split_OCC"
+lean_symbol = "SE.IdentityRegimes.no_split_OCC"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "OCC is not under split pressure."
+
+[theorem.no_split_REC]
+order = 7
+id = "no_split_REC"
+cite_id = "SEIR.THM.NO_SPLIT_REC"
+name = "no_split_REC"
+lean_symbol = "SE.IdentityRegimes.no_split_REC"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "REC is not under split pressure."
+
+[theorem.split_ENR_L]
+order = 8
+id = "split_ENR_L"
+cite_id = "SEIR.THM.SPLIT_ENR_L"
+name = "split_ENR_L"
+lean_symbol = "SE.IdentityRegimes.split_ENR_L"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "ENR_L is under split pressure."
+
+[theorem.split_ENR_I]
+order = 9
+id = "split_ENR_I"
+cite_id = "SEIR.THM.SPLIT_ENR_I"
+name = "split_ENR_I"
+lean_symbol = "SE.IdentityRegimes.split_ENR_I"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "ENR_I is under split pressure."
+
+[theorem.split_CTX_E]
+order = 10
+id = "split_CTX_E"
+cite_id = "SEIR.THM.SPLIT_CTX_E"
+name = "split_CTX_E"
+lean_symbol = "SE.IdentityRegimes.split_CTX_E"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "CTX_E is under split pressure."
+
+[theorem.split_CTX_S]
+order = 11
+id = "split_CTX_S"
+cite_id = "SEIR.THM.SPLIT_CTX_S"
+name = "split_CTX_S"
+lean_symbol = "SE.IdentityRegimes.split_CTX_S"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "CTX_S is under split pressure."
+
+[theorem.split_NOR_C]
+order = 12
+id = "split_NOR_C"
+cite_id = "SEIR.THM.SPLIT_NOR_C"
+name = "split_NOR_C"
+lean_symbol = "SE.IdentityRegimes.split_NOR_C"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "NOR_C is under split pressure."
+
+[theorem.split_NOR_S]
+order = 13
+id = "split_NOR_S"
+cite_id = "SEIR.THM.SPLIT_NOR_S"
+name = "split_NOR_S"
+lean_symbol = "SE.IdentityRegimes.split_NOR_S"
+source_module = "SE.IdentityRegimes.Profile.Core"
+status = "proved"
+description = "NOR_S is under split pressure."
+
+[theorem.noncollapse_of_prs_difference]
+order = 14
+id = "noncollapse_of_prs_difference"
+cite_id = "SEIR.THM.NONCOLLAPSE_OF_PRS_DIFFERENCE"
+name = "noncollapse_of_prs_difference"
+lean_symbol = "SE.IdentityRegimes.noncollapse_of_prs_difference"
+source_module = "SE.IdentityRegimes.Transform.NonCollapse"
+status = "proved"
+description = "A PRS/non-PRS classification difference witnesses non-collapse."
+
+[theorem.noncollapse_ENR_L_ENR_I]
+order = 15
+id = "noncollapse_ENR_L_ENR_I"
+cite_id = "SEIR.THM.NONCOLLAPSE_ENR_L_ENR_I"
+name = "noncollapse_ENR_L_ENR_I"
+lean_symbol = "SE.IdentityRegimes.noncollapse_ENR_L_ENR_I"
+source_module = "SE.IdentityRegimes.Transform.NonCollapse"
+status = "proved"
+description = "ENR_L and ENR_I are non-collapsing, witnessed by BF."
+
+[theorem.noncollapse_CTX_E_CTX_S]
+order = 16
+id = "noncollapse_CTX_E_CTX_S"
+cite_id = "SEIR.THM.NONCOLLAPSE_CTX_E_CTX_S"
+name = "noncollapse_CTX_E_CTX_S"
+lean_symbol = "SE.IdentityRegimes.noncollapse_CTX_E_CTX_S"
+source_module = "SE.IdentityRegimes.Transform.NonCollapse"
+status = "proved"
+description = "CTX_E and CTX_S are non-collapsing, witnessed by AD."
+
+[theorem.noncollapse_NOR_C_NOR_S]
+order = 17
+id = "noncollapse_NOR_C_NOR_S"
+cite_id = "SEIR.THM.NONCOLLAPSE_NOR_C_NOR_S"
+name = "noncollapse_NOR_C_NOR_S"
+lean_symbol = "SE.IdentityRegimes.noncollapse_NOR_C_NOR_S"
+source_module = "SE.IdentityRegimes.Transform.NonCollapse"
+status = "proved"
+description = "NOR_C and NOR_S are non-collapsing, witnessed by RF."
+
+[theorem.noncollapse_of_distinct_regime]
+order = 18
+id = "noncollapse_of_distinct_regime"
+cite_id = "SEIR.THM.NONCOLLAPSE_OF_DISTINCT_REGIME"
+name = "noncollapse_of_distinct_regime"
+lean_symbol = "SE.IdentityRegimes.noncollapse_of_distinct_regime"
+source_module = "SE.IdentityRegimes.Transform.NonCollapse"
+status = "proved"
+description = "Any two distinct canonical regimes differ on at least one matrix cell."
+
+[theorem.noncollapse_all_pairs]
+order = 19
+id = "noncollapse_all_pairs"
+cite_id = "SEIR.THM.NONCOLLAPSE_ALL_PAIRS"
+name = "noncollapse_all_pairs"
+lean_symbol = "SE.IdentityRegimes.noncollapse_all_pairs"
+source_module = "SE.IdentityRegimes.Transform.NonCollapse"
+status = "proved"
+description = "All distinct canonical regime pairs are non-collapsing."
 
 [theorem.derivedRegimeSet_nodup]
+order = 20
 id = "derivedRegimeSet_nodup"
-cite_id = "IR.THEOREM.derivedRegimeSet_nodup"
-name = "Derived regime set no duplicates"
-lean_symbol = "derivedRegimeSet_nodup"
+cite_id = "SEIR.THM.DERIVED_PROFILE_SET_NODUP"
+name = "derivedRegimeSet_nodup"
+lean_symbol = "SE.IdentityRegimes.derivedRegimeSet_nodup"
 source_module = "SE.IdentityRegimes.Transform.LowerBound"
 status = "proved"
-description = "The derived regime set contains no duplicate regime profile kinds."
-
-[theorem.derivedRegimeSet_complete]
-id = "derivedRegimeSet_complete"
-cite_id = "IR.THEOREM.derivedRegimeSet_complete"
-name = "Derived regime set complete"
-lean_symbol = "derivedRegimeSet_complete"
-source_module = "SE.IdentityRegimes.Transform.LowerBound"
-status = "proved"
-description = "Every RegimeProfileKind appears in the derived regime set."
+description = "The derived regime set contains no duplicates."
 
 [theorem.derivedRegimeSet_pairwise_noncollapse]
+order = 21
 id = "derivedRegimeSet_pairwise_noncollapse"
-cite_id = "IR.THEOREM.derivedRegimeSet_pairwise_noncollapse"
-name = "Derived regime set pairwise non-collapse"
-lean_symbol = "derivedRegimeSet_pairwise_noncollapse"
+cite_id = "SEIR.THM.DERIVED_PROFILE_SET_PAIRWISE_NONCOLLAPSE"
+name = "derivedRegimeSet_pairwise_noncollapse"
+lean_symbol = "SE.IdentityRegimes.derivedRegimeSet_pairwise_noncollapse"
 source_module = "SE.IdentityRegimes.Transform.LowerBound"
 status = "proved"
-description = "All profiles in the derived regime set are pairwise non-collapsing. Delegates to noncollapse_all_pairs."
+description = "The derived regime set is pairwise non-collapsing."
+
+[theorem.derivedRegimeSet_complete]
+order = 22
+id = "derivedRegimeSet_complete"
+cite_id = "SEIR.THM.DERIVED_PROFILE_SET_COMPLETE"
+name = "derivedRegimeSet_complete"
+lean_symbol = "SE.IdentityRegimes.derivedRegimeSet_complete"
+source_module = "SE.IdentityRegimes.Transform.LowerBound"
+status = "proved"
+description = "Every canonical Regime appears in the derived regime set."
+
+[theorem.derivedRegimeSet_card]
+order = 23
+id = "derivedRegimeSet_card"
+cite_id = "SEIR.THM.DERIVED_PROFILE_SET_CARD"
+name = "derivedRegimeSet_card"
+lean_symbol = "SE.IdentityRegimes.derivedRegimeSet_card"
+source_module = "SE.IdentityRegimes.Transform.LowerBound"
+status = "proved"
+description = "The derived regime set has cardinality nine."
+
+[theorem.classification_pattern_unique]
+order = 24
+id = "classification_pattern_unique"
+cite_id = "SEIR.THM.CLASSIFICATION_PATTERN_UNIQUE"
+name = "classification_pattern_unique"
+lean_symbol = "SE.IdentityRegimes.classification_pattern_unique"
+source_module = "SE.IdentityRegimes.Transform.LowerBound"
+status = "proved"
+description = "Equal classification patterns imply equal regimes."
+implements = "SE300.DEF.FAITHFUL_EMBEDDING"
 
 [theorem.nine_regime_lower_bound]
+order = 25
 id = "nine_regime_lower_bound"
-cite_id = "IR.THEOREM.nine_regime_lower_bound"
-name = "Nine-regime lower bound"
-lean_symbol = "nine_regime_lower_bound"
+cite_id = "SEIR.THM.NINE_PROFILE_LOWER_BOUND"
+name = "nine_regime_lower_bound"
+lean_symbol = "SE.IdentityRegimes.nine_regime_lower_bound"
 source_module = "SE.IdentityRegimes.Transform.LowerBound"
 status = "proved"
-description = "Any substrate realizing all derived profiles must realize at least nine pairwise non-collapsing profiles. Aliases derivedRegimeSet_pairwise_noncollapse. Source: SE-300 Section 5."
+description = "The canonical matrix witnesses a nine-profile lower bound."
+implements = "SE300.THM.NINE_PROFILE_LOWER_BOUND"
 
 [theorem.regime_application_admissible_of_neutral]
+order = 26
 id = "regime_application_admissible_of_neutral"
-cite_id = "IR.THEOREM.regime_application_admissible_of_neutral"
-name = "Regime application admissible of neutral"
-lean_symbol = "regime_application_admissible_of_neutral"
+cite_id = "SEIR.THM.REGIME_APPLICATION_ADMISSIBLE_OF_NEUTRAL"
+name = "regime_application_admissible_of_neutral"
+lean_symbol = "SE.IdentityRegimes.regime_application_admissible_of_neutral"
 source_module = "SE.IdentityRegimes.Theorems"
 status = "proved"
-description = "A neutral substrate supports admissible regime application. If S is neutral, then RegimeApplicationAdmissible S profile holds for any profile. Connects the neutral substrate layer directly to regime application."
+description = "Neutrality implies admissibility of applying any regime profile."
+
+[theorem.profileKind_determined_by_classification]
+order = 27
+id = "profileKind_determined_by_classification"
+cite_id = "SEIR.THM.PROFILE_KIND_DETERMINED_BY_CLASSIFICATION"
+name = "profileKind_determined_by_classification"
+lean_symbol = "SE.IdentityRegimes.profileKind_determined_by_classification"
+source_module = "SE.IdentityRegimes.Embedding"
+status = "proved"
+description = "A classification pattern determines a unique canonical regime."
+
+[theorem.representation_theorem]
+order = 28
+id = "representation_theorem"
+cite_id = "SEIR.THM.REPRESENTATION"
+name = "representation_theorem"
+lean_symbol = "SE.IdentityRegimes.representation_theorem"
+source_module = "SE.IdentityRegimes.Embedding"
+status = "proved"
+description = "Each canonical regime is uniquely represented by its classification behavior."
+implements = "SE300.THM.REPRESENTATION"
+
+[theorem.derived_regime_set_no_behavioral_collapse]
+order = 29
+id = "derived_regime_set_no_behavioral_collapse"
+cite_id = "SEIR.THM.DERIVED_PROFILE_SET_NO_BEHAVIORAL_COLLAPSE"
+name = "derived_regime_set_no_behavioral_collapse"
+lean_symbol = "SE.IdentityRegimes.derived_regime_set_no_behavioral_collapse"
+source_module = "SE.IdentityRegimes.Embedding"
+status = "proved"
+description = "Distinct regimes in the derived set are not behaviorally equivalent under the canonical matrix."
+
+[theorem.nine_regime_lower_bound_witness]
+order = 30
+id = "nine_regime_lower_bound_witness"
+cite_id = "SEIR.THM.NINE_PROFILE_LOWER_BOUND_WITNESS"
+name = "nine_regime_lower_bound_witness"
+lean_symbol = "SE.IdentityRegimes.nine_regime_lower_bound_witness"
+source_module = "SE.IdentityRegimes.Embedding"
+status = "proved"
+description = "The derived regime set explicitly witnesses nine pairwise non-collapsing regimes."
+
+[theorem.matrix_RE_always_IGN]
+order = 31
+id = "matrix_RE_always_IGN"
+cite_id = "SEIR.THM.MATRIX_RE_ALWAYS_IGN"
+name = "matrix_RE_always_IGN"
+lean_symbol = "SE.IdentityRegimes.matrix_RE_always_IGN"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "RE is classified IGN for every regime."
+
+[theorem.matrix_SU_always_BRK]
+order = 32
+id = "matrix_SU_always_BRK"
+cite_id = "SEIR.THM.MATRIX_SU_ALWAYS_BRK"
+name = "matrix_SU_always_BRK"
+lean_symbol = "SE.IdentityRegimes.matrix_SU_always_BRK"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "SU is classified BRK for every regime."
+
+[theorem.matrix_IGN_nonempty]
+order = 33
+id = "matrix_IGN_nonempty"
+cite_id = "SEIR.THM.MATRIX_IGN_NONEMPTY"
+name = "matrix_IGN_nonempty"
+lean_symbol = "SE.IdentityRegimes.matrix_IGN_nonempty"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "The matrix contains at least one IGN cell."
+
+[theorem.matrix_PRS_nonempty]
+order = 34
+id = "matrix_PRS_nonempty"
+cite_id = "SEIR.THM.MATRIX_PRS_NONEMPTY"
+name = "matrix_PRS_nonempty"
+lean_symbol = "SE.IdentityRegimes.matrix_PRS_nonempty"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "The matrix contains at least one PRS cell."
+
+[theorem.matrix_BRK_nonempty]
+order = 35
+id = "matrix_BRK_nonempty"
+cite_id = "SEIR.THM.MATRIX_BRK_NONEMPTY"
+name = "matrix_BRK_nonempty"
+lean_symbol = "SE.IdentityRegimes.matrix_BRK_nonempty"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "The matrix contains at least one BRK cell."
+
+[theorem.allCells_card]
+order = 36
+id = "allCells_card"
+cite_id = "SEIR.THM.MATRIX_ALL_CELLS_CARD"
+name = "allCells_card"
+lean_symbol = "SE.IdentityRegimes.allCells_card"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "The matrix domain contains exactly 90 cells."
+
+[theorem.matrix_counts]
+order = 37
+id = "matrix_counts"
+cite_id = "SEIR.THM.MATRIX_COUNTS"
+name = "matrix_counts"
+lean_symbol = "SE.IdentityRegimes.matrix_counts"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "PRS, BRK, and IGN counts sum to 90."
+
+[theorem.matrix_PRS_count]
+order = 38
+id = "matrix_PRS_count"
+cite_id = "SEIR.THM.MATRIX_PRS_COUNT"
+name = "matrix_PRS_count"
+lean_symbol = "SE.IdentityRegimes.matrix_PRS_count"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "The matrix contains 22 PRS cells."
+
+[theorem.matrix_BRK_count]
+order = 39
+id = "matrix_BRK_count"
+cite_id = "SEIR.THM.MATRIX_BRK_COUNT"
+name = "matrix_BRK_count"
+lean_symbol = "SE.IdentityRegimes.matrix_BRK_count"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "The matrix contains 20 BRK cells."
+
+[theorem.matrix_IGN_count]
+order = 40
+id = "matrix_IGN_count"
+cite_id = "SEIR.THM.MATRIX_IGN_COUNT"
+name = "matrix_IGN_count"
+lean_symbol = "SE.IdentityRegimes.matrix_IGN_count"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "The matrix contains 48 IGN cells."
+
+[theorem.matrix_enr_split_on_BF]
+order = 41
+id = "matrix_enr_split_on_BF"
+cite_id = "SEIR.THM.MATRIX_ENR_SPLIT_ON_BF"
+name = "matrix_enr_split_on_BF"
+lean_symbol = "SE.IdentityRegimes.matrix_enr_split_on_BF"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "BF distinguishes ENR_L from ENR_I."
+
+[theorem.matrix_ctx_split_on_AD]
+order = 42
+id = "matrix_ctx_split_on_AD"
+cite_id = "SEIR.THM.MATRIX_CTX_SPLIT_ON_AD"
+name = "matrix_ctx_split_on_AD"
+lean_symbol = "SE.IdentityRegimes.matrix_ctx_split_on_AD"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "AD distinguishes CTX_E from CTX_S."
+
+[theorem.matrix_nor_split_on_RF]
+order = 43
+id = "matrix_nor_split_on_RF"
+cite_id = "SEIR.THM.MATRIX_NOR_SPLIT_ON_RF"
+name = "matrix_nor_split_on_RF"
+lean_symbol = "SE.IdentityRegimes.matrix_nor_split_on_RF"
+source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
+status = "proved"
+description = "RF distinguishes NOR_C from NOR_S."
+
+[theorem.referenceClassificationValues_card]
+order = 44
+id = "referenceClassificationValues_card"
+cite_id = "SEIR.THM.REFERENCE_CLASSIFICATION_VALUES_CARD"
+name = "referenceClassificationValues_card"
+lean_symbol = "SE.IdentityRegimes.referenceClassificationValues_card"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of classification values has cardinality 3."
+
+[theorem.referenceClassificationValues_nodup]
+order = 45
+id = "referenceClassificationValues_nodup"
+cite_id = "SEIR.THM.REFERENCE_CLASSIFICATION_VALUES_NODUP"
+name = "referenceClassificationValues_nodup"
+lean_symbol = "SE.IdentityRegimes.referenceClassificationValues_nodup"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of classification values contains no duplicates."
+
+[theorem.referenceClassificationValues_complete]
+order = 46
+id = "referenceClassificationValues_complete"
+cite_id = "SEIR.THM.REFERENCE_CLASSIFICATION_VALUES_COMPLETE"
+name = "referenceClassificationValues_complete"
+lean_symbol = "SE.IdentityRegimes.referenceClassificationValues_complete"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of classification values is complete."
+
+[theorem.referenceFamilies_card]
+order = 47
+id = "referenceFamilies_card"
+cite_id = "SEIR.THM.REFERENCE_FAMILIES_CARD"
+name = "referenceFamilies_card"
+lean_symbol = "SE.IdentityRegimes.referenceFamilies_card"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of families has cardinality 6."
+
+[theorem.referenceFamilies_nodup]
+order = 48
+id = "referenceFamilies_nodup"
+cite_id = "SEIR.THM.REFERENCE_FAMILIES_NODUP"
+name = "referenceFamilies_nodup"
+lean_symbol = "SE.IdentityRegimes.referenceFamilies_nodup"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of families contains no duplicates."
+
+[theorem.referenceFamilies_complete]
+order = 49
+id = "referenceFamilies_complete"
+cite_id = "SEIR.THM.REFERENCE_FAMILIES_COMPLETE"
+name = "referenceFamilies_complete"
+lean_symbol = "SE.IdentityRegimes.referenceFamilies_complete"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of families is complete."
+
+[theorem.referenceProfiles_card]
+order = 50
+id = "referenceProfiles_card"
+cite_id = "SEIR.THM.REFERENCE_PROFILES_CARD"
+name = "referenceProfiles_card"
+lean_symbol = "SE.IdentityRegimes.referenceProfiles_card"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of profiles has cardinality 9."
+
+[theorem.referenceProfiles_nodup]
+order = 51
+id = "referenceProfiles_nodup"
+cite_id = "SEIR.THM.REFERENCE_PROFILES_NODUP"
+name = "referenceProfiles_nodup"
+lean_symbol = "SE.IdentityRegimes.referenceProfiles_nodup"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of profiles contains no duplicates."
+
+[theorem.referenceProfiles_complete]
+order = 52
+id = "referenceProfiles_complete"
+cite_id = "SEIR.THM.REFERENCE_PROFILES_COMPLETE"
+name = "referenceProfiles_complete"
+lean_symbol = "SE.IdentityRegimes.referenceProfiles_complete"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of profiles is complete."
+
+[theorem.referenceTransformations_card]
+order = 53
+id = "referenceTransformations_card"
+cite_id = "SEIR.THM.REFERENCE_TRANSFORMATIONS_CARD"
+name = "referenceTransformations_card"
+lean_symbol = "SE.IdentityRegimes.referenceTransformations_card"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of transformations has cardinality 10."
+
+[theorem.referenceTransformations_nodup]
+order = 54
+id = "referenceTransformations_nodup"
+cite_id = "SEIR.THM.REFERENCE_TRANSFORMATIONS_NODUP"
+name = "referenceTransformations_nodup"
+lean_symbol = "SE.IdentityRegimes.referenceTransformations_nodup"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of transformations contains no duplicates."
+
+[theorem.referenceTransformations_complete]
+order = 55
+id = "referenceTransformations_complete"
+cite_id = "SEIR.THM.REFERENCE_TRANSFORMATIONS_COMPLETE"
+name = "referenceTransformations_complete"
+lean_symbol = "SE.IdentityRegimes.referenceTransformations_complete"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "The canonical reference list of transformations is complete."
+
+[theorem.referenceProfiles_match_derived]
+order = 56
+id = "referenceProfiles_match_derived"
+cite_id = "SEIR.THM.REFERENCE_PROFILES_MATCH_DERIVED"
+name = "referenceProfiles_match_derived"
+lean_symbol = "SE.IdentityRegimes.referenceProfiles_match_derived"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "Reference profiles and the derived regime set have the same membership."
+
+[theorem.derivedProfilesFromFamilies_card]
+order = 57
+id = "derivedProfilesFromFamilies_card"
+cite_id = "SEIR.THM.DERIVED_PROFILES_FROM_FAMILIES_CARD"
+name = "derivedProfilesFromFamilies_card"
+lean_symbol = "SE.IdentityRegimes.derivedProfilesFromFamilies_card"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "Family derivation yields nine profiles."
+
+[theorem.derivedProfilesFromFamilies_nodup]
+order = 58
+id = "derivedProfilesFromFamilies_nodup"
+cite_id = "SEIR.THM.DERIVED_PROFILES_FROM_FAMILIES_NODUP"
+name = "derivedProfilesFromFamilies_nodup"
+lean_symbol = "SE.IdentityRegimes.derivedProfilesFromFamilies_nodup"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "Family derivation yields no duplicate profiles."
+
+[theorem.derivedProfilesFromFamilies_complete]
+order = 59
+id = "derivedProfilesFromFamilies_complete"
+cite_id = "SEIR.THM.DERIVED_PROFILES_FROM_FAMILIES_COMPLETE"
+name = "derivedProfilesFromFamilies_complete"
+lean_symbol = "SE.IdentityRegimes.derivedProfilesFromFamilies_complete"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "Family derivation includes every canonical regime."
+
+[theorem.derivedProfilesFromFamilies_match_reference]
+order = 60
+id = "derivedProfilesFromFamilies_match_reference"
+cite_id = "SEIR.THM.DERIVED_PROFILES_FROM_FAMILIES_MATCH_REFERENCE"
+name = "derivedProfilesFromFamilies_match_reference"
+lean_symbol = "SE.IdentityRegimes.derivedProfilesFromFamilies_match_reference"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "Family-derived profiles and reference profiles have the same membership."
+
+[theorem.derivedProfilesFromFamilies_match_derived]
+order = 61
+id = "derivedProfilesFromFamilies_match_derived"
+cite_id = "SEIR.THM.DERIVED_PROFILES_FROM_FAMILIES_MATCH_DERIVED"
+name = "derivedProfilesFromFamilies_match_derived"
+lean_symbol = "SE.IdentityRegimes.derivedProfilesFromFamilies_match_derived"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "Family-derived profiles and the derived regime set have the same membership."
+
+[theorem.profilesForFamily_split_count]
+order = 62
+id = "profilesForFamily_split_count"
+cite_id = "SEIR.THM.PROFILES_FOR_FAMILY_SPLIT_COUNT"
+name = "profilesForFamily_split_count"
+lean_symbol = "SE.IdentityRegimes.profilesForFamily_split_count"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "Exactly three parent families split into multiple regimes."
+
+[theorem.profilesForFamily_nosplit_singleton]
+order = 63
+id = "profilesForFamily_nosplit_singleton"
+cite_id = "SEIR.THM.PROFILES_FOR_FAMILY_NOSPLIT_SINGLETON"
+name = "profilesForFamily_nosplit_singleton"
+lean_symbol = "SE.IdentityRegimes.profilesForFamily_nosplit_singleton"
+source_module = "SE.IdentityRegimes.Reference.Core"
+status = "proved"
+description = "Every unsplit family yields exactly one regime."

@@ -1,7 +1,7 @@
 // ============================================================
-// .vscode/extensions.json (ALL-PY-SRC-REPOS)
+// .vscode/extensions.json (ALL-PY-REPOS)
 // ============================================================
-// Updated: 2026-08-22
+// Updated: 2026-08-15
 // Basis: cross-platform (all 3 OS), popular, reliable.
 // NOTE: Comments are not allowed in standard JSON files,
 //       but Microsoft allows them in their .vscode config files (JSONC).
@@ -24,15 +24,6 @@
     "astral-sh.ty", // Fast Python type checking and language support
 
     // ============================================================
-    // === NOTEBOOKS ===
-    // ============================================================
-    "marimo-team.vscode-marimo", // Marimo notebook support
-    // "ms-toolsai.jupyter", // Core Jupyter support for .ipynb files
-    // "ms-toolsai.jupyter-keymap", // Jupyter keyboard shortcuts in VS Code
-    // "ms-toolsai.jupyter-renderers", // Rich output rendering (plots, dataframes)
-    // "ms-toolsai.vscode-jupyter-cell-tags", // Cell tagging for notebook organization
-
-    // ============================================================
     // === FILE PATH ASSISTANCE ===
     // ============================================================
     "christian-kohler.path-intellisense", // Autocomplete for file paths in Python strings (e.g., "data/file.csv")
@@ -52,21 +43,13 @@
     // ============================================================
     "redhat.vscode-yaml", // YAML syntax, validation, formatting
     "tamasfe.even-better-toml", // TOML syntax, validation (for pyproject.toml)
-    "mechatroner.rainbow-csv", // Color-code CSV columns for readability
+    // "mechatroner.rainbow-csv", // Color-code CSV columns for readability
 
     // ============================================================
     // === PROJECT INFRASTRUCTURE ===
     // ============================================================
     "editorconfig.editorconfig", // Respects .editorconfig settings (indentation, line endings)
     "github.vscode-github-actions" // Syntax highlighting for .github/workflows/*.yml
-
-    // ============================================================
-    // === DATABASE TOOLS ===
-    // ============================================================
-    // "mtxr.sqltools", // SQL query editor and database connections
-    // "qwtel.sqlite-viewer", // View .db files as tables in VS Code
-    // "ChuckJonas.duckdb", // DuckDB client: query CSV/Parquet/.duckdb in-editor (unofficial; no official ext exists)
-    // "RandomFractalsInc.duckdb-sql-tools", // alt: DuckDB SQL Tools (Preview)
 
     // ============================================================
     // === OPTIONAL (try if you want) ===

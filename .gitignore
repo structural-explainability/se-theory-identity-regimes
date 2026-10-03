@@ -1,7 +1,7 @@
 # ============================================================
 # .gitignore (ALL-REPOS)
 # ============================================================
-# Updated: 2026-09-25
+# Updated: 2026-10-02
 #
 # REQ: All professional GitHub project repositories MUST include .gitignore.
 # WHY: Keep generated artifacts, local state, secrets, temporary files,
@@ -169,6 +169,12 @@ logs/
 # and avoids ignoring a nested source directory that happens to be named bin.
 /bin/
 
+# === Lean ===
+
+# WHY: Lake build and dependency state is generated.
+.lake/
+lake-packages/
+/docbuild/
 
 # === Markup and documentation ===
 

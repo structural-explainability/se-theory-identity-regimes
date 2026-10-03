@@ -2,7 +2,7 @@
 
 <#
 ============================================================
-sit.ps1 (ALL-PY-SRC-REPOS)
+sit.ps1 (ALL-PY-REPOS)
 ============================================================
 Updated: 2026-09-25
 
@@ -60,12 +60,7 @@ uv run prek run --all-files
 # repeat if changes were made
 uv run prek run --all-files
 
-# run common chores
-uv run ruff format .
-uv run ruff check . --fix
-uv run ty check
-uv run python -m pytest
+# build docs
 uv run python -m zensical build
 
 Write-Host "All commands executed successfully."
-Write-Host "Run a Python module to verify .venv/ is working correctly."

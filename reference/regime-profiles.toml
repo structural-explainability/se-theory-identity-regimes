@@ -1,55 +1,118 @@
-# regime-profiles.toml
+# ============================================================
+# Regime Profiles
+# se-theory-identity-regimes
+# ============================================================
+# Each profile id is a constructor of SE.IdentityRegimes.Regime.
+# There is no separate RegimeProfileKind type.
 
 [meta]
 source = "se-theory-identity-regimes"
-namespace = "se.identity-regimes"
+namespace = "se.identity_regimes"
 artifact = "regime-profiles"
-version = "0.1.0"
+version = "0.3.0"
 status = "canonical"
 
-# === Regime Profiles ===
-
-[regime_profiles.OBL]
+[profile.OBL]
 order = 1
+id = "OBL"
 family = "OBL"
+identity_basis = "single"
+split = false
 label = "Obligation-bearing profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "OBL"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"
 
-[regime_profiles.OCC]
+[profile.OCC]
 order = 2
+id = "OCC"
 family = "OCC"
+identity_basis = "single"
+split = false
 label = "Time-indexed occurrence profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "OCC"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"
 
-[regime_profiles.REC]
+[profile.REC]
 order = 3
+id = "REC"
 family = "REC"
+identity_basis = "single"
+split = false
 label = "Descriptive record profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "REC"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"
 
-[regime_profiles.ENR_L]
+[profile.ENR_L]
 order = 4
+id = "ENR_L"
 family = "ENR"
+identity_basis = "locus"
+split = true
+split_transformation = "BF"
 label = "Enduring non-normative referent, locus-bound profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "ENR_L"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"
 
-[regime_profiles.ENR_I]
+[profile.ENR_I]
 order = 5
+id = "ENR_I"
 family = "ENR"
+identity_basis = "instrument"
+split = true
+split_transformation = "BF"
 label = "Enduring non-normative referent, instrument-bound profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "ENR_I"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"
 
-[regime_profiles.CTX_E]
+[profile.CTX_E]
 order = 6
+id = "CTX_E"
 family = "CTX"
-label = "Applicability context, event-bound profile"
+identity_basis = "extension"
+split = true
+split_transformation = "AD"
+label = "Applicability context, extension-sensitive profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "CTX_E"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"
 
-[regime_profiles.CTX_S]
+[profile.CTX_S]
 order = 7
+id = "CTX_S"
 family = "CTX"
-label = "Applicability context, scope-bound profile"
+identity_basis = "structure"
+split = true
+split_transformation = "AD"
+label = "Applicability context, structure-sensitive profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "CTX_S"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"
 
-[regime_profiles.NOR_C]
+[profile.NOR_C]
 order = 8
+id = "NOR_C"
 family = "NOR"
-label = "Normative structure, context-bound profile"
+identity_basis = "content"
+split = true
+split_transformation = "RF"
+label = "Normative structure, content-sensitive profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "NOR_C"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"
 
-[regime_profiles.NOR_S]
+[profile.NOR_S]
 order = 9
+id = "NOR_S"
 family = "NOR"
-label = "Normative structure, scope-bound profile"
+identity_basis = "structure"
+split = true
+split_transformation = "RF"
+label = "Normative structure, structure-sensitive profile"
+lean_type = "SE.IdentityRegimes.Regime"
+lean_constructor = "NOR_S"
+source_module = "SE.IdentityRegimes.Vocab.Regimes"

@@ -1,8 +1,17 @@
-import SE.IdentityRegimes.Profile.Core
-import IdentityRegimes.Transform.Core
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
+
+import all SE.IdentityRegimes.Transform.Core
+
+public import SE.IdentityRegimes.Profile.Core
+public import SE.IdentityRegimes.Transform.Core
 
 /-!
-File: IdentityRegimes/Transform/NonCollapse.lean
+File: SE/IdentityRegimes/Transform/NonCollapse.lean
 
 Purpose:
 Non-collapse proofs for the derived regime profiles.
@@ -18,9 +27,23 @@ is sufficient for ∼_P ≠ ∼_Q via noncollapse_of_prs_difference below:
 if p classifies t as PRS and q does not, then there exist representations x and
 y = applyTrans t x such that x ∼_P y but x ≁_Q y, so ∼_P ≠ ∼_Q.
 
-For the nine derived profiles, every matrix difference that appears in a proof
-involves a PRS cell for at least one of the two profiles being compared, so
-the Lean definition is operationally equivalent to the paper's ∼_P ≠ ∼_Q.
+For the nine derived profiles, 34 of the 36 unordered profile pairs have
+different PRS sets, so the argument above applies to them. (The connection to
+∼_P is documented here; ∼_P and applyTrans are not defined as Lean objects.)
+
+The other two pairs have equal PRS sets, and therefore equal PRS-generated
+relations. Their matrix rows differ only at non-PRS cells:
+
+  OBL vs NOR-C:   PRS sets are both {RF, AD}; the rows differ only at
+                  BF (IGN vs BRK).
+  CTX-S vs NOR-S: PRS sets are both empty; the rows differ only at
+                  RC and RA (BRK vs IGN).
+
+For these two pairs Lean proves row-level matrix distinction (NonCollapsing),
+which is not the paper's ∼_P ≠ ∼_Q. The paper separates them by identity
+carrier (GEN-CAR), which this file does not model. The row-level distinction
+is still strict: classification_pattern_unique shows that all nine rows are
+pairwise distinct.
 
 Non-collapse is established in two stages:
 
@@ -30,21 +53,36 @@ Non-collapse is established in two stages:
     NOR-C vs NOR-S: RF differs (PRS vs BRK). Proof: paper Prop. NOR non-collapse.
 
   GEN-CAR pairs (distinct parent regimes):
-    Separated by difference in classification behavior across families.
+    The paper separates these by difference in identity carrier. Lean
+    separates them by difference in classification behavior across families
+    (noncollapse_of_distinct_regime); identity carriers are not modeled in
+    the profile matrix.
     All 66 cross-family ordered pairs are handled by noncollapse_all_pairs.
 
 Source: SE-300, Section 5, pairwise non-collapse matrices.
 -/
 
-namespace IdentityRegimes
+namespace SE.IdentityRegimes
 
+public section
+
+-- RR.DEFINES: SEIR.DEF.NONCOLLAPSING
+-- RR.DEFINES: SEIR.THM.NONCOLLAPSE_OF_PRS_DIFFERENCE
+-- RR.DEFINES: SEIR.THM.NONCOLLAPSE_ENR_L_ENR_I
+-- RR.DEFINES: SEIR.THM.NONCOLLAPSE_CTX_E_CTX_S
+-- RR.DEFINES: SEIR.THM.NONCOLLAPSE_NOR_C_NOR_S
+-- RR.DEFINES: SEIR.THM.NONCOLLAPSE_OF_DISTINCT_REGIME
+-- RR.DEFINES: SEIR.THM.NONCOLLAPSE_ALL_PAIRS
 /-- Two profiles are non-collapsing if the canonical classification matrix
     assigns different values to some transformation under those two profiles.
 
-    This is sufficient for the paper's condition ∼_P ≠ ∼_Q: distinct PRS sets
+    This is a row-level (matrix) distinction. It gives the paper's condition
+    ∼_P ≠ ∼_Q when the difference involves a PRS cell: distinct PRS sets
     induce distinct equivalence relations on the representation space.
-    See noncollapse_of_prs_difference for the operative connection. -/
-def NonCollapsing (p q : RegimeProfileKind) : Prop :=
+    A difference confined to non-PRS cells does not by itself change ∼_P.
+    See noncollapse_of_prs_difference for the operative connection, and the
+    file header for the two profile pairs with equal PRS sets. -/
+def NonCollapsing (p q : Regime) : Prop :=
   ∃ t : Transformation, classificationMatrix p t ≠ classificationMatrix q t
 
 -- ============================================================
@@ -64,7 +102,7 @@ def NonCollapsing (p q : RegimeProfileKind) : Prop :=
       - noncollapse_CTX_E_CTX_S: t = AD, p = CTX-E (PRS), q = CTX-S (BRK)
       - noncollapse_NOR_C_NOR_S: t = RF, p = NOR-C (PRS), q = NOR-S (BRK) -/
 theorem noncollapse_of_prs_difference
-    (p q : RegimeProfileKind)
+    (p q : Regime)
     (t : Transformation)
     (hp : classificationMatrix p t = .PRS)
     (hq : classificationMatrix q t ≠ .PRS) :
@@ -107,13 +145,13 @@ theorem noncollapse_NOR_C_NOR_S : NonCollapsing .NOR_C .NOR_S :=
 -- GEN-CAR pairs: cross-family separation
 -- ============================================================
 
-/-- Profiles with distinct parent regimes are non-collapsing. -/
-theorem noncollapse_of_distinct_regime
-    (p q : RegimeProfileKind)
-    (h : p.regime ≠ q.regime) :
+/-- All 72 ordered pairs of distinct regimes in the derived regime set
+    are non-collapsing under the canonical classification matrix. -/
+theorem noncollapse_all_pairs
+    (p q : Regime)
+    (h : p ≠ q) :
     NonCollapsing p q := by
-  cases p <;> cases q <;>
-    simp_all [RegimeProfileKind.regime] <;>
+  cases p <;> cases q <;> simp at h <;>
     first
     | exact ⟨.BF, by decide⟩
     | exact ⟨.AD, by decide⟩
@@ -122,22 +160,16 @@ theorem noncollapse_of_distinct_regime
     | exact ⟨.AN, by decide⟩
     | exact ⟨.RC, by decide⟩
 
-/-- All 72 ordered pairs of distinct profiles in the derived regime set
-    are non-collapsing under the canonical classification matrix. -/
-theorem noncollapse_all_pairs
-    (p q : RegimeProfileKind)
-    (h : p ≠ q) :
+/-- Regimes with distinct parent families are non-collapsing. -/
+theorem noncollapse_of_distinct_regime
+    (p q : Regime)
+    (h : p.family ≠ q.family) :
     NonCollapsing p q := by
-  cases p <;> cases q <;> simp_all <;>
-    first
-    | exact ⟨.BF, by native_decide⟩
-    | exact ⟨.AD, by native_decide⟩
-    | exact ⟨.RF, by native_decide⟩
-    | exact ⟨.SE, by native_decide⟩
-    | exact ⟨.AN, by native_decide⟩
-    | exact ⟨.RC, by native_decide⟩
-    | exact ⟨.RA, by native_decide⟩
-    | exact ⟨.PV, by native_decide⟩
-    | exact ⟨.SU, by native_decide⟩
+  apply noncollapse_all_pairs p q
+  intro hpq
+  subst q
+  exact h rfl
 
-end IdentityRegimes
+end
+
+end SE.IdentityRegimes

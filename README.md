@@ -9,104 +9,79 @@
 [![CI](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-python-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-python-zensical.yml)
 [![Docs](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/deploy-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/deploy-zensical.yml)
 [![Links](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/links.yml)
+[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/structural-explainability/se-theory-neutral-substrate/security)
 
 > Lean 4 formalization of the identity regimes of Structural Explainability.
 
 This repository defines the six canonical identity regimes and derived
 regime-profile structure over admissible neutral substrates.
 
-For the full documentation, see [`docs/en/index.md`](./docs/en/index.md).
-
 ## Authority
 
 Lean source files are authoritative for formal definitions, predicates, axioms,
 theorems, proof obligations, and reference rules.
 
-Reference artifacts under `reference/` and generated artifacts under
-`data/identity-regimes/` mirror the Lean public surface.
-They do not define theory semantics independently of Lean.
+Reference artifacts under `reference/` declare the repository-owned
+classification, traceability, and export intent for the Lean public surface.
+
+Generated artifacts under `data/` are outputs.
+They do not define theory semantics independently of Lean or the reference artifacts.
+
+The reusable `se-theory-reference-kit` owns the generic validation,
+cataloging, inspection, and export machinery.
+This repository owns its Lean source, reference declarations, and
+generated neutral-substrate artifacts.
 
 ## Import
 
-Downstream Lean projects should import the public surface:
+Import the public theory surface:
 
 ```text
 import SE.IdentityRegimes
 ```
 
-The public import surface is curated in:
+## Lean Module Convention
+
+Production Lean code uses the `SE.*` namespace.
+
+- `SE.lean` is the repository production entry point.
+- `SE/<Project>.lean` is the project public import surface.
+- Production modules live under `SE/<Project>/`.
+
+Test Lean code uses the `SETest.*` namespace.
+
+- `SETest.lean` is the repository test entry point.
+- `SETest/<Project>.lean` is the project test surface.
+- Test modules live under `SETest/<Project>/`.
+
+`Spec.lean` is used when the project defines a specification module.
+
+## Reference Configuration
+
+The theory-reference workflow is configured by:
 
 ```text
-SE.IdentityRegimes.lean
-SE.IdentityRegimes/Surface.lean
+reference/theory-reference.toml
 ```
 
-## Scope
+That file declares this repository's Lean public modules,
+reference artifact layout, export targets, and validation commands.
+Public symbols are declared in the reference artifacts.
 
-This repository covers:
+## Developer
 
-- six canonical identity regimes,
-- nine canonical regime profile kinds after splits,
-- regime requirement structure,
-- regime-profile structure,
-- admissibility conditions for regime application over neutral substrates,
-- transformation basis and classification structure,
-- split pressure predicates and theorems,
-- pairwise non-collapse proofs,
-- lower-bound and classification-uniqueness theorem structure,
-- regime-typed multigraph structure,
-- representation theorem structure,
-- machine-checked Lean theorems.
+Maintain:
 
-## Owns
-
-This repository owns the identity-regime theory layer, including:
-
-- six canonical identity regimes:
-  - OBL
-  - NOR
-  - OCC
-  - CTX
-  - REC
-  - ENR
-- nine canonical regime profile kinds after splits:
-  - OBL
-  - OCC
-  - REC
-  - ENR_L
-  - ENR_I
-  - CTX_E
-  - CTX_S
-  - NOR_C
-  - NOR_S
-- transformations:
-  - RE
-  - AN
-  - RF
-  - AD
-  - RC
-  - RA
-  - SU
-  - BF
-  - PV
-  - SE
-
-## Does not own
-
-This repository does not own:
-
-- neutral substrate primitives; see `se-theory-identity-regimes`,
-- path grammar and expressive adequacy,
-- domain mappings,
-- operational validation,
-- runtime systems,
-- contract artifact generation.
-
-## Command Reference
+- `lakefile.toml` and
+- `lean-toolchain`
+- `reference/theory-reference.toml` - hand-maintained configuration
+- `reference/*.toml` - hand-maintained/scaffolded reference source artifacts
+- Lean source + RR comments - hand-maintained theory source
 
 ### Clone and Open in VS Code
 
-Open a machine terminal where you want the project:
+Open a machine terminal where you want the project
+and open in VS Code:
 
 ```shell
 git clone https://github.com/structural-explainability/se-theory-identity-regimes
@@ -115,71 +90,45 @@ cd se-theory-identity-regimes
 code .
 ```
 
-### In a VS Code Terminal
+### Setup and Run
 
 Use VS Code Menu:
 View / Command Palette / `Developer: Reload Window` to refresh.
 
 ```shell
-# set up or update Python environment
-uvx pup-clean --delete
-uv self update
-uv python install
-uv lock --upgrade
-uv sync
-uv audit
-
-# set up and run git hooks
-uv run prek install --force
-uv run prek update
-git add -A
-uv run prek run --all-files
-# repeat if changes were made
-uv run prek run --all-files
-
-# build Lean source of truth
-elan self update
-lake update
-lake build
-lake build TestAll
+.\sit.ps1
+.\rel.ps1
 
 # inspect shared theory-reference command surface
-uv run se-theory-reference --help
-uv run se-theory-reference validate --help
-uv run se-theory-reference scaffold --help
-uv run se-theory-reference export --help
-uv run se-theory-reference catalog --help
-uv run se-theory-reference inspect --help
+uvx se-theory-reference-kit@latest --help
+uvx se-theory-reference-kit@latest validate --help
+uvx se-theory-reference-kit@latest scaffold --help
+uvx se-theory-reference-kit@latest export --help
+uvx se-theory-reference-kit@latest catalog --help
+uvx se-theory-reference-kit@latest inspect --help
 
 # validate reference artifacts against the declared Lean public surface
-uv run se-theory-reference validate
-uv run se-theory-reference validate --strict
+uvx se-theory-reference-kit@latest validate
+uvx se-theory-reference-kit@latest validate --strict
 
 # scaffold reference artifacts from Lean public declarations
-uv run se-theory-reference scaffold
-uv run se-theory-reference scaffold --dry-run
-uv run se-theory-reference scaffold --overwrite
+uvx se-theory-reference-kit@latest scaffold
+uvx se-theory-reference-kit@latest scaffold --dry-run
+uvx se-theory-reference-kit@latest scaffold --overwrite
 
 # regenerate or check generated JSON artifacts from reference TOML
-uv run se-theory-reference export
-uv run se-theory-reference export --check
+uvx se-theory-reference-kit@latest export
+uvx se-theory-reference-kit@latest export --check
 
 # build or verify the generated reference catalog
-uv run se-theory-reference catalog
-uv run se-theory-reference catalog --check
+uvx se-theory-reference-kit@latest catalog
+uvx se-theory-reference-kit@latest catalog --check
 
 # inspect resolved repository configuration and reference declarations
-uv run se-theory-reference inspect
+uvx se-theory-reference-kit@latest inspect
 
 # validate SE manifest file
 uvx se-manifest-schema validate-manifest --path SE_MANIFEST.toml --strict
-
-# run common chores
-uv run ruff format .
-uv run ruff check . --fix
-uv run ty check
-uv run python -m pytest
-uv run python -m zensical build
 
 # save progress
 git add -A

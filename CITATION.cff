@@ -1,16 +1,18 @@
 # ============================================================
 # CITATION.cff (How to cite this project)
 # ============================================================
-
 # REQ.UNIVERSAL: Professional open projects SHOULD include this file.
 # USAGE: See https://citation-file-format.github.io/ for details.
+# check with:
+# uvx cffconvert --validate
 
 cff-version: "1.2.0"
+message: "If you use this work, please cite it using the metadata in CITATION.cff."
 type: software
 
 title: "SE Theory: Identity Regimes"
-version: "0.3.0"
-date-released: "2026-05-02"
+version: "0.3.1"
+date-released: "2026-10-01"
 
 authors:
   - family-names: Case
@@ -41,7 +43,4 @@ keywords:
   - formal-verification
   - admissibility
   - requirements
-  - necessity-sufficiency
-  - proof-carrying
-
-message: "If you use this work, please cite it using the metadata in this file."
+  - structural-constraints

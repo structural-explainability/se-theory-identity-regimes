@@ -4,26 +4,18 @@
 # Declares the public Lean package identity, import surface,
 # build targets, dependencies, and verification executables.
 
+# Run with:
+# lake build
+# lake test
+# lake lint
+
 # ============================================================
 # PROJECT IDENTITY
 # ============================================================
 
-name = "SETheoryIdentityRegimes"
-version = "0.4.0"
+name = "se-theory-identity-regimes"
+version = "0.3.1"
 license = "MIT"
-
-keywords = [
-  "structural-explainability",
-  "formal-contract",
-  "neutrality",
-  "identity-regimes",
-  "invariants",
-  "formal-specification",
-  "formal-verification",
-  "proof-carrying",
-  "theorem-proving",
-  "lean4",
-]
 
 # ============================================================
 # BUILD SURFACE
@@ -31,34 +23,85 @@ keywords = [
 # defaultTargets must include the public Lean library root.
 
 defaultTargets = ["SE.IdentityRegimes"]
+testDriver = "SETest"
+lintDriver = "SELint"
 
 [[require]]
-name = "SETheoryNeutralSubstrate"
-scope = "git"
+name = "se-theory-neutral-substrate"
 git = "https://github.com/structural-explainability/se-theory-neutral-substrate"
-rev = "v0.6.0"
+rev = "main"
 
 [[require]]
-name = "SETheoryTransformation"
-scope = "git"
+name = "se-theory-transformation"
 git = "https://github.com/structural-explainability/se-theory-transformation"
-rev = "v0.3.0"
+rev = "main"
+
+
+# ============================================================
+# LEAN OPTIONS
+# ============================================================
+
+[leanOptions]
+weak.linter.mathlibStandardSet = true
+weak.linter.flexible = true
+weak.linter.style.header = false
+weak.linter.style.longLine = false
+
+# These linters are included in Mathlib's standard set but do
+# not currently operate correctly in downstream projects.
+weak.linter.pythonStyle = false
+weak.linter.checkInitImports = false
+weak.linter.allScriptsDocumented = false
+
+# This linter is not extensible for Unicode outside Mathlib's set.
+weak.linter.unicodeLinter = false
+
 
 # ============================================================
 # PUBLIC LIBRARY
 # ============================================================
-# Downstream Lean projects import this library root.
-# Lake discovers modules under the matching source directory.
+# The library downstream packages import. It must list every module
+# family this package owns under SE/. A module matched by no glob is not
+# built: a clean build fails, or the lint executable fails at link time with
+# undefined symbols. Tests (SETest) and the lint driver (SELint) are separate
+# targets.
+#
+# Do not use "SE.*". Other packages own other SE.* families
+# (for example SE.Transformation); claiming them breaks any package
+# that requires both.
+#
+# Glob forms:
+#   "A.B"    only the module A.B itself (here: "SE", the entry point SE.lean)
+#   "A.B.*"  A.B and all its submodules (use when A/B.lean exists)
+#   "A.B.+"  submodules of A.B only, not A.B itself (use for a directory
+#            with no A/B.lean)
+#
+# To add a family under SE/, add "SE.<Family>.+" (or ".*" if SE/<Family>.lean
+# exists).
 
 [[lean_lib]]
 name = "SE.IdentityRegimes"
+roots = ["SE.IdentityRegimes"]
+globs = ["SE.IdentityRegimes.*"]
+# Lake supports .+ for submodules only and .* for the named module plus all its submodules.
 
-# === TEST LIBRARIES (internal, not exported)
+
+# ============================================================
+# TEST LIBRARY
+# ============================================================
+# Internal verification; not part of downstream public import surface.
 
 [[lean_lib]]
-name = "TestImport"
-srcDir = "test"
+name = "SETest"
+roots = ["SETest.IdentityRegimes"]
+globs = ["SETest", "SETest.IdentityRegimes.*"]
+leanOptions = { weak.linter.style.header = false }
 
-[[lean_lib]]
-name = "TestExport"
-srcDir = "test"
+# ============================================================
+# LINT DRIVER
+# ============================================================
+
+[[lean_exe]]
+name = "SELint"
+root = "SELint"
+leanOptions = { Elab.inServer = true }

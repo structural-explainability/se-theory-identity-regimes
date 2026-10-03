@@ -1,7 +1,7 @@
 # ============================================================
-# .pre-commit-config.yaml (ALL-PY-SRC-REPOS)
+# .pre-commit-config.yaml (ALL-PY-REPOS)
 # ============================================================
-# Updated: 2026-09-25
+# Updated: 2026-10-01
 #
 # REQ: Professional projects using Python src/ SHOULD include git hooks.
 # WHY: Minimize git diffs, catch common issues early, and support collaboration.
@@ -32,6 +32,7 @@ exclude: |
     \.coverage|
     \.DS_Store|
     \.ipynb_checkpoints/|
+    \.lake/|
     \.mypy_cache/|
     \.nox/|
     \.pytest_cache/|
@@ -100,19 +101,6 @@ repos:
 
       - id: check-case-conflict
         name: C3) Check for filename case conflicts
-
-  # === REPO: RUFF PRE-COMMIT (for Python code) ===
-
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.9
-    hooks:
-      # === RUFF PRE-COMMIT CHECKS ===
-      - id: ruff-format
-        name: D1) Ruff format (before linting)
-
-      - id: ruff
-        name: D2) Ruff linter (autofix errors, style issues )
-        args: [--fix, --exit-non-zero-on-fix]
 
 # === GLOBAL SETTINGS ===
 # ALT: Set fail_fast to true to stop at first failure.

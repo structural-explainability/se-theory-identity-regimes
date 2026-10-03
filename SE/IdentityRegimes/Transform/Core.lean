@@ -1,10 +1,17 @@
-import SE.NeutralSubstrate
-import IdentityRegimes.Profile.Core
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
+
+public import SE.NeutralSubstrate
+public import SE.IdentityRegimes.Profile.Core
 
 open SE.NeutralSubstrate
 
 /-!
-File: IdentityRegimes/Transform/Core.lean
+File: SE/IdentityRegimes/Transform/Core.lean
 
 Purpose:
 The canonical 9 × 10 classification matrix.
@@ -18,10 +25,22 @@ so that each profile's classification behavior is independently readable
 and auditable. classificationMatrix delegates to these rows.
 
 NA→IGN CONVENTION
-N/A entries from the paper are mapped to IGN: "not applicable" is
-semantically equivalent to "identity question does not arise" (IGN).
-This mapping avoids introducing a fourth value while preserving the
-induced equivalence relations that determine non-collapse.
+N/A entries from the paper are mapped to IGN.
+This is intentional:
+it keeps the matrix total and three-valued, avoiding a fourth value.
+
+In the paper's profile model,
+N/A marks a transformation as inapplicable to
+the profile (applicability Appl_P(f) = 0),
+and classification is undefined there.
+IGN is a classification value for an applicable transformation,
+so N/A and IGN are not the same thing in the paper.
+
+The mapping preserves the PRS-generated identity relations
+used by the current non-collapse machinery,
+but it does not preserve the paper's separate applicability component.
+This matrix does not model applicability,
+persistence, or identity carrier.
 
 Affected cells:
   OCC.RA = IGN  (N/A: time-indexed occurrences admit no bearer reassignment)
@@ -39,7 +58,9 @@ Source: SE-300, Section 4 canonical classification tables and
         Sections 5.1-5.3 regime refinement definitions.
 -/
 
-namespace IdentityRegimes
+namespace SE.IdentityRegimes
+
+public section
 
 -- ============================================================
 -- PROFILE ROWS
@@ -47,6 +68,8 @@ namespace IdentityRegimes
 -- Column order: RE  AN  RF  AD  RC  RA  SU  BF  PV  SE
 -- ============================================================
 
+-- RR.DEFINES: SEIR.DEF.CLASSIFICATION_MATRIX
+-- RR.IMPLEMENTS: SE300.DEF.CLASSIFICATION_MAP
 /-- OBL: Obligation-bearing entity.
     Identity constituted by persistence as a responsible party.
     BF=IGN: obligation persists independently of representation forking.
@@ -93,7 +116,8 @@ private def enrLRow : Transformation → ClassificationValue
 
 /-- ENR-I: Enduring non-normative referent, instrument-bound.
     Identity constituted by persistence of the same artifact.
-    BF=BRK: branching produces distinct artifact continuations (split-forcing transformation for ENR).
+    BF=BRK: branching produces distinct artifact continuations
+            (split-forcing transformation for ENR).
     SE=PRS: state evolution preserves instrument-bound referent identity.
     RA=IGN: N/A→IGN. -/
 private def enrIRow : Transformation → ClassificationValue
@@ -154,7 +178,7 @@ private def norSRow : Transformation → ClassificationValue
 /-- The canonical 9 × 10 classification matrix.
     Each profile delegates to its named row function.
     Verified counts: PRS=22, BRK=20, IGN=48, total=90. -/
-def classificationMatrix : RegimeProfileKind → Transformation → ClassificationValue
+def classificationMatrix : Regime → Transformation → ClassificationValue
   | .OBL,   t => oblRow  t
   | .OCC,   t => occRow  t
   | .REC,   t => recRow  t
@@ -165,4 +189,6 @@ def classificationMatrix : RegimeProfileKind → Transformation → Classificati
   | .NOR_C, t => norCRow t
   | .NOR_S, t => norSRow t
 
-end IdentityRegimes
+end
+
+end SE.IdentityRegimes

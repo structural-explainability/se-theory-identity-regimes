@@ -1,10 +1,17 @@
-import SE.NeutralSubstrate
-import IdentityRegimes.Theorems
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
+
+public import SE.NeutralSubstrate
+public import SE.IdentityRegimes.Theorems
 
 open SE.NeutralSubstrate
 
 /-!
-File: IdentityRegimes/Witness.lean
+File: SE/IdentityRegimes/Witness.lean
 
 Purpose:
 Export-facing witness definitions.
@@ -12,9 +19,14 @@ Export-facing witness definitions.
 Canonical witness: OBL yields a well-formed regime profile.
 -/
 
-namespace IdentityRegimes
+namespace SE.IdentityRegimes
 
+public section
+
+/-- Canonical OBL regime-profile witness. -/
 def oblProfile : RegimeProfile :=
-  { kind  := .OBL }
+  { regime  := .OBL }
 
-end IdentityRegimes
+end
+
+end SE.IdentityRegimes

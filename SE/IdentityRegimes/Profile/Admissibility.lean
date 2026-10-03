@@ -1,23 +1,50 @@
-import SE.NeutralSubstrate
-import IdentityRegimes.Profile.Core
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
 
-open SE.NeutralSubstrate
+public import SE.NeutralSubstrate
+public import SE.IdentityRegimes.Profile.Core
 
 /-!
-File: IdentityRegimes/Profile/Admissibility.lean
+# Identity Regime Admissibility
 
-Purpose:
-Admissibility of regime application over neutral substrates.
-
-This file depends on the neutral substrate but does not redefine it.
+Admissibility of applying an identity regime profile to a neutral substrate.
 -/
 
-namespace IdentityRegimes
+set_option autoImplicit false
 
-/-- A regime may be applied only over an admissible neutral substrate. -/
-def RegimeApplicationAdmissible
-    (S : Ontology)
-    (_profile : RegimeProfile) : Prop :=
-  Neutral S
+namespace SE.IdentityRegimes
 
-end IdentityRegimes
+open SE.Framework
+open SE.Logic
+open SE.Logic.Language
+open SE.NeutralSubstrate.Neutrality
+open SE.Referent
+open SE.Substrate
+
+universe u v w x
+
+public section
+
+-- RR.DEFINES: SEIR.DEF.REGIME_APPLICATION_ADMISSIBLE
+/--
+An identity-regime application is admissible when the substrate element is
+neutral relative to the consequence system and interpretive framework.
+-/
+@[expose] def RegimeApplicationAdmissible
+    {L : PropositionalLanguage.{u}}
+    {R : ReferentCarriers.{v}}
+    (C : ConsequenceSystem L)
+    (S : SubstrateSystem.{u, v, w} L R)
+    (s : S.Carrier)
+    (M : FrameworkSystem.{u, x} L.carrier)
+    (_profile : RegimeProfile) :
+    Prop :=
+  Neutral C S s M
+
+end
+
+end SE.IdentityRegimes

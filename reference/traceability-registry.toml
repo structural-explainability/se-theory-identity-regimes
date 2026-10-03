@@ -1,0 +1,74 @@
+# ============================================================
+# Traceability Registry
+# se-theory-identity-regimes
+# ============================================================
+# Only confirmed cross-theory mappings are recorded here.
+# The three pair-level SE300.*_NONCOLLAPSE mappings remain intentionally
+# absent until their manuscript identifiers are independently confirmed.
+
+schema = "se-traceability-registry-1"
+kind = "traceability"
+repo = "se-theory-identity-regimes"
+
+[meta]
+source = "se-theory-identity-regimes"
+namespace = "se.identity_regimes"
+artifact = "traceability-registry"
+version = "0.3.0"
+status = "canonical"
+
+[trace.transformation_family]
+order = 1
+id = "transformation_family"
+from = "SE.IdentityRegimes.Transformation"
+to = ["SE300.DEF.TRANSFORMATION_FAMILY"]
+relation = "implements"
+
+[trace.classification_map]
+order = 2
+id = "classification_map"
+from = "SE.IdentityRegimes.classificationMatrix"
+to = ["SE300.DEF.CLASSIFICATION_MAP"]
+relation = "implements"
+
+[trace.faithful_embedding]
+order = 3
+id = "faithful_embedding"
+from = "SE.IdentityRegimes.classification_pattern_unique"
+to = ["SE300.DEF.FAITHFUL_EMBEDDING"]
+relation = "implements"
+
+[trace.nine_profile_lower_bound]
+order = 4
+id = "nine_profile_lower_bound"
+from = "SE.IdentityRegimes.nine_regime_lower_bound"
+to = ["SE300.THM.NINE_PROFILE_LOWER_BOUND"]
+relation = "implements"
+
+[trace.regime_graph]
+order = 5
+id = "regime_graph"
+from = "SE.IdentityRegimes.RegimeGraph"
+to = ["SE300.DEF.REGIME_GRAPH"]
+relation = "implements"
+
+[trace.representation]
+order = 6
+id = "representation"
+from = "SE.IdentityRegimes.representation_theorem"
+to = ["SE300.THM.REPRESENTATION"]
+relation = "implements"
+
+[trace.admissibility_depends_on_neutrality]
+order = 7
+id = "admissibility_depends_on_neutrality"
+from = "SE.IdentityRegimes.regime_application_admissible_of_neutral"
+to = ["SE.IdentityRegimes.RegimeApplicationAdmissible", "SE.NeutralSubstrate.Neutrality.Neutral"]
+relation = "depends_on"
+
+[trace.lower_bound_depends_on_noncollapse]
+order = 8
+id = "lower_bound_depends_on_noncollapse"
+from = "SE.IdentityRegimes.nine_regime_lower_bound"
+to = ["SE.IdentityRegimes.derivedRegimeSet", "SE.IdentityRegimes.NonCollapsing", "SE.IdentityRegimes.classificationMatrix"]
+relation = "depends_on"

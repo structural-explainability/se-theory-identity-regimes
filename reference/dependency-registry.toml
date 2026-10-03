@@ -1,0 +1,44 @@
+# ============================================================
+# Dependency Registry
+# se-theory-identity-regimes
+# ============================================================
+
+schema = "se-dependency-registry-1"
+kind = "dependency"
+repo = "se-theory-identity-regimes"
+
+[meta]
+source = "se-theory-identity-regimes"
+namespace = "se.identity_regimes"
+artifact = "dependency-registry"
+version = "0.3.0"
+status = "canonical"
+
+[dependency.neutral_substrate]
+order = 1
+id = "se-theory-neutral-substrate"
+target_repo = "se-theory-neutral-substrate"
+dependency_kind = "lean-library"
+required = true
+allowed = true
+revision = "v0.9.0"
+description = "Provides the neutral-substrate framework used by regime admissibility and embedding declarations."
+
+[dependency.transformation]
+order = 2
+id = "se-theory-transformation"
+target_repo = "se-theory-transformation"
+dependency_kind = "lean-library"
+required = true
+allowed = true
+revision = "v0.3.0"
+description = "Provides the transformation theory consumed by the Identity Regimes formalization."
+
+[dependency.reference_kit]
+order = 3
+id = "se-theory-reference-kit"
+target_repo = "se-theory-reference-kit"
+dependency_kind = "reference-tooling"
+required = true
+allowed = true
+description = "Validates, exports, catalogs, and inspects repository-owned theory reference artifacts."

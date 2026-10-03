@@ -1,10 +1,19 @@
-import SE.NeutralSubstrate
-import IdentityRegimes.Transform.LowerBound
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
+
+import all SE.IdentityRegimes.Transform.NonCollapse
+
+public import SE.NeutralSubstrate
+public import SE.IdentityRegimes.Transform.LowerBound
 
 open SE.NeutralSubstrate
 
 /-!
-File: IdentityRegimes/Embedding.lean
+File: SE/IdentityRegimes/Embedding.lean
 
 Purpose:
 Regime-typed multigraph embedding and representation theorem.
@@ -19,8 +28,26 @@ regime set.
 Source: SE-300, Section 5, faithful embedding and representation theorem.
 -/
 
-namespace IdentityRegimes
+set_option autoImplicit false
 
+namespace SE.IdentityRegimes
+
+universe u
+
+public section
+
+-- RR.DEFINES: SEIR.DEF.ADMISSIBLE_RELATION
+-- RR.DEFINES: SEIR.DEF.REGIME_VERTEX
+-- RR.DEFINES: SEIR.DEF.REGIME_EDGE
+-- RR.DEFINES: SEIR.DEF.REGIME_GRAPH
+-- RR.IMPLEMENTS: SE300.DEF.REGIME_GRAPH
+-- RR.DEFINES: SEIR.DEF.PROFILE_KIND
+-- RR.DEFINES: SEIR.THM.PROFILE_KIND_DETERMINED_BY_CLASSIFICATION
+-- RR.DEFINES: SEIR.DEF.GRAPH_WELL_FORMED
+-- RR.DEFINES: SEIR.THM.REPRESENTATION
+-- RR.IMPLEMENTS: SE300.THM.REPRESENTATION
+-- RR.DEFINES: SEIR.THM.DERIVED_PROFILE_SET_NO_BEHAVIORAL_COLLAPSE
+-- RR.DEFINES: SEIR.THM.NINE_PROFILE_LOWER_BOUND_WITNESS
 /-- An admissible relation over regime-typed vertices. -/
 inductive AdmissibleRelation where
   | participatesIn
@@ -31,50 +58,66 @@ inductive AdmissibleRelation where
 deriving Repr, DecidableEq
 
 /-- A regime-typed vertex: an identity carrier tagged with its profile. -/
-structure RegimeVertex where
-  kind    : RegimeProfileKind
+structure RegimeVertex (Ontology : Type u) where
+  /-- Canonical identity regime assigned to this vertex. -/
+  regime : Regime
+  /-- Ontology carrier represented by this vertex. -/
   carrier : Ontology
 
 /-- The regime type of a vertex. -/
-def RegimeVertex.regimeType (v : RegimeVertex) : RegimeProfileKind :=
-  v.kind
+def RegimeVertex.regimeType
+    {Ontology : Type u}
+    (v : RegimeVertex Ontology) :
+    Regime :=
+  v.regime
 
 /-- A regime-typed directed edge. -/
-structure RegimeEdge where
-  source   : RegimeVertex
+structure RegimeEdge (Ontology : Type u) where
+  /-- Source vertex of the directed edge. -/
+  source : RegimeVertex Ontology
+  /-- Admissible relation labeling the edge. -/
   relation : AdmissibleRelation
-  target   : RegimeVertex
+  /-- Target vertex of the directed edge. -/
+  target : RegimeVertex Ontology
 
 /-- The regime-typed directed multigraph over an admissible substrate. -/
-structure RegimeGraph where
-  vertices : List RegimeVertex
-  edges    : List RegimeEdge
+structure RegimeGraph (Ontology : Type u) where
+  /-- Vertices contained in the regime graph. -/
+  vertices : List (RegimeVertex Ontology)
+  /-- Edges contained in the regime graph. -/
+  edges : List (RegimeEdge Ontology)
 
-/-- The profile kind of a vertex is determined by its kind field. -/
-def profileKind (v : RegimeVertex) : RegimeProfileKind :=
-  v.kind
+/-- The profile kind of a vertex is determined by its regime field. -/
+def profileKind
+    {Ontology : Type u}
+    (v : RegimeVertex Ontology) :
+    Regime :=
+  v.regime
 
 /-- Profile kind is injective up to classification pattern under the canonical matrix:
     vertices whose profiles assign identical values to all transformations
     have the same profile kind. -/
 theorem profileKind_determined_by_classification
-    (p q : RegimeProfileKind)
+    (p q : Regime)
     (h : ∀ t : Transformation, classificationMatrix p t = classificationMatrix q t) :
     p = q :=
   classification_pattern_unique p q h
 
 /-- Every vertex in a well-formed graph has a canonical regime. -/
-def GraphWellFormed (g : RegimeGraph) : Prop :=
-  ∀ v ∈ g.vertices, IsCanonicalRegime (RegimeProfileKind.regime v.kind)
+def GraphWellFormed
+    {Ontology : Type u}
+    (g : RegimeGraph Ontology) :
+    Prop :=
+  ∀ v ∈ g.vertices, IsCanonicalRegime v.regime
 
 /-- Representation theorem:
     For every regime profile kind, there exists a unique canonical profile
     that determines its classification behavior under the canonical matrix. -/
-theorem representation_theorem (k : RegimeProfileKind) :
-    ∃ p : RegimeProfileKind,
+theorem representation_theorem (k : Regime) :
+    ∃ p : Regime,
       p = k ∧
       (∀ t : Transformation, classificationMatrix p t = classificationMatrix k t) ∧
-      (∀ q : RegimeProfileKind,
+      (∀ q : Regime,
         (∀ t : Transformation, classificationMatrix q t = classificationMatrix k t) → q = k) :=
   ⟨k, rfl, fun _t => rfl,
    fun q hq => classification_pattern_unique q k hq⟩
@@ -82,22 +125,27 @@ theorem representation_theorem (k : RegimeProfileKind) :
 /-- No two distinct profiles in the derived regime set are behaviorally equivalent
     under the canonical classification matrix. -/
 theorem derived_regime_set_no_behavioral_collapse
-    (p q : RegimeProfileKind)
+    (p q : Regime)
     (h : p ≠ q) :
-    ∃ t : Transformation, classificationMatrix p t ≠ classificationMatrix q t :=
-  noncollapse_all_pairs p q h
+    ∃ t : Transformation, classificationMatrix p t ≠ classificationMatrix q t := by
+  change NonCollapsing p q
+  exact noncollapse_all_pairs p q h
 
 /-- The lower bound is witnessed by the derived regime set:
     nine pairwise non-collapsing profiles under the canonical matrix. -/
 theorem nine_regime_lower_bound_witness :
-    ∃ S : List RegimeProfileKind,
+    ∃ S : List Regime,
       S.length = 9 ∧
       S.Nodup ∧
-      (∀ p q : RegimeProfileKind, p ≠ q →
+      (∀ p q : Regime, p ≠ q →
         ∃ t : Transformation, classificationMatrix p t ≠ classificationMatrix q t) :=
   ⟨derivedRegimeSet,
    derivedRegimeSet_card,
    derivedRegimeSet_nodup,
-   fun p q h => noncollapse_all_pairs p q h⟩
+   fun p q h => by
+     change NonCollapsing p q
+     exact noncollapse_all_pairs p q h⟩
 
-end IdentityRegimes
+end
+
+end SE.IdentityRegimes

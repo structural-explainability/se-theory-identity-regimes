@@ -1,17 +1,37 @@
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
+
 /-!
-File: IdentityRegimes/Vocab/Basic.lean
+# Identity Regime Families
 
-Purpose:
-Basic vocabulary for identity-regime theory.
+Basic vocabulary for Identity Regimes theory.
 
-This file may name the six canonical regimes but must not define
-domain mappings, operational validation, or runtime behavior.
+The six canonical regime families are:
+
+- OBL
+- NOR
+- OCC
+- CTX
+- REC
+- ENR
+
+The canonical identity regimes derived from these families are defined
+separately in `SE.IdentityRegimes.Vocab.Regimes`.
 -/
 
-namespace IdentityRegimes
+set_option autoImplicit false
 
-/-- Canonical identity regimes. -/
-inductive Regime where
+namespace SE.IdentityRegimes
+
+public section
+
+-- RR.DEFINES: SEIR.DEF.REGIME_FAMILY
+/-- The six canonical identity-regime families. -/
+inductive RegimeFamily where
   | OBL
   | NOR
   | OCC
@@ -20,4 +40,6 @@ inductive Regime where
   | ENR
 deriving DecidableEq, Repr
 
-end IdentityRegimes
+end
+
+end SE.IdentityRegimes

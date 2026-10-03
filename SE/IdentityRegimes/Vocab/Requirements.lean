@@ -1,25 +1,54 @@
-import SE.NeutralSubstrate
-import IdentityRegimes.Vocab.Regimes
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
 
-open SE.NeutralSubstrate
+public import SE.NeutralSubstrate
+public import SE.IdentityRegimes.Vocab.Regimes
 
 /-!
-File: IdentityRegimes/Vocab/Requirements.lean
+# Identity Regime Requirements
 
-Purpose:
-Requirement structure for applying identity regimes over an admissible substrate.
+Requirement structure for applying identity regimes over a substrate.
 -/
 
-namespace IdentityRegimes
+set_option autoImplicit false
 
-/-- A requirement associated with applying a regime. -/
+namespace SE.IdentityRegimes
+
+open SE.Logic.Language
+open SE.Referent
+open SE.Substrate
+
+universe u v w
+
+public section
+
+-- RR.DEFINES: SEIR.DEF.REQUIREMENT
+-- RR.DEFINES: SEIR.DEF.REQUIREMENT_SATISFIED
+/-- A requirement associated with applying an identity regime. -/
 structure Requirement where
+  -- RR.DEFINES: SEIR.DEF.REQUIREMENT_REGIME
+  /-- The canonical identity regime associated with this requirement. -/
   regime : Regime
 
-/-- Predicate asserting that a requirement is satisfied over a substrate. -/
+/--
+Predicate asserting that a requirement is satisfied over a substrate.
+
+This predicate is intentionally minimal. Downstream regime implementations
+may refine it with domain-specific conditions.
+-/
 def RequirementSatisfied
-    (_S : Ontology)
-    (_req : Requirement) : Prop :=
+    {L : PropositionalLanguage.{u}}
+    {R : ReferentCarriers.{v}}
+    (S : SubstrateSystem.{u, v, w} L R)
+    (_s : S.Carrier)
+    (_req : Requirement) :
+    Prop :=
   True
 
-end IdentityRegimes
+end
+
+end SE.IdentityRegimes

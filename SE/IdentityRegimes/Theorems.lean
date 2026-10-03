@@ -1,23 +1,52 @@
-import SE.NeutralSubstrate
-import IdentityRegimes.Profile.Admissibility
+/-
+Copyright (c) 2026 Denise M. Case.
+Released under MIT license as described in the file LICENSE.
+Authors: Denise M. Case
+-/
+module
 
-open SE.NeutralSubstrate
+import all SE.IdentityRegimes.Profile.Admissibility
+
+public import SE.NeutralSubstrate
+public import SE.IdentityRegimes.Profile.Admissibility
 
 /-!
-File: IdentityRegimes/Theorems.lean
+# Identity Regimes Theorems
 
-Purpose:
-Export-facing theorem statements for identity-regime theory.
+Export-facing theorem statements for Identity Regimes theory.
 -/
 
-namespace IdentityRegimes
+set_option autoImplicit false
 
-/-- A neutral substrate supports admissible regime application. -/
+namespace SE.IdentityRegimes
+
+open SE.Framework
+open SE.Logic
+open SE.Logic.Language
+open SE.NeutralSubstrate.Neutrality
+open SE.Referent
+open SE.Substrate
+
+universe u v w x
+
+public section
+
+-- RR.DEFINES: SEIR.THM.REGIME_APPLICATION_ADMISSIBLE_OF_NEUTRAL
+/--
+A neutral substrate supports admissible identity-regime application.
+-/
 theorem regime_application_admissible_of_neutral
-    (S : Ontology)
-    (hS : Neutral S)
+    {L : PropositionalLanguage.{u}}
+    {R : ReferentCarriers.{v}}
+    {C : ConsequenceSystem L}
+    {S : SubstrateSystem.{u, v, w} L R}
+    {s : S.Carrier}
+    {M : FrameworkSystem.{u, x} L.carrier}
+    (hS : Neutral C S s M)
     (profile : RegimeProfile) :
-    RegimeApplicationAdmissible S profile := by
+    RegimeApplicationAdmissible C S s M profile := by
   exact hS
 
-end IdentityRegimes
+end
+
+end SE.IdentityRegimes

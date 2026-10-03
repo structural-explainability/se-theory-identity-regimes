@@ -3,14 +3,11 @@
 # ============================================================
 # Theory reference configuration for se-theory-reference-kit.
 #
-# WHY: The theory repository owns Lean source, reference TOML, and exported
-# JSON artifacts. The reusable kit owns validation, export, catalog, scaffold,
-# and inspection machinery.
+# The repository owns the TOML reference artifacts below.
+# JSON under data/identity-regimes is generated from these files.
 
 schema = "se-theory-reference"
 schema_version = "0.1.0"
-
-# === Repository Identity ===
 
 [repository]
 organization = "structural-explainability"
@@ -18,51 +15,50 @@ name = "se-theory-identity-regimes"
 theory = "identity-regimes"
 description = "Identity regimes theory repository for Structural Explainability."
 
-# === Lean Public Surface ===
-
 [lean]
 root_module = "SE.IdentityRegimes"
 public_modules = [
   "SE.IdentityRegimes",
-  "SE.IdentityRegimes.Core",
-  "SE.IdentityRegimes.Spec",
-  "SE.IdentityRegimes.Surface",
 ]
-
 test_modules = [
-  "TestAll",
-  "TestBasic",
-  "TestRegime",
+  "SETest",
 ]
-
-# === Reference Artifacts ===
 
 [reference]
 root = "reference"
 
-# === Exported Machine Artifacts ===
-
 [export]
 root = "data/identity-regimes"
 
-# === Surface-Kind Mapping ===
-
+# Generic Lean-surface registries and theory-specific reference tables.
 [surface_kinds]
-axiom = "reference/substrate-axioms.toml"
+type = "reference/regime-types.toml"
+predicate = "reference/regime-predicates.toml"
+theorem = "reference/regime-theorems.toml"
+vocabulary = "reference/regime-vocabulary.toml"
+witness = "reference/regime-witnesses.toml"
+family = "reference/regime-families.toml"
+profile = "reference/regime-profiles.toml"
+transformation = "reference/regime-transformations.toml"
+classification = "reference/regime-classification-values.toml"
+matrix = "reference/regime-classification-matrix.toml"
+derivation = "reference/regime-profile-derivation.toml"
 dependency = "reference/dependency-registry.toml"
-predicate = "reference/substrate-predicates.toml"
-requirement = "reference/substrate-requirements.toml"
-theorem = "reference/substrate-theorems.toml"
 traceability = "reference/traceability-registry.toml"
-type = "reference/substrate-types.toml"
 
-# === Export Mapping ===
-
+# Every JSON artifact below is generated; do not hand-edit data/identity-regimes.
 [export_map]
-axiom = "data/identity-regimes/substrate-axiom-registry.json"
-catalog = "data/identity-regimes/identity-regimes-catalog.json"
-predicate = "data/identity-regimes/substrate-predicate-registry.json"
-requirement = "data/identity-regimes/substrate-requirement-registry.json"
-theorem = "data/identity-regimes/substrate-theorem-registry.json"
+catalog = "data/identity-regimes/identity-regime-catalog.json"
+type = "data/identity-regimes/regime-type-registry.json"
+predicate = "data/identity-regimes/regime-predicate-registry.json"
+theorem = "data/identity-regimes/regime-theorem-registry.json"
+vocabulary = "data/identity-regimes/regime-vocabulary-registry.json"
+witness = "data/identity-regimes/regime-witness-registry.json"
+family = "data/identity-regimes/regime-family-registry.json"
+profile = "data/identity-regimes/regime-profile-registry.json"
+transformation = "data/identity-regimes/regime-transformation-registry.json"
+classification = "data/identity-regimes/regime-classification-value-registry.json"
+matrix = "data/identity-regimes/regime-classification-matrix.json"
+derivation = "data/identity-regimes/regime-profile-derivation.json"
+dependency = "data/identity-regimes/dependency-registry.json"
 traceability = "data/identity-regimes/traceability-registry.json"
-type = "data/identity-regimes/substrate-type-registry.json"

@@ -1,60 +1,101 @@
-# regime-transformations.toml
+# ============================================================
+# Regime Transformations
+# se-theory-identity-regimes
+# ============================================================
 
 [meta]
 source = "se-theory-identity-regimes"
 namespace = "se.identity-regimes"
 artifact = "regime-transformations"
-version = "0.1.0"
+version = "0.3.0"
 status = "canonical"
 
-# === Transformations ===
-
-[transformations.RE]
+[transformation.RE]
 order = 1
-label = "RE"
-description = "Retain exact identity without alteration."
+id = "RE"
+label = "Re-expression"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "RE"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Changes representation format while preserving content."
 
-[transformations.AN]
+[transformation.AN]
 order = 2
-label = "AN"
-description = "Alter naming or labeling while preserving identity."
+id = "AN"
+label = "Annotation"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "AN"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Adds annotation or non-identity-bearing information."
 
-[transformations.RF]
+[transformation.RF]
 order = 3
-label = "RF"
-description = "Refine structure or representation while preserving identity."
+id = "RF"
+label = "Refinement"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "RF"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Increases descriptive or structural detail."
 
-[transformations.AD]
+[transformation.AD]
 order = 4
-label = "AD"
-description = "Adapt representation to a different form while maintaining correspondence."
+id = "AD"
+label = "Aggregation/decomposition"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "AD"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Restructures into coarser or finer components."
 
-[transformations.RC]
+[transformation.RC]
 order = 5
-label = "RC"
-description = "Reclassify into a different category or interpretation context."
+id = "RC"
+label = "Re-contextualization"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "RC"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Changes applicability context."
 
-[transformations.RA]
+[transformation.RA]
 order = 6
-label = "RA"
-description = "Reassign association or relationship while preserving referential linkage."
+id = "RA"
+label = "Reassignment"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "RA"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Changes an association, bearer, or assignment."
 
-[transformations.SU]
+[transformation.SU]
 order = 7
-label = "SU"
-description = "Substitute with a different entity or structure."
+id = "SU"
+label = "Substitution"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "SU"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Replaces the identity carrier."
 
-[transformations.BF]
+[transformation.BF]
 order = 8
-label = "BF"
-description = "Break identity or continuity such that equivalence no longer holds."
+id = "BF"
+label = "Branching"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "BF"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Creates a branch or fork."
 
-[transformations.SE]
+[transformation.SE]
 order = 9
-label = "SE"
-description = "Separate into distinct components or identities."
+id = "SE"
+label = "State evolution"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "SE"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Changes state over an evolution step."
 
-[transformations.PV]
+[transformation.PV]
 order = 10
-label = "PV"
-description = "Project or derive a view from the original without preserving full identity."
+id = "PV"
+label = "Provenance extension"
+lean_type = "SE.IdentityRegimes.Transformation"
+lean_constructor = "PV"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "Adds historical or derivational information."

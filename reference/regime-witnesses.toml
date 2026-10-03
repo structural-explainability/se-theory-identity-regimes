@@ -1,0 +1,25 @@
+# ============================================================
+# Regime Witnesses
+# se-theory-identity-regimes
+# ============================================================
+
+schema = "se-regime-witness-registry-1"
+kind = "witness"
+repo = "se-theory-identity-regimes"
+surface_module = "SE.IdentityRegimes"
+namespace = "SE.IdentityRegimes"
+
+[meta]
+source = "se-theory-identity-regimes"
+namespace = "se.identity_regimes"
+artifact = "regime-witnesses"
+version = "0.3.0"
+status = "canonical"
+
+[witness.oblProfile]
+order = 1
+id = "oblProfile"
+name = "OBL profile witness"
+lean_symbol = "SE.IdentityRegimes.oblProfile"
+source_module = "SE.IdentityRegimes.Witness"
+description = "Canonical witness profile carrying the OBL regime."

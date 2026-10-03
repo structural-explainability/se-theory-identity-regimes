@@ -1,28 +1,59 @@
-# regime-families.toml
+# ============================================================
+# Regime Families
+# se-theory-identity-regimes
+# ============================================================
 
 [meta]
 source = "se-theory-identity-regimes"
-namespace = "se.identity-regimes"
+namespace = "se.identity_regimes"
 artifact = "regime-families"
-version = "0.1.0"
+version = "0.3.0"
 status = "canonical"
 
-# === Regime Families ===
-
-[regime_families.OBL]
+[family.OBL]
+order = 1
+id = "OBL"
 label = "Obligation-bearing entity"
+lean_type = "SE.IdentityRegimes.RegimeFamily"
+lean_constructor = "OBL"
+source_module = "SE.IdentityRegimes.Vocab.Basic"
 
-[regime_families.NOR]
+[family.NOR]
+order = 2
+id = "NOR"
 label = "Normative structure"
+lean_type = "SE.IdentityRegimes.RegimeFamily"
+lean_constructor = "NOR"
+source_module = "SE.IdentityRegimes.Vocab.Basic"
 
-[regime_families.OCC]
+[family.OCC]
+order = 3
+id = "OCC"
 label = "Time-indexed occurrence"
+lean_type = "SE.IdentityRegimes.RegimeFamily"
+lean_constructor = "OCC"
+source_module = "SE.IdentityRegimes.Vocab.Basic"
 
-[regime_families.CTX]
+[family.CTX]
+order = 4
+id = "CTX"
 label = "Applicability context"
+lean_type = "SE.IdentityRegimes.RegimeFamily"
+lean_constructor = "CTX"
+source_module = "SE.IdentityRegimes.Vocab.Basic"
 
-[regime_families.REC]
+[family.REC]
+order = 5
+id = "REC"
 label = "Descriptive record"
+lean_type = "SE.IdentityRegimes.RegimeFamily"
+lean_constructor = "REC"
+source_module = "SE.IdentityRegimes.Vocab.Basic"
 
-[regime_families.ENR]
+[family.ENR]
+order = 6
+id = "ENR"
 label = "Enduring non-normative referent"
+lean_type = "SE.IdentityRegimes.RegimeFamily"
+lean_constructor = "ENR"
+source_module = "SE.IdentityRegimes.Vocab.Basic"

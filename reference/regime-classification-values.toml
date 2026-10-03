@@ -1,20 +1,38 @@
-# regime-classification-values.toml
-# This file defines the three classification values
-# that are used as the basis for the
-# reference requirements in Identity Regimes.
+# ============================================================
+# Regime Classification Values
+# se-theory-identity-regimes
+# ============================================================
 
 [meta]
-version = "0.1.0"
+source = "se-theory-identity-regimes"
+namespace = "se.identity_regimes"
+artifact = "regime-classification-values"
+version = "0.3.0"
 status = "canonical"
 
-[values.IGN]
+[classification.IGN]
+order = 1
+id = "IGN"
 label = "Ignore"
-description = "Transformation does not affect identity."
+lean_type = "SE.IdentityRegimes.ClassificationValue"
+lean_constructor = "IGN"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "The transformation does not determine an identity-preservation distinction for the regime."
 
-[values.PRS]
+[classification.PRS]
+order = 2
+id = "PRS"
 label = "Preserve"
+lean_type = "SE.IdentityRegimes.ClassificationValue"
+lean_constructor = "PRS"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
 description = "Identity is preserved under the transformation."
 
-[values.BRK]
+[classification.BRK]
+order = 3
+id = "BRK"
 label = "Break"
-description = "Transformation breaks identity."
+lean_type = "SE.IdentityRegimes.ClassificationValue"
+lean_constructor = "BRK"
+source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
+description = "The transformation breaks identity under the regime."

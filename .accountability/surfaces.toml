@@ -44,13 +44,10 @@ ai_max_authority = "prohibited"
 # === Declared Repository Surfaces ===
 # Surfaces below are sorted alphabetically by surface id.
 
+[[surface]]
 id = "lean-public-surface"
 object_kind = "directory"
-paths = [
-"*.lean",
-"SETheory*/**/*.lean",
-"TestAll.lean",
-]
+paths = ["*.lean", "SE/**/*.lean", "SETest/**/*.lean"]
 description = "Lean public theory surface, theorem development, module structure, and test entry points."
 
 [[surface.role]]
@@ -129,12 +126,7 @@ ai_max_authority = "drafting"
 [[surface]]
 id = "theory-reference-artifacts"
 object_kind = "directory"
-paths = [
-"reference/**/*.toml",
-"data/reference/**/*.toml",
-"data/contract/**/*.json",
-"data/catalog/**/*.json",
-]
+paths = ["reference/**/*.toml", "data/**"]
 description = "Reference TOML, generated contracts, catalogs, and machine-readable theory artifacts."
 
 [[surface.role]]
@@ -204,10 +196,6 @@ object_kind = "directory"
 paths = [
 ".accountability/**",
 "AI_USE.md",
-"AGENTS.md",
-"SECURITY.md",
-"CONTRIBUTING.md",
-"DECISIONS.md",
 "README.md",
 ]
 description = "Repository governance, AI-use, security, contribution, and decision records."
@@ -226,14 +214,11 @@ ai_max_authority = "advisory"
 
 [verification]
 commands = [
-"elan self update",
-"lake update",
-"uv sync --extra dev --extra docs --upgrade",
-"uvx pre-commit run --all-files",
-"lake build",
-"lake build TestAll",
-"uv run se-theory-reference validate",
-"uv run se-theory-reference validate --strict",
-"uv run se-theory-reference export --check",
-"uv run se-theory-reference catalog --check",
+    "lake build",
+    "lake test",
+    "lake lint",
+    "uv run se-theory-reference export --check",
+    "uv run se-theory-reference catalog --check",
+    "uv run se-theory-reference validate",
+    "uv run se-theory-reference validate --strict",
 ]
