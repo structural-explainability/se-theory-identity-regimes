@@ -1,7 +1,7 @@
 # ============================================================
 # pyproject.toml (Python project configuration)
 # ============================================================
-# Updated: 2026-10-01
+# Updated: 2026-10-03
 # REQ: Python projects MUST include pyproject.toml as the single source of truth.
 # WHY: Centralizes project configuration.
 # CUSTOM: Update identity and build tool src folders.
@@ -16,7 +16,7 @@ readme = "README.md"
 requires-python = ">=3.15"
 version = "0.3.1"
 
-dependencies = ["se-theory-reference-kit"]
+dependencies = []
 
 [dependency-groups]
 # WHY: Dependency groups separate development and documentation tools from project runtime dependencies.
