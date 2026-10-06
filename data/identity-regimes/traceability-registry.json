@@ -1,0 +1,9 @@
+{
+  "schema": "se-theory-identity-regimes-traceability-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "traceability-registry",
+  "reference_artifact": "traceability-registry",
+  "reference_path": "reference/traceability-registry.toml",
+  "traceability": []
+}

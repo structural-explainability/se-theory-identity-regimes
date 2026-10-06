@@ -31,8 +31,8 @@ target_repo = "se-theory-transformation"
 dependency_kind = "lean-library"
 required = true
 allowed = true
-revision = "v0.3.0"
-description = "Provides the transformation theory consumed by the Identity Regimes formalization."
+revision = "v0.5.1"
+description = "Provides the upstream transformation vocabulary and effect contract as a declared Lean dependency; the identity-regime transformation basis remains separately defined."
 
 [dependency.reference_kit]
 order = 3

@@ -1,0 +1,37 @@
+{
+  "schema": "se-theory-identity-regimes-classification-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "regime-classification-value-registry",
+  "reference_artifact": "regime-classification-values",
+  "reference_path": "reference/regime-classification-values.toml",
+  "classification": [
+    {
+      "order": 1,
+      "id": "IGN",
+      "label": "Ignore",
+      "lean_type": "SE.IdentityRegimes.ClassificationValue",
+      "lean_constructor": "IGN",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "The transformation does not determine an identity-preservation distinction for the regime."
+    },
+    {
+      "order": 2,
+      "id": "PRS",
+      "label": "Preserve",
+      "lean_type": "SE.IdentityRegimes.ClassificationValue",
+      "lean_constructor": "PRS",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Identity is preserved under the transformation."
+    },
+    {
+      "order": 3,
+      "id": "BRK",
+      "label": "Break",
+      "lean_type": "SE.IdentityRegimes.ClassificationValue",
+      "lean_constructor": "BRK",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "The transformation breaks identity under the regime."
+    }
+  ]
+}

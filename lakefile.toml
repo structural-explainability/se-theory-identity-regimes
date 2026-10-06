@@ -34,8 +34,7 @@ rev = "main"
 [[require]]
 name = "se-theory-transformation"
 git = "https://github.com/structural-explainability/se-theory-transformation"
-rev = "main"
-
+rev = "v0.5.1"
 
 # ============================================================
 # LEAN OPTIONS

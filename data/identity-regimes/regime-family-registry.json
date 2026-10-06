@@ -1,0 +1,58 @@
+{
+  "schema": "se-theory-identity-regimes-family-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "regime-family-registry",
+  "reference_artifact": "regime-families",
+  "reference_path": "reference/regime-families.toml",
+  "family": [
+    {
+      "order": 1,
+      "id": "OBL",
+      "label": "Obligation-bearing entity",
+      "lean_type": "SE.IdentityRegimes.RegimeFamily",
+      "lean_constructor": "OBL",
+      "source_module": "SE.IdentityRegimes.Vocab.Basic"
+    },
+    {
+      "order": 2,
+      "id": "NOR",
+      "label": "Normative structure",
+      "lean_type": "SE.IdentityRegimes.RegimeFamily",
+      "lean_constructor": "NOR",
+      "source_module": "SE.IdentityRegimes.Vocab.Basic"
+    },
+    {
+      "order": 3,
+      "id": "OCC",
+      "label": "Time-indexed occurrence",
+      "lean_type": "SE.IdentityRegimes.RegimeFamily",
+      "lean_constructor": "OCC",
+      "source_module": "SE.IdentityRegimes.Vocab.Basic"
+    },
+    {
+      "order": 4,
+      "id": "CTX",
+      "label": "Applicability context",
+      "lean_type": "SE.IdentityRegimes.RegimeFamily",
+      "lean_constructor": "CTX",
+      "source_module": "SE.IdentityRegimes.Vocab.Basic"
+    },
+    {
+      "order": 5,
+      "id": "REC",
+      "label": "Descriptive record",
+      "lean_type": "SE.IdentityRegimes.RegimeFamily",
+      "lean_constructor": "REC",
+      "source_module": "SE.IdentityRegimes.Vocab.Basic"
+    },
+    {
+      "order": 6,
+      "id": "ENR",
+      "label": "Enduring non-normative referent",
+      "lean_type": "SE.IdentityRegimes.RegimeFamily",
+      "lean_constructor": "ENR",
+      "source_module": "SE.IdentityRegimes.Vocab.Basic"
+    }
+  ]
+}

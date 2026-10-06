@@ -1,0 +1,169 @@
+{
+  "schema": "se-theory-identity-regimes-type-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "regime-type-registry",
+  "reference_artifact": "regime-types",
+  "reference_path": "reference/regime-types.toml",
+  "type": [
+    {
+      "order": 1,
+      "id": "RegimeFamily",
+      "cite_id": "SEIR.DEF.REGIME_FAMILY",
+      "name": "Regime family",
+      "lean_symbol": "SE.IdentityRegimes.RegimeFamily",
+      "source_module": "SE.IdentityRegimes.Vocab.Basic",
+      "description": "The six parent identity-regime families: OBL, NOR, OCC, CTX, REC, and ENR.",
+      "constructors": [
+        "OBL",
+        "NOR",
+        "OCC",
+        "CTX",
+        "REC",
+        "ENR"
+      ]
+    },
+    {
+      "order": 2,
+      "id": "Regime",
+      "cite_id": "SEIR.DEF.REGIME",
+      "name": "Regime",
+      "lean_symbol": "SE.IdentityRegimes.Regime",
+      "source_module": "SE.IdentityRegimes.Vocab.Regimes",
+      "description": "The nine canonical identity regimes: OBL, OCC, REC, ENR_L, ENR_I, CTX_E, CTX_S, NOR_C, and NOR_S.",
+      "constructors": [
+        "OBL",
+        "OCC",
+        "REC",
+        "ENR_L",
+        "ENR_I",
+        "CTX_E",
+        "CTX_S",
+        "NOR_C",
+        "NOR_S"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "Requirement",
+      "cite_id": "SEIR.DEF.REQUIREMENT",
+      "name": "Requirement",
+      "lean_symbol": "SE.IdentityRegimes.Requirement",
+      "source_module": "SE.IdentityRegimes.Vocab.Requirements",
+      "description": "A requirement associated with a canonical identity regime."
+    },
+    {
+      "order": 4,
+      "id": "Transformation",
+      "cite_id": "SEIR.DEF.TRANSFORMATION",
+      "name": "Transformation",
+      "lean_symbol": "SE.IdentityRegimes.Transformation",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "The fixed ten-element transformation basis used by the classification matrix.",
+      "constructors": [
+        "RE",
+        "AN",
+        "RF",
+        "AD",
+        "RC",
+        "RA",
+        "SU",
+        "BF",
+        "SE",
+        "PV"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "ClassificationValue",
+      "cite_id": "SEIR.DEF.CLASSIFICATION_VALUE",
+      "name": "Classification value",
+      "lean_symbol": "SE.IdentityRegimes.ClassificationValue",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "The three classification outcomes IGN, PRS, and BRK.",
+      "constructors": [
+        "IGN",
+        "PRS",
+        "BRK"
+      ]
+    },
+    {
+      "order": 6,
+      "id": "IdentityBasis",
+      "cite_id": "SEIR.DEF.IDENTITY_BASIS",
+      "name": "Identity basis",
+      "lean_symbol": "SE.IdentityRegimes.IdentityBasis",
+      "source_module": "SE.IdentityRegimes.Profile.Core",
+      "description": "The identity-bearing basis associated with a canonical regime profile.",
+      "constructors": [
+        "single",
+        "content",
+        "structure",
+        "extension",
+        "locus",
+        "instrument"
+      ]
+    },
+    {
+      "order": 7,
+      "id": "ProfileAxes",
+      "cite_id": "SEIR.DEF.PROFILE_AXES",
+      "name": "Profile axes",
+      "lean_symbol": "SE.IdentityRegimes.ProfileAxes",
+      "source_module": "SE.IdentityRegimes.Profile.Core",
+      "description": "The identity basis and optional split-forcing transformation associated with a regime."
+    },
+    {
+      "order": 8,
+      "id": "RegimeProfile",
+      "cite_id": "SEIR.DEF.REGIME_PROFILE",
+      "name": "Regime profile",
+      "lean_symbol": "SE.IdentityRegimes.RegimeProfile",
+      "source_module": "SE.IdentityRegimes.Profile.Core",
+      "description": "A profile carrying one of the nine canonical Regime values."
+    },
+    {
+      "order": 9,
+      "id": "AdmissibleRelation",
+      "cite_id": "SEIR.DEF.ADMISSIBLE_RELATION",
+      "name": "Admissible relation",
+      "lean_symbol": "SE.IdentityRegimes.AdmissibleRelation",
+      "source_module": "SE.IdentityRegimes.Embedding",
+      "description": "The admissible edge-relation vocabulary used by regime graphs.",
+      "constructors": [
+        "participatesIn",
+        "precedes",
+        "scopedBy",
+        "describedBy",
+        "groundedIn"
+      ]
+    },
+    {
+      "order": 10,
+      "id": "RegimeVertex",
+      "cite_id": "SEIR.DEF.REGIME_VERTEX",
+      "name": "Regime vertex",
+      "lean_symbol": "SE.IdentityRegimes.RegimeVertex",
+      "source_module": "SE.IdentityRegimes.Embedding",
+      "description": "A graph vertex carrying a canonical regime and an ontology carrier."
+    },
+    {
+      "order": 11,
+      "id": "RegimeEdge",
+      "cite_id": "SEIR.DEF.REGIME_EDGE",
+      "name": "Regime edge",
+      "lean_symbol": "SE.IdentityRegimes.RegimeEdge",
+      "source_module": "SE.IdentityRegimes.Embedding",
+      "description": "A directed edge connecting regime vertices through an admissible relation."
+    },
+    {
+      "order": 12,
+      "id": "RegimeGraph",
+      "cite_id": "SEIR.DEF.REGIME_GRAPH",
+      "name": "Regime graph",
+      "lean_symbol": "SE.IdentityRegimes.RegimeGraph",
+      "source_module": "SE.IdentityRegimes.Embedding",
+      "description": "A directed multigraph over regime-typed vertices and admissible relations."
+    }
+  ]
+}

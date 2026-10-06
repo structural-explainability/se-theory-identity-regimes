@@ -1,0 +1,73 @@
+{
+  "schema": "se-theory-identity-regimes-predicate-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "regime-predicate-registry",
+  "reference_artifact": "regime-predicates",
+  "reference_path": "reference/regime-predicates.toml",
+  "predicate": [
+    {
+      "order": 1,
+      "id": "IsCanonicalRegime",
+      "cite_id": "SEIR.DEF.IS_CANONICAL_REGIME",
+      "name": "Is canonical regime",
+      "lean_symbol": "SE.IdentityRegimes.IsCanonicalRegime",
+      "source_module": "SE.IdentityRegimes.Vocab.Regimes",
+      "description": "Marks a Regime as canonical; every declared Regime satisfies it."
+    },
+    {
+      "order": 2,
+      "id": "RequirementSatisfied",
+      "cite_id": "SEIR.DEF.REQUIREMENT_SATISFIED",
+      "name": "Requirement satisfied",
+      "lean_symbol": "SE.IdentityRegimes.RequirementSatisfied",
+      "source_module": "SE.IdentityRegimes.Vocab.Requirements",
+      "description": "Minimal requirement-satisfaction predicate used by the theory interface."
+    },
+    {
+      "order": 3,
+      "id": "ProfileWellFormed",
+      "cite_id": "SEIR.DEF.PROFILE_WELL_FORMED",
+      "name": "Profile well formed",
+      "lean_symbol": "SE.IdentityRegimes.ProfileWellFormed",
+      "source_module": "SE.IdentityRegimes.Profile.Core",
+      "description": "A regime profile is well formed when its regime is canonical."
+    },
+    {
+      "order": 4,
+      "id": "UnderSplitPressure",
+      "cite_id": "SEIR.DEF.UNDER_SPLIT_PRESSURE",
+      "name": "Under split pressure",
+      "lean_symbol": "SE.IdentityRegimes.UnderSplitPressure",
+      "source_module": "SE.IdentityRegimes.Profile.Core",
+      "description": "Holds when the canonical axes record a split-forcing transformation."
+    },
+    {
+      "order": 5,
+      "id": "RegimeApplicationAdmissible",
+      "cite_id": "SEIR.DEF.REGIME_APPLICATION_ADMISSIBLE",
+      "name": "Regime application admissible",
+      "lean_symbol": "SE.IdentityRegimes.RegimeApplicationAdmissible",
+      "source_module": "SE.IdentityRegimes.Profile.Admissibility",
+      "description": "A regime application is admissible when the substrate element is neutral relative to the consequence system and framework."
+    },
+    {
+      "order": 6,
+      "id": "NonCollapsing",
+      "cite_id": "SEIR.DEF.NONCOLLAPSING",
+      "name": "Non-collapsing",
+      "lean_symbol": "SE.IdentityRegimes.NonCollapsing",
+      "source_module": "SE.IdentityRegimes.Transform.NonCollapse",
+      "description": "Two regimes are non-collapsing when some transformation receives different classification values."
+    },
+    {
+      "order": 7,
+      "id": "GraphWellFormed",
+      "cite_id": "SEIR.DEF.GRAPH_WELL_FORMED",
+      "name": "Graph well formed",
+      "lean_symbol": "SE.IdentityRegimes.GraphWellFormed",
+      "source_module": "SE.IdentityRegimes.Embedding",
+      "description": "Every vertex in the graph carries a canonical regime."
+    }
+  ]
+}

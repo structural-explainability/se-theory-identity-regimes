@@ -1,0 +1,100 @@
+{
+  "schema": "se-theory-identity-regimes-transformation-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity-regimes",
+  "artifact": "regime-transformation-registry",
+  "reference_artifact": "regime-transformations",
+  "reference_path": "reference/regime-transformations.toml",
+  "transformation": [
+    {
+      "order": 1,
+      "id": "RE",
+      "label": "Re-expression",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "RE",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Changes representation format while preserving content."
+    },
+    {
+      "order": 2,
+      "id": "AN",
+      "label": "Annotation",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "AN",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Adds annotation or non-identity-bearing information."
+    },
+    {
+      "order": 3,
+      "id": "RF",
+      "label": "Refinement",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "RF",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Increases descriptive or structural detail."
+    },
+    {
+      "order": 4,
+      "id": "AD",
+      "label": "Aggregation/decomposition",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "AD",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Restructures into coarser or finer components."
+    },
+    {
+      "order": 5,
+      "id": "RC",
+      "label": "Re-contextualization",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "RC",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Changes applicability context."
+    },
+    {
+      "order": 6,
+      "id": "RA",
+      "label": "Reassignment",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "RA",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Changes an association, bearer, or assignment."
+    },
+    {
+      "order": 7,
+      "id": "SU",
+      "label": "Substitution",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "SU",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Replaces the identity carrier."
+    },
+    {
+      "order": 8,
+      "id": "BF",
+      "label": "Branching",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "BF",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Creates a branch or fork."
+    },
+    {
+      "order": 9,
+      "id": "SE",
+      "label": "State evolution",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "SE",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Changes state over an evolution step."
+    },
+    {
+      "order": 10,
+      "id": "PV",
+      "label": "Provenance extension",
+      "lean_type": "SE.IdentityRegimes.Transformation",
+      "lean_constructor": "PV",
+      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
+      "description": "Adds historical or derivational information."
+    }
+  ]
+}

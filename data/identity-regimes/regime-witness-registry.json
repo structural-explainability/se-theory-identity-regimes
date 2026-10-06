@@ -1,0 +1,18 @@
+{
+  "schema": "se-theory-identity-regimes-witness-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "regime-witness-registry",
+  "reference_artifact": "regime-witnesses",
+  "reference_path": "reference/regime-witnesses.toml",
+  "witness": [
+    {
+      "order": 1,
+      "id": "oblProfile",
+      "name": "OBL profile witness",
+      "lean_symbol": "SE.IdentityRegimes.oblProfile",
+      "source_module": "SE.IdentityRegimes.Witness",
+      "description": "Canonical witness profile carrying the OBL regime."
+    }
+  ]
+}

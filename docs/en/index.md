@@ -41,7 +41,12 @@ operational validation, or runtime behavior.
 ## Relationship to Other Theory Repositories
 
 - `se-theory-neutral-substrate` provides the neutral-substrate foundation.
-- `se-theory-transformation` provides generic transformation theory.
+- `se-theory-transformation` provides generic transformation theory. Lake pins
+  `v0.5.1`, resolved to commit `350c7ff01aa7bf9a7119f0a44ce652d7a6933154`.
+  The manifest and dependency registry record that version. Identity Regimes
+  retains its separately defined ten-element transformation basis; its Lean
+  modules do not currently import `SE.Transformation` or derive regime
+  classifications from Transformation effect laws.
 - `se-theory-structural-explainability` integrates this theory with other
   Structural Explainability foundations.
 

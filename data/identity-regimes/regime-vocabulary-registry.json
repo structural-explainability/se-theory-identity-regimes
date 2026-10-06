@@ -1,0 +1,143 @@
+{
+  "schema": "se-theory-identity-regimes-vocabulary-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "regime-vocabulary-registry",
+  "reference_artifact": "regime-vocabulary",
+  "reference_path": "reference/regime-vocabulary.toml",
+  "vocabulary": [
+    {
+      "order": 1,
+      "id": "Regime_family",
+      "cite_id": "SEIR.DEF.REGIME_TO_FAMILY",
+      "name": "Regime to family",
+      "lean_symbol": "SE.IdentityRegimes.Regime.family",
+      "source_module": "SE.IdentityRegimes.Vocab.Regimes",
+      "description": "Maps each of the nine canonical regimes to its parent RegimeFamily."
+    },
+    {
+      "order": 2,
+      "id": "Regime_axes",
+      "cite_id": "SEIR.DEF.REGIME_AXES",
+      "name": "Regime axes",
+      "lean_symbol": "SE.IdentityRegimes.Regime.axes",
+      "source_module": "SE.IdentityRegimes.Profile.Core",
+      "description": "Returns the canonical identity basis and split-forcing transformation for a regime."
+    },
+    {
+      "order": 3,
+      "id": "RegimeProfile_axes",
+      "name": "Regime profile axes",
+      "lean_symbol": "SE.IdentityRegimes.RegimeProfile.axes",
+      "source_module": "SE.IdentityRegimes.Profile.Core",
+      "description": "Returns the canonical axes associated with a regime profile."
+    },
+    {
+      "order": 4,
+      "id": "profileKind",
+      "cite_id": "SEIR.DEF.PROFILE_KIND",
+      "name": "Profile kind",
+      "lean_symbol": "SE.IdentityRegimes.profileKind",
+      "source_module": "SE.IdentityRegimes.Embedding",
+      "description": "Returns the canonical regime identifying a graph vertex profile."
+    },
+    {
+      "order": 5,
+      "id": "RegimeVertex_regimeType",
+      "name": "Vertex regime type",
+      "lean_symbol": "SE.IdentityRegimes.RegimeVertex.regimeType",
+      "source_module": "SE.IdentityRegimes.Embedding",
+      "description": "Returns the canonical regime carried by a regime vertex."
+    },
+    {
+      "order": 6,
+      "id": "classificationMatrix",
+      "cite_id": "SEIR.DEF.CLASSIFICATION_MATRIX",
+      "name": "Classification matrix",
+      "lean_symbol": "SE.IdentityRegimes.classificationMatrix",
+      "source_module": "SE.IdentityRegimes.Transform.Core",
+      "description": "The canonical total map from Regime \u00d7 Transformation to ClassificationValue."
+    },
+    {
+      "order": 7,
+      "id": "derivedRegimeSet",
+      "cite_id": "SEIR.DEF.DERIVED_PROFILE_SET",
+      "name": "Derived regime set",
+      "lean_symbol": "SE.IdentityRegimes.derivedRegimeSet",
+      "source_module": "SE.IdentityRegimes.Transform.LowerBound",
+      "description": "The canonical list containing all nine regimes used in the lower-bound argument."
+    },
+    {
+      "order": 8,
+      "id": "referenceClassificationValues",
+      "cite_id": "SEIR.DEF.REFERENCE_CLASSIFICATION_VALUES",
+      "name": "Reference classification values",
+      "lean_symbol": "SE.IdentityRegimes.referenceClassificationValues",
+      "source_module": "SE.IdentityRegimes.Reference.Core",
+      "description": "The canonical reference list IGN, PRS, BRK."
+    },
+    {
+      "order": 9,
+      "id": "referenceFamilies",
+      "cite_id": "SEIR.DEF.REFERENCE_FAMILIES",
+      "name": "Reference families",
+      "lean_symbol": "SE.IdentityRegimes.referenceFamilies",
+      "source_module": "SE.IdentityRegimes.Reference.Core",
+      "description": "The canonical reference list of the six regime families."
+    },
+    {
+      "order": 10,
+      "id": "referenceProfiles",
+      "cite_id": "SEIR.DEF.REFERENCE_PROFILES",
+      "name": "Reference profiles",
+      "lean_symbol": "SE.IdentityRegimes.referenceProfiles",
+      "source_module": "SE.IdentityRegimes.Reference.Core",
+      "description": "The canonical reference list of the nine regimes in profile order."
+    },
+    {
+      "order": 11,
+      "id": "profilesForFamily",
+      "cite_id": "SEIR.DEF.PROFILES_FOR_FAMILY",
+      "name": "Profiles for family",
+      "lean_symbol": "SE.IdentityRegimes.profilesForFamily",
+      "source_module": "SE.IdentityRegimes.Reference.Core",
+      "description": "Returns the canonical regimes derived from one parent family."
+    },
+    {
+      "order": 12,
+      "id": "derivedProfilesFromFamilies",
+      "cite_id": "SEIR.DEF.DERIVED_PROFILES_FROM_FAMILIES",
+      "name": "Derived profiles from families",
+      "lean_symbol": "SE.IdentityRegimes.derivedProfilesFromFamilies",
+      "source_module": "SE.IdentityRegimes.Reference.Core",
+      "description": "Flattens profilesForFamily over the canonical family list."
+    },
+    {
+      "order": 13,
+      "id": "referenceTransformations",
+      "cite_id": "SEIR.DEF.REFERENCE_TRANSFORMATIONS",
+      "name": "Reference transformations",
+      "lean_symbol": "SE.IdentityRegimes.referenceTransformations",
+      "source_module": "SE.IdentityRegimes.Reference.Core",
+      "description": "The canonical reference list of ten transformations."
+    },
+    {
+      "order": 14,
+      "id": "allCells",
+      "cite_id": "SEIR.DEF.MATRIX_ALL_CELLS",
+      "name": "All matrix cells",
+      "lean_symbol": "SE.IdentityRegimes.allCells",
+      "source_module": "SE.IdentityRegimes.Reference.ClassificationMatrix",
+      "description": "The 90 Regime \u00d7 Transformation pairs covered by the canonical matrix."
+    },
+    {
+      "order": 15,
+      "id": "countValue",
+      "cite_id": "SEIR.DEF.MATRIX_COUNT_VALUE",
+      "name": "Count classification value",
+      "lean_symbol": "SE.IdentityRegimes.countValue",
+      "source_module": "SE.IdentityRegimes.Reference.ClassificationMatrix",
+      "description": "Counts cells carrying a selected ClassificationValue."
+    }
+  ]
+}

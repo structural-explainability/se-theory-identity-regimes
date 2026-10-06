@@ -1,0 +1,76 @@
+{
+  "schema": "se-theory-identity-regimes-derivation-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "regime-profile-derivation",
+  "reference_artifact": "regime-profile-derivation",
+  "reference_path": "reference/regime-profile-derivation.toml",
+  "derivation": [
+    {
+      "order": 1,
+      "id": "OBL",
+      "family": "OBL",
+      "split": false,
+      "profiles": [
+        "OBL"
+      ],
+      "description": "OBL remains unsplit."
+    },
+    {
+      "order": 2,
+      "id": "NOR",
+      "family": "NOR",
+      "split": true,
+      "profiles": [
+        "NOR_C",
+        "NOR_S"
+      ],
+      "forcing_transformation": "RF",
+      "description": "NOR splits under refinement."
+    },
+    {
+      "order": 3,
+      "id": "OCC",
+      "family": "OCC",
+      "split": false,
+      "profiles": [
+        "OCC"
+      ],
+      "description": "OCC remains unsplit."
+    },
+    {
+      "order": 4,
+      "id": "CTX",
+      "family": "CTX",
+      "split": true,
+      "profiles": [
+        "CTX_E",
+        "CTX_S"
+      ],
+      "forcing_transformation": "AD",
+      "description": "CTX splits under decomposition."
+    },
+    {
+      "order": 5,
+      "id": "REC",
+      "family": "REC",
+      "split": false,
+      "profiles": [
+        "REC"
+      ],
+      "description": "REC remains unsplit."
+    },
+    {
+      "order": 6,
+      "id": "ENR",
+      "family": "ENR",
+      "split": true,
+      "profiles": [
+        "ENR_L",
+        "ENR_I"
+      ],
+      "forcing_transformation": "BF",
+      "description": "ENR splits under branching."
+    }
+  ]
+}

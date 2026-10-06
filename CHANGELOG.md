@@ -11,54 +11,17 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
-### Fixed
+---
 
-- Corrected the N/A → IGN convention documentation in
-  `SE/IdentityRegimes/Transform/Core.lean`.
-- Updated project tooling.
+## [0.3.1] - 2026-10-06
 
-### Added
-
-- Refactored `ClassificationMatrix` into named rows so each regime row is
-  independently readable and testable.
-- Added the N/A → IGN convention block to the top of
-  `SE/IdentityRegimes/Transform/Core.lean`.
-- Linked the non-collapsing definition more explicitly to the paper:
-  - Added `noncollapse_of_prs_difference`, establishing that if one profile
-    classifies a transformation as PRS and another does not, the profiles are
-    non-collapsing.
-  - Documented that this PRS difference is the operative step used in the
-    corresponding paper proofs.
-  - Documented the relationship between matrix differences and the Lean
-    non-collapsing definition for the nine profiles.
-- Added scaffolding and verification for:
-  - `reference/index.toml`
-  - `reference/proof-registry.json`
-  - `reference/regime-classification-matrix.toml`
-  - `reference/regime-classification-values.toml`
-  - `reference/regime-families.toml`
-  - `reference/regime-predicates.toml`
-  - `reference/regime-profile-derivation.toml`
-  - `reference/regime-profiles.toml`
-  - `reference/regime-theorems.toml`
-  - `reference/regime-transformations.toml`
-  - `reference/regime-types.toml`
-  - `reference/regime-vocabulary.toml`
-- Added `reference.py` to scaffold and validate reference artifacts against
-  Lean 4 source.
-- Added the `se-ref-scaffold` CLI command to add stubs for new Lean symbols
-  while preserving existing descriptions and `cite_ids`.
-- Added the `se-ref-validate` CLI command to validate reference artifacts
-  against Lean source without writing changes.
-- Added `se-manifest-validate` and `se-manifest-version-sync` CLI entry points.
-
-### Changed
-
-- Updated README workflow commands.
-- Updated `[project.scripts]` in `pyproject.toml`.
-- Extended `run_validate()` to include reference artifact validation as its
-  final step.
-- Simplified the release procedure and updated it to use CLI entry points.
+- Aligned the Transformation manifest and dependency registry with the existing
+  `v0.5.1` Lake pin and refreshed the upstream vocabulary documentation,
+  including effect semantics and the `splitAndMerge` orthogonality rule.
+- Corrected reference-tool command names, upstream package paths in the docs
+  workflow, and the Lean CI test-driver command.
+- Regime definitions, counts, classification rows, preserving sets, and
+  non-collapse claims are unchanged.
 
 ---
 
@@ -327,11 +290,23 @@ Repository governance and tooling:
 
 Follow these steps exactly when creating a new release.
 
+### Optional: One-Time Zenodo Authorization
+
+1. Sign in to Zenodo.
+2. Open your profile menu in the upper-right.
+3. Select GitHub.
+4. Click Sync now.
+5. Find structural-explainability/ this repo.
+6. Turn on the repository toggle/slider.
+7. Refresh the page and confirm it appears as enabled.
+8. Zenodo will ingest future GitHub Releases from this repo.
+
 ### Task 1. Update release metadata (manual edits)
 
 1.1. CITATION.cff: update version and date-released
 1.2. lakefile.toml: update version
 1.3. CHANGELOG.md: add section, move unreleased entries, update links
+1.4. pyproject.toml: update version (near top of the file)
 
 ### Task 2. Set up and Validate
 
@@ -342,11 +317,6 @@ Follow these steps exactly when creating a new release.
 
 # Update GitHub Actions and pin all action references to immutable SHAs.
 uvx gha-tools autoupdate --pin=all --write .github/workflows
-
-# Update hooks.
-uvx prek update
-git add -A
-uvx prek run --all-files
 
 # Audit the resulting GitHub configuration for security findings.
 # NO .github\workflows\deploy-zensical.yml
@@ -372,7 +342,7 @@ lake lint
 
 # check docs (may not work on windows/runs via gh action)
 # cd docbuild
-# lake build SE.Transformation:docs
+# lake build SE.IdentityRegimes:docs
 # cd ..
 
 # Generate JSON artifacts and catalog from reference TOML.
@@ -408,14 +378,11 @@ git tag vX.Y.Z -m "X.Y.Z"
 git push origin vX.Y.Z
 ```
 
-### Task 4. After tagging, verify tag consistency
+Create GitHub Release after pushing tag, for example with a command like this:
 
 ```shell
-uvx --from se-manifest-schema se-manifest check-version --require-tag
+gh release create v0.3.1 --verify-tag --title "0.3.1"  --generate-notes
 ```
-
-Confirms CITATION.cff version matches the pushed git tag.
-Run this after `git push origin vX.Y.Z`; it will fail before that point.
 
 ## Only As Needed (delete a tag)
 
@@ -426,7 +393,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.3.1
 [0.3.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.3.0
 [0.2.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.2.0
 [0.1.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.1.0

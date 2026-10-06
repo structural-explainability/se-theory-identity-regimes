@@ -36,6 +36,7 @@ role = "theory"
 # Required upstream repository dependencies.
 required = [
   "se-theory-neutral-substrate",
+  { repository = "se-theory-transformation", kind = "semantic", version = "v0.5.1" },
 ]
 
 # Optional upstream repository dependencies.
@@ -87,9 +88,9 @@ excludes = [
 [validation]
 # Validates repository declaration, manifest schema conformance,
 # reference artifacts, generated artifacts, and Lean public surface coverage.
-export_check_entrypoint = "uv run --locked se-theory-reference export --check"
-reference_entrypoint = "uv run --locked se-theory-reference validate"
-strict_entrypoint = "uv run --locked se-theory-reference validate --strict"
+export_check_entrypoint = "uvx se-theory-reference-kit@latest export --check"
+reference_entrypoint = "uvx se-theory-reference-kit@latest validate"
+strict_entrypoint = "uvx se-theory-reference-kit@latest validate --strict"
 
 # === Behavior / governance ===
 

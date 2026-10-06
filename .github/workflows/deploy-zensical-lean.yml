@@ -171,8 +171,8 @@ jobs:
           # other package lib directories before generating documentation.
 
           IDR_LIB="$GITHUB_WORKSPACE/.lake/build/lib/lean"
-          NS_LIB="$GITHUB_WORKSPACE/.lake/packages/SETheoryNeutralSubstrate/.lake/build/lib/lean"
-          TRANS_LIB="$GITHUB_WORKSPACE/.lake/packages/SETheoryTransformation/.lake/build/lib/lean"
+          NS_LIB="$GITHUB_WORKSPACE/.lake/packages/se-theory-neutral-substrate/.lake/build/lib/lean"
+          TRANS_LIB="$GITHUB_WORKSPACE/.lake/packages/se-theory-transformation/.lake/build/lib/lean"
 
                   merge_se() {
             src="$1"

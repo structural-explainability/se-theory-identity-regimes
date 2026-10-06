@@ -1,0 +1,577 @@
+{
+  "schema": "se-theory-identity-regimes-matrix-registry",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "regime-classification-matrix",
+  "reference_artifact": "regime-classification-matrix",
+  "reference_path": "reference/regime-classification-matrix.toml",
+  "matrix": [
+    {
+      "RE": {
+        "profile_order": 6,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 6,
+        "transformation_order": 2,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 6,
+        "transformation_order": 3,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 6,
+        "transformation_order": 4,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 6,
+        "transformation_order": 5,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 6,
+        "transformation_order": 6,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "SU": {
+        "profile_order": 6,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 6,
+        "transformation_order": 8,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "SE": {
+        "profile_order": 6,
+        "transformation_order": 9,
+        "value": "IGN",
+        "basis": "na-to-ign"
+      },
+      "PV": {
+        "profile_order": 6,
+        "transformation_order": 10,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "id": "CTX_E"
+    },
+    {
+      "RE": {
+        "profile_order": 7,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 7,
+        "transformation_order": 2,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 7,
+        "transformation_order": 3,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 7,
+        "transformation_order": 4,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 7,
+        "transformation_order": 5,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 7,
+        "transformation_order": 6,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "SU": {
+        "profile_order": 7,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 7,
+        "transformation_order": 8,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "SE": {
+        "profile_order": 7,
+        "transformation_order": 9,
+        "value": "IGN",
+        "basis": "na-to-ign"
+      },
+      "PV": {
+        "profile_order": 7,
+        "transformation_order": 10,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "id": "CTX_S"
+    },
+    {
+      "RE": {
+        "profile_order": 5,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 5,
+        "transformation_order": 2,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 5,
+        "transformation_order": 3,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 5,
+        "transformation_order": 4,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 5,
+        "transformation_order": 5,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 5,
+        "transformation_order": 6,
+        "value": "IGN",
+        "basis": "na-to-ign"
+      },
+      "SU": {
+        "profile_order": 5,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 5,
+        "transformation_order": 8,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "SE": {
+        "profile_order": 5,
+        "transformation_order": 9,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "PV": {
+        "profile_order": 5,
+        "transformation_order": 10,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "id": "ENR_I"
+    },
+    {
+      "RE": {
+        "profile_order": 4,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 4,
+        "transformation_order": 2,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 4,
+        "transformation_order": 3,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 4,
+        "transformation_order": 4,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 4,
+        "transformation_order": 5,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 4,
+        "transformation_order": 6,
+        "value": "IGN",
+        "basis": "na-to-ign"
+      },
+      "SU": {
+        "profile_order": 4,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 4,
+        "transformation_order": 8,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "SE": {
+        "profile_order": 4,
+        "transformation_order": 9,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "PV": {
+        "profile_order": 4,
+        "transformation_order": 10,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "id": "ENR_L"
+    },
+    {
+      "RE": {
+        "profile_order": 8,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 8,
+        "transformation_order": 2,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 8,
+        "transformation_order": 3,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 8,
+        "transformation_order": 4,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 8,
+        "transformation_order": 5,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 8,
+        "transformation_order": 6,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "SU": {
+        "profile_order": 8,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 8,
+        "transformation_order": 8,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "SE": {
+        "profile_order": 8,
+        "transformation_order": 9,
+        "value": "IGN",
+        "basis": "na-to-ign"
+      },
+      "PV": {
+        "profile_order": 8,
+        "transformation_order": 10,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "id": "NOR_C"
+    },
+    {
+      "RE": {
+        "profile_order": 9,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 9,
+        "transformation_order": 2,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 9,
+        "transformation_order": 3,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 9,
+        "transformation_order": 4,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 9,
+        "transformation_order": 5,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 9,
+        "transformation_order": 6,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "SU": {
+        "profile_order": 9,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 9,
+        "transformation_order": 8,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "SE": {
+        "profile_order": 9,
+        "transformation_order": 9,
+        "value": "IGN",
+        "basis": "na-to-ign"
+      },
+      "PV": {
+        "profile_order": 9,
+        "transformation_order": 10,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "id": "NOR_S"
+    },
+    {
+      "RE": {
+        "profile_order": 1,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 1,
+        "transformation_order": 2,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 1,
+        "transformation_order": 3,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 1,
+        "transformation_order": 4,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 1,
+        "transformation_order": 5,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 1,
+        "transformation_order": 6,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "SU": {
+        "profile_order": 1,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 1,
+        "transformation_order": 8,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "SE": {
+        "profile_order": 1,
+        "transformation_order": 9,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "PV": {
+        "profile_order": 1,
+        "transformation_order": 10,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "id": "OBL"
+    },
+    {
+      "RE": {
+        "profile_order": 2,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 2,
+        "transformation_order": 2,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 2,
+        "transformation_order": 3,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 2,
+        "transformation_order": 4,
+        "value": "BRK",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 2,
+        "transformation_order": 5,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 2,
+        "transformation_order": 6,
+        "value": "IGN",
+        "basis": "na-to-ign"
+      },
+      "SU": {
+        "profile_order": 2,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 2,
+        "transformation_order": 8,
+        "value": "IGN",
+        "basis": "na-to-ign"
+      },
+      "SE": {
+        "profile_order": 2,
+        "transformation_order": 9,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "PV": {
+        "profile_order": 2,
+        "transformation_order": 10,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "id": "OCC"
+    },
+    {
+      "RE": {
+        "profile_order": 3,
+        "transformation_order": 1,
+        "value": "IGN",
+        "basis": "axiomatic"
+      },
+      "AN": {
+        "profile_order": 3,
+        "transformation_order": 2,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "RF": {
+        "profile_order": 3,
+        "transformation_order": 3,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "AD": {
+        "profile_order": 3,
+        "transformation_order": 4,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "RC": {
+        "profile_order": 3,
+        "transformation_order": 5,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "RA": {
+        "profile_order": 3,
+        "transformation_order": 6,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "SU": {
+        "profile_order": 3,
+        "transformation_order": 7,
+        "value": "BRK",
+        "basis": "axiomatic"
+      },
+      "BF": {
+        "profile_order": 3,
+        "transformation_order": 8,
+        "value": "PRS",
+        "basis": "paper-definition"
+      },
+      "SE": {
+        "profile_order": 3,
+        "transformation_order": 9,
+        "value": "IGN",
+        "basis": "paper-definition"
+      },
+      "PV": {
+        "profile_order": 3,
+        "transformation_order": 10,
+        "value": "PRS",
+        "basis": "resolved"
+      },
+      "id": "REC"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "se-theory-identity-regimes-catalog",
+  "source": "se-theory-identity-regimes",
+  "namespace": "se.identity_regimes",
+  "artifact": "identity-regime-catalog",
+  "reference_paths": [
+    "reference/regime-types.toml",
+    "reference/regime-predicates.toml",
+    "reference/regime-theorems.toml",
+    "reference/regime-vocabulary.toml",
+    "reference/regime-witnesses.toml",
+    "reference/regime-families.toml",
+    "reference/regime-profiles.toml",
+    "reference/regime-transformations.toml",
+    "reference/regime-classification-values.toml",
+    "reference/regime-classification-matrix.toml",
+    "reference/regime-profile-derivation.toml",
+    "reference/dependency-registry.toml",
+    "reference/traceability-registry.toml"
+  ],
+  "reference_artifacts": [
+    {
+      "id": "type",
+      "kind": "type",
+      "path": "reference/regime-types.toml"
+    },
+    {
+      "id": "predicate",
+      "kind": "predicate",
+      "path": "reference/regime-predicates.toml"
+    },
+    {
+      "id": "theorem",
+      "kind": "theorem",
+      "path": "reference/regime-theorems.toml"
+    },
+    {
+      "id": "vocabulary",
+      "kind": "vocabulary",
+      "path": "reference/regime-vocabulary.toml"
+    },
+    {
+      "id": "witness",
+      "kind": "witness",
+      "path": "reference/regime-witnesses.toml"
+    },
+    {
+      "id": "family",
+      "kind": "family",
+      "path": "reference/regime-families.toml"
+    },
+    {
+      "id": "profile",
+      "kind": "profile",
+      "path": "reference/regime-profiles.toml"
+    },
+    {
+      "id": "transformation",
+      "kind": "transformation",
+      "path": "reference/regime-transformations.toml"
+    },
+    {
+      "id": "classification",
+      "kind": "classification",
+      "path": "reference/regime-classification-values.toml"
+    },
+    {
+      "id": "matrix",
+      "kind": "matrix",
+      "path": "reference/regime-classification-matrix.toml"
+    },
+    {
+      "id": "derivation",
+      "kind": "derivation",
+      "path": "reference/regime-profile-derivation.toml"
+    },
+    {
+      "id": "dependency",
+      "kind": "dependency",
+      "path": "reference/dependency-registry.toml"
+    },
+    {
+      "id": "traceability",
+      "kind": "traceability",
+      "path": "reference/traceability-registry.toml"
+    }
+  ]
+}
