@@ -15,6 +15,8 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [0.3.1] - 2026-10-06
 
+### Fixed
+
 - Aligned the Transformation manifest and dependency registry with the existing
   `v0.5.1` Lake pin and refreshed the upstream vocabulary documentation,
   including effect semantics and the `splitAndMerge` orthogonality rule.
