@@ -11,6 +11,9 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
+- tooling updates
+- down to 3.14 for zensical build
+
 ---
 
 ## [0.3.1] - 2026-10-06
