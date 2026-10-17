@@ -189,7 +189,7 @@ jobs:
 
           # Build all theory libraries first so their .olean files exist.
           lake build SE.NeutralSubstrate
-          lake build SE.Transformation
+          lake build SE.Persistence
           lake build SE.IdentityRegimes
 
           # These packages all own modules below the shared SE.* namespace.
@@ -201,7 +201,7 @@ jobs:
 
           IDR_LIB="$GITHUB_WORKSPACE/.lake/build/lib/lean"
           NS_LIB="$GITHUB_WORKSPACE/.lake/packages/se-theory-neutral-substrate/.lake/build/lib/lean"
-          TRANS_LIB="$GITHUB_WORKSPACE/.lake/packages/se-theory-transformation/.lake/build/lib/lean"
+          PERSIST_LIB="$GITHUB_WORKSPACE/.lake/packages/se-theory-persistence/.lake/build/lib/lean"
 
                   merge_se() {
             src="$1"
@@ -220,21 +220,18 @@ jobs:
             done
           }
 
-          # Identity Regimes must be able to resolve both upstream theories.
+          # Make all three SE.* module families mutually visible to doc-gen4.
           merge_se "$NS_LIB" "$IDR_LIB"
-          merge_se "$TRANS_LIB" "$IDR_LIB"
+          merge_se "$PERSIST_LIB" "$IDR_LIB"
 
-          # doc-gen4 may traverse imported declarations from any search-path
-          # entry, so make the three SE.* module families mutually visible.
           merge_se "$IDR_LIB" "$NS_LIB"
-          merge_se "$TRANS_LIB" "$NS_LIB"
+          merge_se "$PERSIST_LIB" "$NS_LIB"
 
-          merge_se "$IDR_LIB" "$TRANS_LIB"
-          merge_se "$NS_LIB" "$TRANS_LIB"
+          merge_se "$IDR_LIB" "$PERSIST_LIB"
+          merge_se "$NS_LIB" "$PERSIST_LIB"
 
           # Generate API documentation for the complete theory dependency chain.
           lake build SE.NeutralSubstrate:docs
-          lake build SE.Transformation:docs
           lake build SE.IdentityRegimes:docs
 
       - name: BB3) Verify Lean API output
