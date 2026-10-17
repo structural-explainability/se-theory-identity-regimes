@@ -1,9 +1,6 @@
-/-
-Copyright (c) 2026 Denise M. Case.
-Released under MIT license as described in the file LICENSE.
-Authors: Denise M. Case
--/
 module
+
+public import SE.Persistence.Domain.ClassificationValue
 
 /-!
 File: SE/IdentityRegimes/Vocab/TransformBasis.lean
@@ -24,19 +21,11 @@ namespace SE.IdentityRegimes
 
 public section
 
+/-- The canonical classification values defined by Persistence. -/
+abbrev ClassificationValue := SE.Persistence.ClassificationValue
+
 -- RR.DEFINES: SEIR.DEF.TRANSFORMATION
 -- RR.IMPLEMENTS: SE300.DEF.TRANSFORMATION_FAMILY
--- RR.DEFINES: SEIR.DEF.CLASSIFICATION_VALUE
-/-- The three canonical classification values.
-    IGN: transformation does not affect identity (or is not applicable, mapped from N/A).
-    PRS: transformation preserves identity.
-    BRK: transformation breaks identity. -/
-inductive ClassificationValue where
-  | IGN
-  | PRS
-  | BRK
-  deriving DecidableEq, Repr
-
 /-- The ten-element fixed transformation basis (SE-300 §3).
 
     Each family denotes a class of admissible operations on representations:

@@ -14,7 +14,7 @@
 # ============================================================
 
 name = "se-theory-identity-regimes"
-version = "0.3.1"
+version = "0.4.0"
 license = "MIT"
 
 # ============================================================
@@ -32,9 +32,9 @@ git = "https://github.com/structural-explainability/se-theory-neutral-substrate"
 rev = "main"
 
 [[require]]
-name = "se-theory-transformation"
-git = "https://github.com/structural-explainability/se-theory-transformation"
-rev = "v0.5.1"
+name = "se-theory-persistence"
+git = "https://github.com/structural-explainability/se-theory-persistence"
+rev = "v0.4.0"
 
 # ============================================================
 # LEAN OPTIONS

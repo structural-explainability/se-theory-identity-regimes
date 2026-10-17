@@ -1,7 +1,7 @@
 # ============================================================
 # reference/theory-reference.toml
 # ============================================================
-# Theory reference configuration for se-theory-reference-kit.
+# Theory reference configuration.
 #
 # The repository owns the TOML reference artifacts below.
 # JSON under data/identity-regimes is generated from these files.
@@ -40,7 +40,6 @@ witness = "reference/regime-witnesses.toml"
 family = "reference/regime-families.toml"
 profile = "reference/regime-profiles.toml"
 transformation = "reference/regime-transformations.toml"
-classification = "reference/regime-classification-values.toml"
 matrix = "reference/regime-classification-matrix.toml"
 derivation = "reference/regime-profile-derivation.toml"
 dependency = "reference/dependency-registry.toml"

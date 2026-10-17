@@ -36,8 +36,7 @@ role = "theory"
 # Required upstream repository dependencies.
 required = [
   { repository = "se-theory-neutral-substrate", kind = "semantic" },
-  { repository = "se-theory-transformation", kind = "semantic", version = "v0.5.1" },
-  { repository = "se-theory-persistence", kind = "semantic" },
+  { repository = "se-theory-persistence", kind = "semantic", version = "v0.4.0" },
 ]
 
 # Optional upstream repository dependencies.
@@ -52,7 +51,6 @@ artifacts = [
   "lean-library",
   "theorem-set",
   "regime-classification-matrix",
-  "regime-classification-values",
   "regime-families",
   "regime-profile-derivation",
   "regime-profiles",
@@ -66,7 +64,7 @@ includes = [
   "canonical identity regimes",
   "regime requirement structure",
   "regime-profile structure",
-    "application of individuation, co-reference, and persistence accounts within identity regimes",
+  "application of individuation, co-reference, and persistence accounts within identity regimes",
   "admissibility conditions for regime application over neutral substrates",
   "necessity and sufficiency theorem structure",
   "machine-checked Lean theorems",

@@ -1,15 +1,14 @@
 {"version": "1.2.0",
  "packagesDir": ".lake/packages",
  "packages":
- [{"url":
-   "https://github.com/structural-explainability/se-theory-transformation",
+ [{"url": "https://github.com/structural-explainability/se-theory-persistence",
    "type": "git",
    "subDir": null,
    "scope": "",
-   "rev": "350c7ff01aa7bf9a7119f0a44ce652d7a6933154",
-   "name": "«se-theory-transformation»",
+   "rev": "8568356658aa03e5ed94ffa75d76d4af4368ee54",
+   "name": "«se-theory-persistence»",
    "manifestFile": "lake-manifest.json",
-   "inputRev": "v0.5.1",
+   "inputRev": "v0.4.0",
    "inherited": false,
    "configFile": "lakefile.toml"},
   {"url":

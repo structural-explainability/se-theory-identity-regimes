@@ -1,50 +1,56 @@
-#Requires -Version 7.0
+#Requires -Version 5.1
 
 <#
 ============================================================
-sit.ps1 (ALL-PY-REPOS)
+sit.ps1 (ALL-PY-REPOS) - Get Situated
 ============================================================
-Updated: 2026-09-25
+Updated: 2026-10-11
 
-This is a PowerShell script for managing
-the development environment of the project.
+WHAT: A PowerShell script that sets up, updates, and checks the
+      project's Python development environment.
+      PowerShell scripts use the .ps1 file extension.
 
-PowerShell (pwsh) is available for all major operating systems
-and is a popular terminal for developers.
+WHEN: Use when setting up a project or updating its development tools.
+      Running the script is optional.
 
-To get situated, run this script in your PowerShell terminal:
+WHY: Professional projects use consistent tools and automated checks
+     to help ensure they work reliably across different computers.
+     This script provides a repeatable way to prepare the environment,
+     update dependencies, run Git hooks, and build documentation.
 
-.\sit.ps1
+POWERSHELL: PowerShell is a command shell and scripting language.
+            Windows includes Windows PowerShell 5.1.
+            The newer PowerShell (pwsh) is free and cross-platform.
+            Windows, macOS, and Linux users can install pwsh.
 
+HOW: Open a PowerShell terminal in the project root and run:
+
+     .\sit.ps1
+
+TOOLS: uv manages Python versions and project dependencies.
+       prek runs automated Git hooks.
+       Zensical builds the project documentation website.
+
+SKILLS: PowerShell, scripting, Python environments, uv,
+        dependency management, Git hooks, project automation,
+        and documentation builds.
+
+OBS: Some commands update project files or delete generated files.
+     Review changes before committing them to Git.
+============================================================
 #>
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-# ============================================================
-# Precheck: pyproject.toml must use [dependency-groups], not the
-# old [project.optional-dependencies]. With the old table, `uv sync`
-# succeeds but does NOT install dev/docs, and later steps fail confusingly.
-# ============================================================
-if (Test-Path "pyproject.toml") {
-    $pyproject = Get-Content "pyproject.toml" -Raw
-    if ($pyproject -match '(?m)^\[project\.optional-dependencies\]') {
-        Write-Host ""
-        Write-Host "ERROR: pyproject.toml uses the old [project.optional-dependencies] table." -ForegroundColor Red
-        Write-Host ""
-        Write-Host "This repo has not been migrated. 'uv sync' would run but NOT install" -ForegroundColor Yellow
-        Write-Host "the dev and docs dependencies, so linting, tests, and docs would fail." -ForegroundColor Yellow
-        Write-Host ""
-        Write-Host "FIX: open pyproject.toml and rename this one line:" -ForegroundColor Cyan
-        Write-Host "    [project.optional-dependencies]   ->   [dependency-groups]" -ForegroundColor Cyan
-        Write-Host ""
-        Write-Host "Then run .\sit.ps1 again." -ForegroundColor Cyan
-        Write-Host ""
-        exit 1
-    }
-}
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
 
-# set up or update Python environment
+# ============================================================
+# A) PYTHON ENVIRONMENT
+# Clean, update, install, synchronize, and audit dependencies.
+# ============================================================
+
 uvx pup-clean --delete
 uv self update
 uv python install
@@ -52,15 +58,22 @@ uv lock --upgrade
 uv sync
 uv audit
 
-# set up and run git hooks
+# ============================================================
+# B) GIT HOOKS
+# Install, update, and run automated project checks.
+# ============================================================
+
 uvx prek install --force
 uvx prek update
 git add -A
 uvx prek run --all-files
-# repeat if changes were made
 uvx prek run --all-files
 
-# build docs
+# ============================================================
+# C) DOCUMENTATION
+# Build the professional project documentation website.
+# ============================================================
+
 uv run python -m zensical build
 
 Write-Host "All commands executed successfully."

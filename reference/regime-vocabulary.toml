@@ -148,3 +148,21 @@ name = "Count classification value"
 lean_symbol = "SE.IdentityRegimes.countValue"
 source_module = "SE.IdentityRegimes.Reference.ClassificationMatrix"
 description = "Counts cells carrying a selected ClassificationValue."
+
+[vocabulary.regimeApplicable]
+order = 16
+id = "regimeApplicable"
+cite_id = "SEIR.DEF.REGIME_APPLICABLE"
+name = "Regime applicable"
+lean_symbol = "SE.IdentityRegimes.regimeApplicable"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+description = "Identifies the eight inapplicable cells of the canonical classification matrix."
+
+[vocabulary.persistenceClassification]
+order = 17
+id = "persistenceClassification"
+cite_id = "SEIR.DEF.PERSISTENCE_CLASSIFICATION"
+name = "Persistence classification"
+lean_symbol = "SE.IdentityRegimes.persistenceClassification"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+description = "Constructs a Persistence classification from a regime's matrix row while restoring the eight inapplicable cells."

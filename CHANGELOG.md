@@ -11,8 +11,187 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
-- tooling updates
-- down to 3.14 for zensical build
+---
+
+## [0.4.0] - 2026-10-16
+
+### Added
+
+- Added a dependency on Persistence `v0.4.0`, reusing its canonical `ClassificationValue` type.
+- Added `PersistenceBridge.lean` to connect the nine-regime classification matrix to `SE.Persistence.Classification`.
+- Restored applicability distinctions for the eight cells previously mapped from N/A to IGN.
+- Added theorems showing that the original classification matrix is recovered when applicability is forgotten and that preserving classifications agree with Persistence.
+- Added identity-level non-collapse analysis, including two pairs of regimes with distinct classification rows but identical generated identity relations on every shared dynamics.
+
+### Removed
+
+- Removed the duplicate Identity Regimes `ClassificationValue` inductive type and its separate classification-value reference registry.
+
+### Changed
+
+- Updated Lean classification references to use Persistence's `.ign`, `.prs`, and `.brk` constructors.
+- Updated the dependency declarations, reference registries, and generated artifacts to reflect Persistence ownership of classification values.
+- Depends on se-theory-persistence; no longer depends directly on
+  se-theory-transformation, which no module imported
+- Documented that `nine_regime_lower_bound` and `NonCollapsing` hold at row level
+  only
+- Distinguished classification-row non-collapse from non-collapse of generated identity relations.
+- Preserved the nine canonical regimes, ten transformations, 9 × 10 classification matrix, and existing classification counts.
+
+### Fixed
+
+- Aligned the Transformation manifest and dependency registry with the existing
+  `v0.5.1` Lake pin and refreshed the upstream vocabulary documentation,
+  including effect semantics and the `splitAndMerge` orthogonality rule.
+- Corrected reference-tool command names, upstream package paths in the docs
+  workflow, and the Lean CI test-driver command.
+- Regime definitions, counts, classification rows, preserving sets, and
+  non-collapse claims are unchanged.
+
+---
+
+## [0.3.1] - 2026-10-06
+
+### Fixed
+
+- Aligned the Transformation manifest and dependency registry with the existing `v0.5.1` Lake pin and refreshed the upstream vocabulary documentation, including effect semantics and the `splitAndMerge` orthogonality rule.
+- Corrected reference-tool command names, upstream package paths in the docs workflow, and the Lean CI test-driver command.
+- Regime definitions, counts, classification rows, preserving sets, and non-collapse claims are unchanged.
+
+---
+
+## [0.3.0] - 2026-05-02
+
+### Added
+
+ClassificationMatrix as named rows.
+Each row is independently readable and testable.
+NA→IGN CONVENTION block added at top of Transform/Core.lean.
+
+Non-Collapsing def linked to paper:
+
+1. A lemma noncollapse_of_prs_difference.
+   If one profile classifies t as PRS and the other doesn't,
+   they are non-collapsing.
+   Operative step in every paper proof.
+
+2. A note that for the 9 profiles, every matrix difference
+   that appears in a proof involves a PRS cell for
+   one of the profiles, so Lean definition is sufficient.
+
+Scaffolding and verification for:
+
+- .\reference\index.toml
+- .\reference\proof-registry.json
+- .\reference\regime-classification-matrix.toml
+- .\reference\regime-classification-values.toml
+- .\reference\regime-families.toml
+- .\reference\regime-predicates.toml
+- .\reference\regime-profile-derivation.toml
+- .\reference\regime-profiles.toml
+- .\reference\regime-theorems.toml
+- .\reference\regime-transformations.toml
+- .\reference\regime-types.toml
+- .\reference\regime-vocabulary.toml
+
+- `reference.py` - scaffold and validate reference artifacts against
+  Lean 4 source
+- `se-ref-scaffold` CLI command - adds stubs for new Lean symbols,
+  preserves existing descriptions and cite_ids
+- `se-ref-validate` CLI command - validates reference artifacts
+  against Lean source, writes nothing
+- `se-manifest-validate` and `se-manifest-version-sync` CLI entry points
+
+### Changed
+
+- README.md workflow commands
+- pyproject.toml [project.scripts]
+- `run_validate()` extended to include reference artifact validation
+  as final step
+- Release procedure simplified and updated to use CLI entry points.
+
+---
+
+## [0.2.0] - 2026-05-01
+
+### Added
+
+- Added curated public Lean surface via `IdentityRegimes.Surface`.
+- Added single downstream import boundary:
+
+  ```lean
+  import IdentityRegimes
+  open IdentityRegimes
+  ```
+
+- Added public exports for:
+  - `Regime`
+  - `RegimeProfile`
+  - `RegimeProfileKind`
+  - `Requirement`
+  - `Transformation`
+  - `TransformationClassification`
+  - `IsCanonicalRegime`
+  - `IsPreserving`
+  - `IsBreaking`
+  - `NonCollapsing`
+  - `ProfileWellFormed`
+  - `RequirementSatisfied`
+  - `RegimeApplicationAdmissible`
+  - `classify`
+  - `derivedRegimeSet`
+  - `classification_pattern_unique`
+  - `nine_regime_lower_bound`
+
+reference/ files (manual creation / Lean checking):
+
+- regime-classification-values.toml
+- regime-families.toml
+- regime-profile-derivation.toml
+- regime-profiles.toml
+- regime-transformations.toml
+
+### Changed
+
+- Migrated Identity Regimes from the previous Neutral Substrate API
+  to new public `NeutralSubstrate` import surface.
+- Replaced legacy substrate references with `Ontology`.
+- Replaced ontology-level `Admissible` usage with `Neutral`.
+- Renamed transformation classification vocabulary to `TransformationClassification`.
+- Clarified distinction between:
+  - six canonical `Regime` values
+  - nine derived `RegimeProfileKind` values
+  - structured `RegimeProfile` objects
+
+### Fixed
+
+- Fixed Lean theorem binders incorrectly treating `Neutral S` as a typeclass.
+- Fixed recursive proof error in `regime_application_admissible_of_neutral`.
+- Corrected public surface exports to include only valid, stable identifiers.
+- Restored successful `lake build` after Neutral Substrate interface migration.
+
+### Notes
+
+This release establishes a stable public Lean interface for identity-regime theory.
+
+- the canonical classification matrix may be refined
+- the reference certification layer may expand
+
+---
+
+## [Unreleased]
+
+---
+
+## [0.4.0] - 2026-10-16
+
+### Added
+
+- dependency on Persistence 0.3.0 and its ClassificationValue
+
+### Removed
+
+### Changed
 
 ---
 
@@ -386,7 +565,7 @@ git push origin vX.Y.Z
 Create GitHub Release after pushing tag, for example with a command like this:
 
 ```shell
-gh release create v0.3.1 --verify-tag --title "0.3.1"  --generate-notes
+gh release create v0.4.0 --verify-tag --title "0.4.0"  --generate-notes
 ```
 
 ## Only As Needed (delete a tag)
@@ -398,7 +577,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.4.0
 [0.3.1]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.3.1
 [0.3.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.3.0
 [0.2.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.2.0

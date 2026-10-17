@@ -1,15 +1,40 @@
 # ============================================================
 # .github/workflows/deploy-zensical-lean.yml (CUSTOM LEAN+ALL-PY-REPOS)
 # ============================================================
-# Updated: 2026-10-03 CUSTOM
+# Updated: 2026-10-16 CUSTOM
 #
-# WHY: Build and deploy documentation to GitHub Pages on pushes to main.
-# REQ: Repo Settings -> Pages -> Build and deployment -> Source:
-#      GitHub Actions
-# WHY: Without this setting, the deploy-pages action will fail with a 403.
-# REQ: Repository MUST contain .python-version.
-# WHY: The repository declares the Python version used locally and by CI.
+# WHAT: A GitHub Actions workflow that automatically publishes project documentation.
+#       GitHub Actions is GitHub's built-in project automation service.
+#       This YAML file tells GitHub what commands to run and when to run them.
+#
+# WHEN: Use for projects that use Python tooling and Zensical to publish a
+#       professional documentation website describing the project,
+#       its data, methods, processes, and results.
+#       Projects do not need a src/ Python application.
+#
+# TRIGGER: Runs automatically when changes are pushed to the main branch.
+#          It can also be started manually from the GitHub Actions tab.
+#
+# WHY: Publishing documentation makes project work accessible to others.
+#      Automated deployment keeps the public website current without
+#      requiring the developer to rebuild and upload it manually.
+#
+# CI/CD: Continuous Integration (CI) automatically checks changes.
+#        Continuous Delivery/Deployment (CD) prepares or publishes work.
+#        This workflow performs CD by building and publishing the website.
+#        A separate workflow handles CI.
+#
+# SKILLS: Git, GitHub, GitHub Actions, CI/CD, automated deployment,
+#         project automation, and professional documentation.
+#
+# TOOLS: Zensical builds the documentation website.
+#        GitHub Pages hosts the published website.
+#
+# REQ: Repository MUST contain .python-version, uv.lock, and zensical.toml.
+# REQ: Repository Settings > Pages > Build and deployment > Source:
+#      GitHub Actions.
 # REQ: Deployment MUST use the committed uv.lock without updating it.
+# ============================================================
 
 # Name shown in the repo Actions tab.
 name: Docs Deploy (Zensical and Lean)
@@ -58,16 +83,20 @@ jobs:
         # OBS: Must run before the build step so base URL is available if needed.
 
       - name: A3) Install uv (with caching)
-        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
         with:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
           # WHY: Invalidate dependency cache when the committed lockfile changes.
 
+      - name: A4) Install project Python
+        run: uv python install
+        # WHY: Ensures the Python version declared in .python-version is available.
+        # OBS: uv manages the interpreter locally in the CI environment.
+
       - name: A5) Install dependencies from committed lockfile
         run: uv sync --frozen
-        # WHY: Install all configured dependency groups exactly from uv.lock.
-        # REQ: Deployment MUST fail rather than update a stale lockfile.
+        # WHY: Install dependencies from the committed uv.lock without updating it.
 
       - name: A6) Show tool versions
         run: |
@@ -83,7 +112,7 @@ jobs:
       # ============================================================
 
       - name: AA1) Set up Lean
-        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6 # v1
         with:
           build: false
           test: false

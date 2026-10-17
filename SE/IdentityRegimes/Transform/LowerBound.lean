@@ -1,8 +1,3 @@
-/-
-Copyright (c) 2026 Denise M. Case.
-Released under MIT license as described in the file LICENSE.
-Authors: Denise M. Case
--/
 module
 
 import all SE.IdentityRegimes.Transform.Core
@@ -19,15 +14,25 @@ Lower bound and determinacy theorems for the derived regime set.
 
 Results:
   - The derived regime set has exactly nine elements.
-  - All nine profiles are pairwise non-collapsing.
+  - All nine profiles are pairwise non-collapsing at row level (`NonCollapsing`).
   - Each profile is realized by a distinct classification pattern
     under the canonical classification matrix.
-  - No admissible substrate can realize fewer than nine profiles.
+  - No admissible substrate can realize fewer than nine row-distinct profiles.
 
 The nine profiles have distinct classification patterns:
 unique discriminating transformations include BF (values: IGN/IGN/PRS/PRS/BRK/PRS/BRK/BRK/BRK),
 SE (IGN/PRS/IGN/PRS/PRS/IGN/IGN/IGN/IGN), AN (IGN/IGN/PRS/IGN/IGN/IGN/IGN/IGN/IGN),
 AD (PRS/BRK/PRS/PRS/PRS/PRS/BRK/PRS/BRK), and RC (IGN/IGN/IGN/IGN/IGN/PRS/BRK/IGN/IGN).
+
+ROW-LEVEL SCOPE
+Every statement here is about the rows of `classificationMatrix`.
+None is a statement about the identity relations those rows generate.
+By `PersistenceBridge.lean`, OBL and NOR-C generate the same identity relation on
+every dynamics, as do CTX-S and NOR-S (`identityRel_OBL_eq_NOR_C`,
+`identityRel_CTX_S_eq_NOR_S`), so the nine rows yield at most seven distinct
+identity relations.
+The paper separates those two pairs by identity carrier (GEN-CAR),
+which neither the classification matrix nor `SE.Persistence` models.
 
 Source: SE-300, Section 5, lower bound and determinacy.
 -/
@@ -87,7 +92,8 @@ theorem classification_pattern_unique
     | exact absurd (h .RC) (by decide)
 
 /-- Lower bound: any substrate realizing all derived profiles must realize
-    at least nine pairwise non-collapsing profiles under the canonical matrix.
+    at least nine row-distinct profiles under the canonical matrix (row level;
+    see ROW-LEVEL SCOPE in the file header).
     Source: SE-300 Section 5. -/
 theorem nine_regime_lower_bound :
     ∀ p q : Regime, p ≠ q → NonCollapsing p q :=

@@ -1,8 +1,3 @@
-/-
-Copyright (c) 2026 Denise M. Case.
-Released under MIT license as described in the file LICENSE.
-Authors: Denise M. Case
--/
 module
 
 public import SE.NeutralSubstrate
@@ -75,10 +70,10 @@ public section
     BF=IGN: obligation persists independently of representation forking.
     SE=IGN: identity not individuated by internal state transitions. -/
 private def oblRow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .IGN | .RF => .PRS
-  | .AD => .PRS | .RC => .IGN | .RA => .IGN
-  | .SU => .BRK | .BF => .IGN | .PV => .IGN
-  | .SE => .IGN
+  | .RE => .ign | .AN => .ign | .RF => .prs
+  | .AD => .prs | .RC => .ign | .RA => .ign
+  | .SU => .brk | .BF => .ign | .PV => .ign
+  | .SE => .ign
 
 /-- OCC: Time-indexed occurrence.
     Identity constituted by temporal realization and provenance.
@@ -86,10 +81,10 @@ private def oblRow : Transformation → ClassificationValue
     SE=PRS: an occurrence may have stages that constitute the same event.
     RA=IGN, BF=IGN: N/A→IGN; occurrence is fixed by its realization event. -/
 private def occRow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .IGN | .RF => .PRS
-  | .AD => .BRK | .RC => .IGN | .RA => .IGN  -- RA: N/A→IGN
-  | .SU => .BRK | .BF => .IGN | .PV => .IGN  -- BF: N/A→IGN
-  | .SE => .PRS
+  | .RE => .ign | .AN => .ign | .RF => .prs
+  | .AD => .brk | .RC => .ign | .RA => .ign  -- RA: N/A→IGN
+  | .SU => .brk | .BF => .ign | .PV => .ign  -- BF: N/A→IGN
+  | .SE => .prs
 
 /-- REC: Descriptive record.
     Identity constituted by persistence as a descriptive referent.
@@ -98,10 +93,10 @@ private def occRow : Transformation → ClassificationValue
     PV=PRS: provenance-tracking bridges the identity break in recovery
             (resolved: operative mechanism, not passive metadata). -/
 private def recRow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .PRS | .RF => .PRS
-  | .AD => .PRS | .RC => .IGN | .RA => .IGN
-  | .SU => .BRK | .BF => .PRS | .PV => .PRS
-  | .SE => .IGN
+  | .RE => .ign | .AN => .prs | .RF => .prs
+  | .AD => .prs | .RC => .ign | .RA => .ign
+  | .SU => .brk | .BF => .prs | .PV => .prs
+  | .SE => .ign
 
 /-- ENR-L: Enduring non-normative referent, locus-bound.
     Identity constituted by persistence of the same locus.
@@ -109,10 +104,10 @@ private def recRow : Transformation → ClassificationValue
     SE=PRS: state evolution preserves locus-bound referent identity.
     RA=IGN: N/A→IGN. -/
 private def enrLRow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .IGN | .RF => .PRS
-  | .AD => .PRS | .RC => .IGN | .RA => .IGN  -- RA: N/A→IGN
-  | .SU => .BRK | .BF => .PRS | .PV => .IGN
-  | .SE => .PRS
+  | .RE => .ign | .AN => .ign | .RF => .prs
+  | .AD => .prs | .RC => .ign | .RA => .ign  -- RA: N/A→IGN
+  | .SU => .brk | .BF => .prs | .PV => .ign
+  | .SE => .prs
 
 /-- ENR-I: Enduring non-normative referent, instrument-bound.
     Identity constituted by persistence of the same artifact.
@@ -121,10 +116,10 @@ private def enrLRow : Transformation → ClassificationValue
     SE=PRS: state evolution preserves instrument-bound referent identity.
     RA=IGN: N/A→IGN. -/
 private def enrIRow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .IGN | .RF => .PRS
-  | .AD => .PRS | .RC => .IGN | .RA => .IGN  -- RA: N/A→IGN
-  | .SU => .BRK | .BF => .BRK | .PV => .IGN
-  | .SE => .PRS
+  | .RE => .ign | .AN => .ign | .RF => .prs
+  | .AD => .prs | .RC => .ign | .RA => .ign  -- RA: N/A→IGN
+  | .SU => .brk | .BF => .brk | .PV => .ign
+  | .SE => .prs
 
 /-- CTX-E: Applicability context, extension-sensitive.
     Identity constituted by persistence of the same applicability extension.
@@ -132,20 +127,20 @@ private def enrIRow : Transformation → ClassificationValue
     RC=PRS: re-contextualization preserves applicability extension by definition.
     SE=IGN: N/A→IGN; normative structures do not undergo state evolution. -/
 private def ctxERow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .IGN | .RF => .PRS
-  | .AD => .PRS | .RC => .PRS | .RA => .IGN
-  | .SU => .BRK | .BF => .PRS | .PV => .IGN
-  | .SE => .IGN  -- SE: N/A→IGN
+  | .RE => .ign | .AN => .ign | .RF => .prs
+  | .AD => .prs | .RC => .prs | .RA => .ign
+  | .SU => .brk | .BF => .prs | .PV => .ign
+  | .SE => .ign  -- SE: N/A→IGN
 
 /-- CTX-S: Applicability context, structure-sensitive.
     Identity constituted by persistence of the same structure.
     RF=BRK, AD=BRK, RC=BRK, RA=BRK, BF=BRK: all alter applicability structure.
     SE=IGN: N/A→IGN; normative structures do not undergo state evolution. -/
 private def ctxSRow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .IGN | .RF => .BRK
-  | .AD => .BRK | .RC => .BRK | .RA => .BRK
-  | .SU => .BRK | .BF => .BRK | .PV => .IGN
-  | .SE => .IGN  -- SE: N/A→IGN
+  | .RE => .ign | .AN => .ign | .RF => .brk
+  | .AD => .brk | .RC => .brk | .RA => .brk
+  | .SU => .brk | .BF => .brk | .PV => .ign
+  | .SE => .ign  -- SE: N/A→IGN
 
 /-- NOR-C: Normative structure, composition-sensitive (content-preserving).
     Identity constituted by persistence of the same normative content.
@@ -153,10 +148,10 @@ private def ctxSRow : Transformation → ClassificationValue
     BF=BRK: branching breaks normative structure identity.
     SE=IGN: N/A→IGN; normative structures do not undergo state evolution. -/
 private def norCRow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .IGN | .RF => .PRS
-  | .AD => .PRS | .RC => .IGN | .RA => .IGN
-  | .SU => .BRK | .BF => .BRK | .PV => .IGN
-  | .SE => .IGN  -- SE: N/A→IGN
+  | .RE => .ign | .AN => .ign | .RF => .prs
+  | .AD => .prs | .RC => .ign | .RA => .ign
+  | .SU => .brk | .BF => .brk | .PV => .ign
+  | .SE => .ign  -- SE: N/A→IGN
 
 /-- NOR-S: Normative structure, substitution-sensitive (structural).
     Identity constituted by persistence of the same structure.
@@ -164,10 +159,10 @@ private def norCRow : Transformation → ClassificationValue
     BF=BRK: branching breaks normative structure identity.
     SE=IGN: N/A→IGN; normative structures do not undergo state evolution. -/
 private def norSRow : Transformation → ClassificationValue
-  | .RE => .IGN | .AN => .IGN | .RF => .BRK
-  | .AD => .BRK | .RC => .IGN | .RA => .IGN
-  | .SU => .BRK | .BF => .BRK | .PV => .IGN
-  | .SE => .IGN  -- SE: N/A→IGN
+  | .RE => .ign | .AN => .ign | .RF => .brk
+  | .AD => .brk | .RC => .ign | .RA => .ign
+  | .SU => .brk | .BF => .brk | .PV => .ign
+  | .SE => .ign  -- SE: N/A→IGN
 
 -- ============================================================
 -- CANONICAL MATRIX

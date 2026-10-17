@@ -1,8 +1,3 @@
-/-
-Copyright (c) 2026 Denise M. Case.
-Released under MIT license as described in the file LICENSE.
-Authors: Denise M. Case
--/
 module
 
 import all SE.IdentityRegimes.Vocab.Regimes
@@ -45,7 +40,7 @@ public section
 -- RR.DEFINES: SEIR.DEF.REFERENCE_CLASSIFICATION_VALUES
 /-- Reference enumeration of the canonical classification values. -/
 def referenceClassificationValues : List ClassificationValue :=
-  [.IGN, .PRS, .BRK]
+  [.ign, .prs, .brk]
 
 -- RR.DEFINES: SEIR.THM.REFERENCE_CLASSIFICATION_VALUES_CARD
 /-- The reference classification-value list has the expected cardinality. -/

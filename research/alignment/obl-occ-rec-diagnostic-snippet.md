@@ -545,10 +545,10 @@ In `se-theory-identity-regimes`:
 
 In `spec-ae`:
 
-5. `IDENTIFIERS.md` and `data/spec/requirements.json`: seven non-normative
+1. `IDENTIFIERS.md` and `data/spec/requirements.json`: seven non-normative
    notes (OBL, ENR_L, ENR_I, CTX_E, CTX_S, NOR_C, NOR_S) do not match the
    authoritative theory. OCC and REC are compatible.
-6. `SE_MANIFEST.toml`: the upstream theory repo is not declared or pinned. The
+2. `SE_MANIFEST.toml`: the upstream theory repo is not declared or pinned. The
    absence is established. Whether a dependency belongs there is a design
    decision that this note does not settle.
 

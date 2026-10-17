@@ -34,6 +34,16 @@
       "required": true,
       "allowed": true,
       "description": "Validates, exports, catalogs, and inspects repository-owned theory reference artifacts."
+    },
+    {
+      "order": 4,
+      "id": "se-theory-persistence",
+      "target_repo": "se-theory-persistence",
+      "dependency_kind": "lean-library",
+      "required": true,
+      "allowed": true,
+      "revision": "v0.3.0",
+      "description": "Provides the canonical classification type, persistence relations, and non-collapse theorems used by the Identity Regimes persistence bridge."
     }
   ]
 }

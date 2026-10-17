@@ -1,8 +1,3 @@
-/-
-Copyright (c) 2026 Denise M. Case.
-Released under MIT license as described in the file LICENSE.
-Authors: Denise M. Case
--/
 module
 
 import all SE.IdentityRegimes.Transform.Core
@@ -29,7 +24,10 @@ y = applyTrans t x such that x ∼_P y but x ≁_Q y, so ∼_P ≠ ∼_Q.
 
 For the nine derived profiles, 34 of the 36 unordered profile pairs have
 different PRS sets, so the argument above applies to them. (The connection to
-∼_P is documented here; ∼_P and applyTrans are not defined as Lean objects.)
+∼_P is documented here.
+In Lean, ∼_P is `SE.Persistence.Classification.identityRel`,
+reached through `Transform/PersistenceBridge.lean`;
+`applyTrans` is not defined as a Lean object.)
 
 The other two pairs have equal PRS sets, and therefore equal PRS-generated
 relations. Their matrix rows differ only at non-PRS cells:
@@ -44,6 +42,9 @@ which is not the paper's ∼_P ≠ ∼_Q. The paper separates them by identity
 carrier (GEN-CAR), which this file does not model. The row-level distinction
 is still strict: classification_pattern_unique shows that all nine rows are
 pairwise distinct.
+`Transform/PersistenceBridge.lean` proves the collapse itself:
+`identityRel_OBL_eq_NOR_C` and `identityRel_CTX_S_eq_NOR_S` show that these two
+pairs generate equal identity relations on every dynamics.
 
 Non-collapse is established in two stages:
 
@@ -104,8 +105,8 @@ def NonCollapsing (p q : Regime) : Prop :=
 theorem noncollapse_of_prs_difference
     (p q : Regime)
     (t : Transformation)
-    (hp : classificationMatrix p t = .PRS)
-    (hq : classificationMatrix q t ≠ .PRS) :
+    (hp : classificationMatrix p t = .prs)
+    (hq : classificationMatrix q t ≠ .prs) :
     NonCollapsing p q :=
     ⟨t, by
       rw [hp]

@@ -647,3 +647,113 @@ lean_symbol = "SE.IdentityRegimes.profilesForFamily_nosplit_singleton"
 source_module = "SE.IdentityRegimes.Reference.Core"
 status = "proved"
 description = "Every unsplit family yields exactly one regime."
+
+[theorem.regimeApplicable_false_imp_matrix_ign]
+order = 64
+id = "regimeApplicable_false_imp_matrix_ign"
+cite_id = "SEIR.THM.REGIME_APPLICABLE_FALSE_IMP_MATRIX_IGN"
+name = "regimeApplicable_false_imp_matrix_ign"
+lean_symbol = "SE.IdentityRegimes.regimeApplicable_false_imp_matrix_ign"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "Every inapplicable cell is classified IGN in the canonical matrix."
+
+[theorem.persistenceClassification_applicable_iff]
+order = 65
+id = "persistenceClassification_applicable_iff"
+cite_id = "SEIR.THM.PERSISTENCE_CLASSIFICATION_APPLICABLE_IFF"
+name = "persistenceClassification_applicable_iff"
+lean_symbol = "SE.IdentityRegimes.persistenceClassification_applicable_iff"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "Persistence classification applicability agrees with regime applicability."
+
+[theorem.persistenceClassification_isPrs_iff]
+order = 66
+id = "persistenceClassification_isPrs_iff"
+cite_id = "SEIR.THM.PERSISTENCE_CLASSIFICATION_IS_PRS_IFF"
+name = "persistenceClassification_isPrs_iff"
+lean_symbol = "SE.IdentityRegimes.persistenceClassification_isPrs_iff"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "Persistence preservation coincides with PRS in the canonical matrix."
+
+[theorem.persistenceClassification_coarse]
+order = 67
+id = "persistenceClassification_coarse"
+cite_id = "SEIR.THM.PERSISTENCE_CLASSIFICATION_COARSE"
+name = "persistenceClassification_coarse"
+lean_symbol = "SE.IdentityRegimes.persistenceClassification_coarse"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "Forgetting applicability recovers the canonical classification matrix."
+
+[theorem.identityNonCollapsing_free_iff]
+order = 68
+id = "identityNonCollapsing_free_iff"
+cite_id = "SEIR.THM.IDENTITY_NONCOLLAPSING_FREE_IFF"
+name = "identityNonCollapsing_free_iff"
+lean_symbol = "SE.IdentityRegimes.identityNonCollapsing_free_iff"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "On free dynamics, identity-level non-collapse holds exactly when regimes differ on a PRS classification."
+
+[theorem.matrix_prs_iff_OBL_NOR_C]
+order = 69
+id = "matrix_prs_iff_OBL_NOR_C"
+cite_id = "SEIR.THM.MATRIX_PRS_IFF_OBL_NOR_C"
+name = "matrix_prs_iff_OBL_NOR_C"
+lean_symbol = "SE.IdentityRegimes.matrix_prs_iff_OBL_NOR_C"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "OBL and NOR-C classify exactly the same transformations as preserving."
+
+[theorem.matrix_prs_iff_CTX_S_NOR_S]
+order = 70
+id = "matrix_prs_iff_CTX_S_NOR_S"
+cite_id = "SEIR.THM.MATRIX_PRS_IFF_CTX_S_NOR_S"
+name = "matrix_prs_iff_CTX_S_NOR_S"
+lean_symbol = "SE.IdentityRegimes.matrix_prs_iff_CTX_S_NOR_S"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "CTX-S and NOR-S classify exactly the same transformations as preserving."
+
+[theorem.identityRel_OBL_eq_NOR_C]
+order = 71
+id = "identityRel_OBL_eq_NOR_C"
+cite_id = "SEIR.THM.IDENTITY_REL_OBL_EQ_NOR_C"
+name = "identityRel_OBL_eq_NOR_C"
+lean_symbol = "SE.IdentityRegimes.identityRel_OBL_eq_NOR_C"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "OBL and NOR-C generate the same identity relation on every shared dynamics."
+
+[theorem.identityRel_CTX_S_eq_NOR_S]
+order = 72
+id = "identityRel_CTX_S_eq_NOR_S"
+cite_id = "SEIR.THM.IDENTITY_REL_CTX_S_EQ_NOR_S"
+name = "identityRel_CTX_S_eq_NOR_S"
+lean_symbol = "SE.IdentityRegimes.identityRel_CTX_S_eq_NOR_S"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "CTX-S and NOR-S generate the same identity relation on every shared dynamics."
+
+[theorem.rowDistinct_but_identityCollapsed_OBL_NOR_C]
+order = 73
+id = "rowDistinct_but_identityCollapsed_OBL_NOR_C"
+cite_id = "SEIR.THM.ROW_DISTINCT_BUT_IDENTITY_COLLAPSED"
+name = "rowDistinct_but_identityCollapsed_OBL_NOR_C"
+lean_symbol = "SE.IdentityRegimes.rowDistinct_but_identityCollapsed_OBL_NOR_C"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "OBL and NOR-C have distinct classification rows but identical generated identity relations on every shared dynamics."
+
+[theorem.rowDistinct_but_identityCollapsed_CTX_S_NOR_S]
+order = 74
+id = "rowDistinct_but_identityCollapsed_CTX_S_NOR_S"
+cite_id = "SEIR.THM.ROW_DISTINCT_BUT_IDENTITY_COLLAPSED_CTX_S_NOR_S"
+name = "rowDistinct_but_identityCollapsed_CTX_S_NOR_S"
+lean_symbol = "SE.IdentityRegimes.rowDistinct_but_identityCollapsed_CTX_S_NOR_S"
+source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
+status = "proved"
+description = "CTX-S and NOR-S have distinct classification rows but identical generated identity relations on every shared dynamics."

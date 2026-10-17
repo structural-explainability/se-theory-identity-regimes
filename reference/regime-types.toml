@@ -55,18 +55,8 @@ source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
 description = "The fixed ten-element transformation basis used by the classification matrix."
 constructors = ["RE", "AN", "RF", "AD", "RC", "RA", "SU", "BF", "SE", "PV"]
 
-[type.ClassificationValue]
-order = 5
-id = "ClassificationValue"
-cite_id = "SEIR.DEF.CLASSIFICATION_VALUE"
-name = "Classification value"
-lean_symbol = "SE.IdentityRegimes.ClassificationValue"
-source_module = "SE.IdentityRegimes.Vocab.TransformBasis"
-description = "The three classification outcomes IGN, PRS, and BRK."
-constructors = ["IGN", "PRS", "BRK"]
-
 [type.IdentityBasis]
-order = 6
+order = 5
 id = "IdentityBasis"
 cite_id = "SEIR.DEF.IDENTITY_BASIS"
 name = "Identity basis"
@@ -76,7 +66,7 @@ description = "The identity-bearing basis associated with a canonical regime pro
 constructors = ["single", "content", "structure", "extension", "locus", "instrument"]
 
 [type.ProfileAxes]
-order = 7
+order = 6
 id = "ProfileAxes"
 cite_id = "SEIR.DEF.PROFILE_AXES"
 name = "Profile axes"
@@ -85,7 +75,7 @@ source_module = "SE.IdentityRegimes.Profile.Core"
 description = "The identity basis and optional split-forcing transformation associated with a regime."
 
 [type.RegimeProfile]
-order = 8
+order = 7
 id = "RegimeProfile"
 cite_id = "SEIR.DEF.REGIME_PROFILE"
 name = "Regime profile"
@@ -94,7 +84,7 @@ source_module = "SE.IdentityRegimes.Profile.Core"
 description = "A profile carrying one of the nine canonical Regime values."
 
 [type.AdmissibleRelation]
-order = 9
+order = 8
 id = "AdmissibleRelation"
 cite_id = "SEIR.DEF.ADMISSIBLE_RELATION"
 name = "Admissible relation"
@@ -104,7 +94,7 @@ description = "The admissible edge-relation vocabulary used by regime graphs."
 constructors = ["participatesIn", "precedes", "scopedBy", "describedBy", "groundedIn"]
 
 [type.RegimeVertex]
-order = 10
+order = 9
 id = "RegimeVertex"
 cite_id = "SEIR.DEF.REGIME_VERTEX"
 name = "Regime vertex"
@@ -113,7 +103,7 @@ source_module = "SE.IdentityRegimes.Embedding"
 description = "A graph vertex carrying a canonical regime and an ontology carrier."
 
 [type.RegimeEdge]
-order = 11
+order = 10
 id = "RegimeEdge"
 cite_id = "SEIR.DEF.REGIME_EDGE"
 name = "Regime edge"
@@ -122,7 +112,7 @@ source_module = "SE.IdentityRegimes.Embedding"
 description = "A directed edge connecting regime vertices through an admissible relation."
 
 [type.RegimeGraph]
-order = 12
+order = 11
 id = "RegimeGraph"
 cite_id = "SEIR.DEF.REGIME_GRAPH"
 name = "Regime graph"

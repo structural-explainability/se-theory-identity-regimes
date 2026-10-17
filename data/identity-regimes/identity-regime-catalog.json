@@ -12,7 +12,6 @@
     "reference/regime-families.toml",
     "reference/regime-profiles.toml",
     "reference/regime-transformations.toml",
-    "reference/regime-classification-values.toml",
     "reference/regime-classification-matrix.toml",
     "reference/regime-profile-derivation.toml",
     "reference/dependency-registry.toml",
@@ -58,11 +57,6 @@
       "id": "transformation",
       "kind": "transformation",
       "path": "reference/regime-transformations.toml"
-    },
-    {
-      "id": "classification",
-      "kind": "classification",
-      "path": "reference/regime-classification-values.toml"
     },
     {
       "id": "matrix",

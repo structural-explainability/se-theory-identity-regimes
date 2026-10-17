@@ -1,8 +1,3 @@
-/-
-Copyright (c) 2026 Denise M. Case.
-Released under MIT license as described in the file LICENSE.
-Authors: Denise M. Case
--/
 module
 
 import all SE.IdentityRegimes.Transform.Core
@@ -57,32 +52,32 @@ public section
     affect identity. The identity carrier persists across representation changes. -/
 theorem matrix_RE_always_IGN
     (p : Regime) :
-    classificationMatrix p .RE = .IGN := by
+    classificationMatrix p .RE = .ign := by
   cases p <;> decide
 
 /-- SU → BRK for every profile: substitution replaces the identity carrier entirely. -/
 theorem matrix_SU_always_BRK
     (p : Regime) :
-    classificationMatrix p .SU = .BRK := by
+    classificationMatrix p .SU = .brk := by
   cases p <;> decide
 
 /- === Value Coverage === -/
 
 /-- The canonical classification matrix contains at least one IGN cell. -/
 theorem matrix_IGN_nonempty :
-    ∃ p t, classificationMatrix p t = .IGN :=
+    ∃ p t, classificationMatrix p t = .ign :=
   ⟨.OBL, .RE, by decide⟩
 
 -- RR.DEFINES: SEIR.THM.MATRIX_PRS_NONEMPTY
 /-- The canonical matrix contains at least one PRS cell. -/
 theorem matrix_PRS_nonempty :
-    ∃ p t, classificationMatrix p t = .PRS :=
+    ∃ p t, classificationMatrix p t = .prs :=
   ⟨.OBL, .RF, by decide⟩
 
 -- RR.DEFINES: SEIR.THM.MATRIX_BRK_NONEMPTY
 /-- The canonical matrix contains at least one BRK cell. -/
 theorem matrix_BRK_nonempty :
-    ∃ p t, classificationMatrix p t = .BRK :=
+    ∃ p t, classificationMatrix p t = .brk :=
   ⟨.OBL, .SU, by decide⟩
 
 /- === Cell Count Certification === -/
@@ -104,36 +99,36 @@ def countValue (v : ClassificationValue) : Nat :=
 
 /-- Total cell count is exactly 90. -/
 theorem matrix_counts :
-    countValue .PRS + countValue .BRK + countValue .IGN = 90 := by
+    countValue .prs + countValue .brk + countValue .ign = 90 := by
   decide
 
 /-- PRS count: 22 cells. -/
-theorem matrix_PRS_count : countValue .PRS = 22 := by decide
+theorem matrix_PRS_count : countValue .prs = 22 := by decide
 
 /-- BRK count: 20 cells. -/
-theorem matrix_BRK_count : countValue .BRK = 20 := by decide
+theorem matrix_BRK_count : countValue .brk = 20 := by decide
 
 /-- IGN count: 48 cells (includes all N/A→IGN mappings). -/
-theorem matrix_IGN_count : countValue .IGN = 48 := by decide
+theorem matrix_IGN_count : countValue .ign = 48 := by decide
 
 /- === Split-Pair Witnesses === -/
 
 /-- ENR split: BF classifies differently between ENR-L (PRS) and ENR-I (BRK). -/
 theorem matrix_enr_split_on_BF :
-    classificationMatrix .ENR_L .BF = .PRS ∧
-    classificationMatrix .ENR_I .BF = .BRK := by
+    classificationMatrix .ENR_L .BF = .prs ∧
+    classificationMatrix .ENR_I .BF = .brk := by
   constructor <;> decide
 
 /-- CTX split: AD classifies differently between CTX-E (PRS) and CTX-S (BRK). -/
 theorem matrix_ctx_split_on_AD :
-    classificationMatrix .CTX_E .AD = .PRS ∧
-    classificationMatrix .CTX_S .AD = .BRK := by
+    classificationMatrix .CTX_E .AD = .prs ∧
+    classificationMatrix .CTX_S .AD = .brk := by
   constructor <;> decide
 
 /-- NOR split: RF classifies differently between NOR-C (PRS) and NOR-S (BRK). -/
 theorem matrix_nor_split_on_RF :
-    classificationMatrix .NOR_C .RF = .PRS ∧
-    classificationMatrix .NOR_S .RF = .BRK := by
+    classificationMatrix .NOR_C .RF = .prs ∧
+    classificationMatrix .NOR_S .RF = .brk := by
   constructor <;> decide
 
 end

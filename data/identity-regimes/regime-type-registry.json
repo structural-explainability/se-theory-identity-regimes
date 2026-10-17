@@ -75,20 +75,6 @@
     },
     {
       "order": 5,
-      "id": "ClassificationValue",
-      "cite_id": "SEIR.DEF.CLASSIFICATION_VALUE",
-      "name": "Classification value",
-      "lean_symbol": "SE.IdentityRegimes.ClassificationValue",
-      "source_module": "SE.IdentityRegimes.Vocab.TransformBasis",
-      "description": "The three classification outcomes IGN, PRS, and BRK.",
-      "constructors": [
-        "IGN",
-        "PRS",
-        "BRK"
-      ]
-    },
-    {
-      "order": 6,
       "id": "IdentityBasis",
       "cite_id": "SEIR.DEF.IDENTITY_BASIS",
       "name": "Identity basis",
@@ -105,7 +91,7 @@
       ]
     },
     {
-      "order": 7,
+      "order": 6,
       "id": "ProfileAxes",
       "cite_id": "SEIR.DEF.PROFILE_AXES",
       "name": "Profile axes",
@@ -114,7 +100,7 @@
       "description": "The identity basis and optional split-forcing transformation associated with a regime."
     },
     {
-      "order": 8,
+      "order": 7,
       "id": "RegimeProfile",
       "cite_id": "SEIR.DEF.REGIME_PROFILE",
       "name": "Regime profile",
@@ -123,7 +109,7 @@
       "description": "A profile carrying one of the nine canonical Regime values."
     },
     {
-      "order": 9,
+      "order": 8,
       "id": "AdmissibleRelation",
       "cite_id": "SEIR.DEF.ADMISSIBLE_RELATION",
       "name": "Admissible relation",
@@ -139,7 +125,7 @@
       ]
     },
     {
-      "order": 10,
+      "order": 9,
       "id": "RegimeVertex",
       "cite_id": "SEIR.DEF.REGIME_VERTEX",
       "name": "Regime vertex",
@@ -148,7 +134,7 @@
       "description": "A graph vertex carrying a canonical regime and an ontology carrier."
     },
     {
-      "order": 11,
+      "order": 10,
       "id": "RegimeEdge",
       "cite_id": "SEIR.DEF.REGIME_EDGE",
       "name": "Regime edge",
@@ -157,7 +143,7 @@
       "description": "A directed edge connecting regime vertices through an admissible relation."
     },
     {
-      "order": 12,
+      "order": 11,
       "id": "RegimeGraph",
       "cite_id": "SEIR.DEF.REGIME_GRAPH",
       "name": "Regime graph",

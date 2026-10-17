@@ -623,7 +623,7 @@ owner.
 
 #### Conditional, or a design decision
 
-5. **Replacing bare `SE-300` citations.** An identifiable-paper citation is
+1. **Replacing bare `SE-300` citations.** An identifiable-paper citation is
    supportable for: the transformation glosses (NR Def 4.3), the OBL, OCC, REC
    rows (NR §4.4), the nine-profile set (Def 5.1), the splits (Props 6.3, 6.5, 6.7
    and §7.1), the lower bound (Thm 5.5), pairwise matrices (§5.6), determinacy and
@@ -634,7 +634,7 @@ owner.
    should not be rewritten. This is held until the historical provenance of the
    label is understood (open item 4). Also, the Lean cites "SE-300 §3" for glosses
    that NR gives in §4.2.
-6. **Representing applicability separately in Lean: a design decision, not an
+2. **Representing applicability separately in Lean: a design decision, not an
    immediate edit.** No theorem in the repo requires it, and the Lean row
    distinctness results are stronger than their finer-grained paper analogues. The
    paper's Defs 3.21 to 3.24 and the AR check do need applicability. Adding
@@ -647,7 +647,7 @@ owner.
 
 #### In other repositories
 
-7. **`spec-ae`:** the seven non-normative notes (OBL, ENR_L, ENR_I, CTX_E, CTX_S,
+1. **`spec-ae`:** the seven non-normative notes (OBL, ENR_L, ENR_I, CTX_E, CTX_S,
    NOR_C, NOR_S) and the undeclared upstream dependency (existing). New:
    `README.md` line 39 ("exactly six entity kinds are defined") contradicts
    `AE.KIND.EXACT_COUNT.V1` (nine). It is explained by `6775b79` and `b1151fa` and
@@ -655,10 +655,10 @@ owner.
 
 #### Observations for authors, not repository edits
 
-8. **NR (manuscript):** Def 6.4's parentheticals are inverted relative to §7.1;
+1. **NR (manuscript):** Def 6.4's parentheticals are inverted relative to §7.1;
    the NOR labels are inconsistent between §5.3 and §7.1; the GEN-CAR separation
    sits in tension with Def 4.1; two cross-references are unresolved.
-9. **AE6 (frozen article):** no edit. By its own §6 rule, a nine-kind reference
+2. **AE6 (frozen article):** no edit. By its own §6 rule, a nine-kind reference
    realization would be a new artifact.
 
 ### No edit indicated for
