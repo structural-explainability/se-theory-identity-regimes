@@ -64,7 +64,7 @@ includes = [
   "canonical identity regimes",
   "regime requirement structure",
   "regime-profile structure",
-  "application of individuation, co-reference, and persistence accounts within identity regimes",
+  "neutral-substrate-relative regime application admissibility",
   "admissibility conditions for regime application over neutral substrates",
   "row-level lower-bound and representation theorems for the fixed taxonomy",
   "machine-checked Lean theorems",
