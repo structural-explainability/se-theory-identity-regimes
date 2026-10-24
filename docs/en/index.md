@@ -29,28 +29,105 @@ If documentation and Lean differ, the Lean source is authoritative.
 
 ## Scope
 
-This repository formalizes identity regimes and their derived profile behavior
-over admissible neutral substrates.
+This repository formalizes six canonical identity-regime families,
+nine named profiles, and their classification behavior over
+ten identity transformations.
 
-It depends on upstream Structural Explainability theory for concepts that it
-does not own, including neutral-substrate and transformation theory.
+The formal results establish that the nine profiles have pairwise
+distinct rows in the canonical classification matrix.
 
-It does not define domain-specific entity names, application semantics,
-operational validation, or runtime behavior.
+These results concern the specified finite taxonomy.
+They do not establish that nine distinct identity criteria
+are scientifically necessary, that
+the taxonomy is exhaustive for intended referent kinds, or
+that all nine profiles generate distinct identity relations.
+
+## Classification and Identity-Relation Limits
+
+`NonCollapsing` in this repository denotes a difference between
+classification rows.
+It does not, by itself, establish a difference between generated identity relations.
+
+Two pairs of profiles have equal preserving-transformation sets:
+
+- OBL and NOR-C
+- CTX-S and NOR-S
+
+`PersistenceBridge.lean` proves that each pair generates identical
+identity relations on every shared Persistence dynamics.
+
+Consequently, the nine classification rows produce at most seven
+distinct generated identity relations on a common dynamics.
+The formal results do not establish that exactly seven are distinct
+on arbitrary dynamics.
+
+The original classification matrix also maps eight inapplicable
+(N/A) cells to IGN.
+`PersistenceBridge.lean` restores their applicability distinctions
+using Persistence's richer classification representation.
+This preserves the existing preserving sets but
+does not establish a substantive persistence criterion.
+
+The distinction between identity carriers is not represented
+by classification-row differences or
+by comparisons using one shared dynamics.
+Carrier-sensitive identity claims require separate justification.
+
+## Scientific Grounding
+
+The classification matrix and its profile distinctions are
+formalized assumptions about the specified identity regimes.
+They are not independently derived from accepted identity
+criteria for real-world referent kinds.
+
+Scientific adequacy requires justification of:
+
+- the intended referent kinds and their individuation criteria;
+- the identity basis assigned to each regime;
+- the interpretation of transformations and their effects;
+- the preservation and breakage classifications;
+- the connection between modeled identity relations and
+  strict identity of intended referents;
+- the completeness and necessity of the proposed regime taxonomy.
+
+The ten identity transformations are distinct from
+Transformation theory's operator taxonomy.
+Declared partial correspondences do not establish a complete semantic mapping
+or transfer preservation classifications automatically.
+
+`RegimeApplicationAdmissible` currently requires neutrality
+of the substrate.
+It does not independently validate a regime's identity criterion or
+its applicability to a particular referent kind.
+
+The nine-profile result is therefore a valid row-level
+mathematical result, not an independently established
+scientific lower bound on identity regimes.
 
 ## Relationship to Other Theory Repositories
 
-- `se-theory-neutral-substrate` provides the neutral-substrate foundation.
-- `se-theory-transformation` provides generic transformation theory. Lake pins
-  `v0.5.1`, resolved to commit `350c7ff01aa7bf9a7119f0a44ce652d7a6933154`.
-  The manifest and dependency registry record that version. Identity Regimes
-  retains its separately defined ten-element transformation basis; its Lean
-  modules do not currently import `SE.Transformation` or derive regime
-  classifications from Transformation effect laws.
-- `se-theory-structural-explainability` integrates this theory with other
-  Structural Explainability foundations.
+- Neutral Substrate supplies the referential interfaces and neutrality conditions.
+- Persistence supplies generic commitment, continuation, and induced-relation
+  machinery.
+- Transformation supplies operator effect semantics.
+- Transformation Persistence connects transformation effects with persistence
+  classifications and observations.
 
-For exact dependencies, see `SE_MANIFEST.toml`.
+Future work on identity regimes can use the formal distinctions
+developed in Individuation, Coreference, and Persistence.
+Any proposed regime construction must independently justify its
+referent kinds, identity criteria, and required semantic connections.
+Whether these grounds support the existing regime distinctions,
+a different classification, or any particular number of regimes
+remains an open scientific question.
+
+Operational Identity has a separate responsibility: comparing a supplied
+declared identity relation with the relation induced by an examined
+implementation surface.
+
+Dependency declarations are recorded in `lakefile.toml` and
+`SE_MANIFEST.toml`.
+Resolved Lean dependency revisions are recorded in `lake-manifest.json`.
 
 ## Formal Theory
 
@@ -61,13 +138,13 @@ See the Lean source under `SE/IdentityRegimes/`.
 Downstream Lean projects should import the public surface:
 
 ```lean
-import SE
+import SE.IdentityRegimes
 ```
 
 The curated public import surface is declared in:
 
 ```text
-SE.lean
+SE/IdentityRegimes.lean
 ```
 
 ## Validation

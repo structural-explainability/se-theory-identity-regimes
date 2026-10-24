@@ -11,6 +11,19 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
+### Updated
+
+- Clarified that nine distinct classification rows do not establish nine distinct generated identity relations.
+- Documented the OBL/NOR-C and CTX-S/NOR-S identity-relation collapses.
+- Corrected the scope of non-collapse, lower-bound, and representation theorem descriptions.
+- Recorded unresolved scientific grounding obligations for identity-regime classification.
+- Corrected repository scope and public import documentation.
+
+### Removed
+
+- Historical identity-foundations research drafts after
+  transferring findings to authoritative theory documentation.
+
 ---
 
 ## [0.4.0] - 2026-10-16

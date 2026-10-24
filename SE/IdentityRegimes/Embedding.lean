@@ -11,14 +11,18 @@ open SE.NeutralSubstrate
 File: SE/IdentityRegimes/Embedding.lean
 
 Purpose:
-Regime-typed multigraph embedding and representation theorem.
+Regime-typed graph structures and classification-pattern representation.
 
-The embedding sends each identity carrier to its equivalence class
-under its unique regime profile. Uniqueness follows from
-classification_pattern_unique applied to classificationMatrix.
-The representation theorem states that every identity carrier in an
-admissible ontology is realized by exactly one profile in the derived
-regime set.
+RegimeVertex pairs an arbitrary ontology-carrier element with an
+explicitly assigned canonical regime.
+
+The representation theorem proves that each existing Regime value
+has a uniquely determined classification pattern within the
+canonical matrix.
+
+It does not construct an identity quotient of ontology carriers,
+independently assign regimes to intended referents, or prove that
+every admissible ontology is exhaustively represented.
 
 Source: SE-300, Section 5, faithful embedding and representation theorem.
 -/

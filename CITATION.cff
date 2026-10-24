@@ -2,6 +2,7 @@
 # CITATION.cff (How to cite this project)
 # ============================================================
 # REQ.UNIVERSAL: Professional open projects SHOULD include this file.
+# May reference upstream dependencies, but must not refer to downstream.
 # USAGE: See https://citation-file-format.github.io/ for details.
 # check with:
 # uvx cffconvert --validate
@@ -26,12 +27,15 @@ url: "https://github.com/structural-explainability/se-theory-identity-regimes"
 license: MIT
 
 abstract: >
-  Lean 4 formalization of the identity regimes of Structural
-  Explainability. This repository defines the six canonical regimes,
-  regime requirement structure, admissibility conditions for regime
-  application over neutral substrates, and regime-profile structure.
-  It does not define substrate primitives, persistence behavior,
-  domain semantics, or operational validation.
+  Lean 4 development of identity-regime theory for Structural Explainability.
+  The research goal is to justify identity criteria using individuation,
+  co-reference, and persistence foundations, and derive their consequences
+  under transformation. Existing regime catalogs and classification profiles
+  are being reassessed against those foundations. Formal declarations and
+  proved results are specified by the Lean source; catalog membership alone
+  does not establish the adequacy, necessity, or completeness of a regime.
+  Operational identity auditing and runtime implementations remain outside
+  this repository.
 
 keywords:
   - structural-explainability

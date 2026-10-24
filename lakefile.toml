@@ -10,7 +10,7 @@
 # lake lint
 
 # ============================================================
-# PROJECT IDENTITY
+# === PROJECT IDENTITY ===
 # ============================================================
 
 name = "se-theory-identity-regimes"
@@ -18,7 +18,7 @@ version = "0.4.0"
 license = "MIT"
 
 # ============================================================
-# BUILD SURFACE
+# === BUILD SURFACE ===
 # ============================================================
 # defaultTargets must include the public Lean library root.
 
@@ -26,18 +26,37 @@ defaultTargets = ["SE.IdentityRegimes"]
 testDriver = "SETest"
 lintDriver = "SELint"
 
+# ============================================================
+# === DEPENDENCIES ===
+# ============================================================
+
 [[require]]
 name = "se-theory-neutral-substrate"
 git = "https://github.com/structural-explainability/se-theory-neutral-substrate"
-rev = "main"
+rev = "v0.11.0"
+
+[[require]]
+name = "se-theory-individuation"
+git = "https://github.com/structural-explainability/se-theory-individuation"
+rev = "v0.1.1"
+
+[[require]]
+name = "se-theory-coreference"
+git = "https://github.com/structural-explainability/se-theory-coreference"
+rev = "v0.1.0"
 
 [[require]]
 name = "se-theory-persistence"
 git = "https://github.com/structural-explainability/se-theory-persistence"
-rev = "v0.4.0"
+rev = "v0.5.0"
+
+[[require]]
+name = "se-theory-transformation-persistence"
+git = "https://github.com/structural-explainability/se-theory-transformation-persistence"
+rev = "v0.1.0"
 
 # ============================================================
-# LEAN OPTIONS
+# === LEAN OPTIONS ===
 # ============================================================
 
 [leanOptions]
@@ -57,7 +76,7 @@ weak.linter.unicodeLinter = false
 
 
 # ============================================================
-# PUBLIC LIBRARY
+# === PUBLIC LIBRARY ===
 # ============================================================
 # The library downstream packages import. It must claim only the module
 # family owned by this package. Other packages own other SE.* families.
@@ -82,7 +101,7 @@ globs = ["SE.IdentityRegimes.*"]
 
 
 # ============================================================
-# TEST LIBRARY
+# === TEST LIBRARY ===
 # ============================================================
 # Internal verification; not part of downstream public import surface.
 
@@ -93,7 +112,7 @@ globs = ["SETest", "SETest.IdentityRegimes.*"]
 leanOptions = { weak.linter.style.header = false }
 
 # ============================================================
-# LINT DRIVER
+# === LINT DRIVER ===
 # ============================================================
 
 [[lean_exe]]

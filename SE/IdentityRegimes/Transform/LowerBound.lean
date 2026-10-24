@@ -17,7 +17,9 @@ Results:
   - All nine profiles are pairwise non-collapsing at row level (`NonCollapsing`).
   - Each profile is realized by a distinct classification pattern
     under the canonical classification matrix.
-  - No admissible substrate can realize fewer than nine row-distinct profiles.
+  - The fixed nine-profile enumeration has pairwise distinct matrix rows.
+  - No general theorem establishes that nine profiles are necessary
+    or realized in every admissible substrate or intended referent domain.
 
 The nine profiles have distinct classification patterns:
 unique discriminating transformations include BF (values: IGN/IGN/PRS/PRS/BRK/PRS/BRK/BRK/BRK),

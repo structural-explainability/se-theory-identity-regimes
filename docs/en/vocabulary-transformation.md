@@ -3,12 +3,22 @@
 **Transformation theory** describes change independently of identity.
 It provides several related vocabularies.
 
-This page describes the Transformation `v0.5.1` contract selected by this
-repository. That theory names and groups kinds of change and formalizes atomic
+This page describes the Transformation contract selected by this
+repository.
+That theory names and groups kinds of change and formalizes atomic
 operator effects through `footprint`, `requirements`, and `StateModel`.
-Footprints bound the dimensions a step may change; required-change clauses
-specify changes every step must make. A state model supplies operator step
-relations with frame and required-change laws.
+Footprints bound the dimensions a step may change;
+required-change clauses specify changes every step must make.
+A state model supplies operator step relations
+with frame and required-change laws.
+
+The operation descriptions below summarize intended uses.
+Their formal guarantees are limited to the stated effect laws.
+Recording authority or an attestation
+does not establish legitimacy or truth;
+describing aggregation does not establish singular unity;
+and matching content or structure does
+not establish strict identity.
 
 Composition and orthogonality lookups remain declared and partial.
 Effect theorems establish consistency and necessary conditions at their stated

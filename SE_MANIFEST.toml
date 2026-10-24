@@ -3,7 +3,7 @@
 # ============================================================
 
 schema = "se-manifest-schema"
-schema_version = "0.5.0"
+schema_version = "0.5.1"
 schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/main/manifest-schema.toml"
 
 # === Framework Context ===
@@ -22,7 +22,7 @@ class = "theory"
 kind = "foundation"
 status = "active"
 since = "2026"
-summary = "Lean 4 formalization of the six identity regimes, their requirement structure, and derived regime-profile structure over admissible neutral substrates."
+summary = "Develops and justifies identity regimes from individuation, co-reference, and persistence foundations, and derives their behavior under transformation."
 
 # === Layer Position ===
 
@@ -35,8 +35,8 @@ role = "theory"
 [depends]
 # Required upstream repository dependencies.
 required = [
-  { repository = "se-theory-neutral-substrate", kind = "semantic" },
-  { repository = "se-theory-persistence", kind = "semantic", version = "v0.4.0" },
+  { repository = "se-theory-neutral-substrate", kind = "semantic", version = "v0.11.0" },
+  { repository = "se-theory-persistence", kind = "semantic", version = "v0.5.0" },
 ]
 
 # Optional upstream repository dependencies.
@@ -66,7 +66,7 @@ includes = [
   "regime-profile structure",
   "application of individuation, co-reference, and persistence accounts within identity regimes",
   "admissibility conditions for regime application over neutral substrates",
-  "necessity and sufficiency theorem structure",
+  "row-level lower-bound and representation theorems for the fixed taxonomy",
   "machine-checked Lean theorems",
   "machine-readable reference artifacts for transformation and classification layers",
 ]

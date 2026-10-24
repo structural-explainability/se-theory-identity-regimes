@@ -9,12 +9,16 @@
 [![CI](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-python-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-python-zensical.yml)
 [![Docs](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/deploy-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/deploy-zensical.yml)
 [![Links](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/links.yml)
-[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/structural-explainability/se-theory-neutral-substrate/security)
+[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/structural-explainability/se-theory-identity-regimes/security)
 
 > Lean 4 formalization of the identity regimes of Structural Explainability.
 
-This repository defines the six canonical identity regimes and derived
-regime-profile structure over admissible neutral substrates.
+This repository develops identity-regime theory for admissible neutral
+substrates.
+Its goal is to justify identity criteria from individuation, co-reference, and persistence foundations and derive their behavior under transformation.
+
+The regime catalog and classifications are undergoing active development.
+They do not establish a necessary or complete regime taxonomy.
 
 ## Authority
 
@@ -29,8 +33,9 @@ They do not define theory semantics independently of Lean or the reference artif
 
 The reusable `se-theory-reference-kit` owns the generic validation,
 cataloging, inspection, and export machinery.
+
 This repository owns its Lean source, reference declarations, and
-generated neutral-substrate artifacts.
+generated artifacts.
 
 ## Import
 
