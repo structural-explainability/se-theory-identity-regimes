@@ -73,8 +73,6 @@ includes = [
 
 excludes = [
   "neutral substrate primitives",
-  "substrate well-formedness",
-  "substrate separation constraints",
   "foundational definitions of individuation, co-reference, and persistence",
   "mapping semantics",
   "repository governance rules",

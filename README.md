@@ -2,7 +2,7 @@
 
 [![Docs Site](https://img.shields.io/badge/docs-site-blue?logo=github)](https://structural-explainability.github.io/se-theory-identity-regimes/)
 [![Repo](https://img.shields.io/badge/repo-GitHub-black?logo=github)](https://github.com/structural-explainability/se-theory-identity-regimes)
-[![Tooling](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](./pyproject.toml)
+[![Tooling](https://img.shields.io/badge/python-3.15%2B-blue?logo=python)](./pyproject.toml)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](./LICENSE)
 
 [![CI-Lean](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-lean.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-lean.yml)
@@ -80,7 +80,7 @@ Maintain:
 - `lakefile.toml` and
 - `lean-toolchain`
 - `reference/theory-reference.toml` - hand-maintained configuration
-- `reference/*.toml` - hand-maintained/scaffolded reference source artifacts
+- `reference/*.toml` - reference source artifacts
 - Lean source + RR comments - hand-maintained theory source
 
 ### Clone and Open in VS Code

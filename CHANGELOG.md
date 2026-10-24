@@ -192,19 +192,11 @@ This release establishes a stable public Lean interface for identity-regime theo
 
 ---
 
-## [Unreleased]
-
----
-
 ## [0.4.0] - 2026-10-16
 
 ### Added
 
 - dependency on Persistence 0.3.0 and its ClassificationValue
-
-### Removed
-
-### Changed
 
 ---
 
