@@ -457,12 +457,15 @@ Repository governance and tooling:
 - `AGENTS.md`
 - `CITATION.cff`
 
-### Design constraints recorded
+## Design Constraints
 
-- Six regimes and nine profiles are distinct layers; profiles refine regimes, they do not replace them
-- Semantic richness lives inside Lean only; no Python validation surface
-- No operational or export layer in theory repos
-- OCC/AD classified as BRK; OBL/BF as IGN; REC/BF as PRS: decisions recorded in SE-300 Section 4
+Lean source files are authoritative for formal semantics and proofs.
+
+Reference registries describe the registered public surface and
+must correspond to that Lean surface.
+
+Python and generated data may mirror, validate, export, or document the Lean surface.
+They must not define theory semantics independently of Lean.
 
 ---
 
