@@ -11,31 +11,38 @@
 [![Links](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/links.yml)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/structural-explainability/se-theory-identity-regimes/security)
 
-> Lean 4 formalization of the identity regimes of Structural Explainability.
+> Lean 4 formalization of identity-regime theory for Structural Explainability.
 
-This repository develops identity-regime theory for admissible neutral
-substrates.
-Its goal is to justify identity criteria from individuation, co-reference, and persistence foundations and derive their behavior under transformation.
+This repository formalizes six identity-regime families,
+nine named profiles, and their classifications
+over ten identity transformations.
 
-The regime catalog and classifications are undergoing active development.
-They do not establish a necessary or complete regime taxonomy.
+The nine profiles have pairwise distinct classification rows.
+Two profile pairs have identical preserving sets and generate the
+same identity relation on every shared Persistence dynamics.
+
+These formal results do not establish nine scientifically necessary
+identity criteria or a complete taxonomy of intended referent kinds.
+
+Further research may investigate whether independently justified
+individuation, co-reference, and persistence criteria
+support, revise, or replace the specified regime distinctions.
 
 ## Authority
 
 Lean source files are authoritative for formal definitions, predicates, axioms,
 theorems, proof obligations, and reference rules.
 
-Reference artifacts under `reference/` declare the repository-owned
-classification, traceability, and export intent for the Lean public surface.
+Reference artifacts under `reference/` and generated artifacts under
+`data/` mirror the Lean public surface.
+They do not define theory semantics independently of Lean.
 
-Generated artifacts under `data/` are outputs.
-They do not define theory semantics independently of Lean or the reference artifacts.
-
-The reusable `se-theory-reference-kit` owns the generic validation,
-cataloging, inspection, and export machinery.
-
-This repository owns its Lean source, reference declarations, and
-generated artifacts.
+The CI-Lean workflow builds the declared public Lean surface with
+`lake build --wfail`,
+failing on reported warnings, including `sorry`.
+Successful compilation verifies formal declarations against their
+stated assumptions; it does not establish the scientific adequacy
+of those assumptions or interpretations.
 
 ## Import
 
@@ -81,7 +88,7 @@ Maintain:
 - `lean-toolchain`
 - `reference/theory-reference.toml` - hand-maintained configuration
 - `reference/*.toml` - reference source artifacts
-- Lean source + RR comments - hand-maintained theory source
+- Lean source and reference-rule (RR) traceability comments - hand-maintained theory source
 
 ### Clone and Open in VS Code
 
