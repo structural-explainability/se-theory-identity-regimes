@@ -1,7 +1,7 @@
 # ============================================================
 # .github/workflows/deploy-zensical-lean.yml (CUSTOM LEAN+ALL-PY-REPOS)
 # ============================================================
-# Updated: 2026-10-16 CUSTOM
+# Updated: 2026-10-26 CUSTOM
 #
 # WHAT: A GitHub Actions workflow that automatically publishes project documentation.
 #       GitHub Actions is GitHub's built-in project automation service.
@@ -83,7 +83,7 @@ jobs:
         # OBS: Must run before the build step so base URL is available if needed.
 
       - name: A3) Install uv (with caching)
-        uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
         with:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
@@ -199,11 +199,11 @@ jobs:
           # may be hidden from doc-gen4. Expose each package's SE tree in the
           # other package lib directories before generating documentation.
 
-          IDR_LIB="$GITHUB_WORKSPACE/.lake/build/lib/lean"
+          THIS_LIB="$GITHUB_WORKSPACE/.lake/build/lib/lean"
           NS_LIB="$GITHUB_WORKSPACE/.lake/packages/se-theory-neutral-substrate/.lake/build/lib/lean"
           PERSIST_LIB="$GITHUB_WORKSPACE/.lake/packages/se-theory-persistence/.lake/build/lib/lean"
 
-                  merge_se() {
+          merge_se() {
             src="$1"
             dst="$2"
 
@@ -221,13 +221,13 @@ jobs:
           }
 
           # Make all three SE.* module families mutually visible to doc-gen4.
-          merge_se "$NS_LIB" "$IDR_LIB"
-          merge_se "$PERSIST_LIB" "$IDR_LIB"
+          merge_se "$NS_LIB" "$THIS_LIB"
+          merge_se "$PERSIST_LIB" "$THIS_LIB"
 
-          merge_se "$IDR_LIB" "$NS_LIB"
+          merge_se "$THIS_LIB" "$NS_LIB"
           merge_se "$PERSIST_LIB" "$NS_LIB"
 
-          merge_se "$IDR_LIB" "$PERSIST_LIB"
+          merge_se "$THIS_LIB" "$PERSIST_LIB"
           merge_se "$NS_LIB" "$PERSIST_LIB"
 
           # Generate API documentation for the complete theory dependency chain.

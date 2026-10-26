@@ -7,15 +7,14 @@
 # Run with:
 # lake build
 # lake test
-# lake lint
 
 # ============================================================
 # === PROJECT IDENTITY ===
 # ============================================================
 
 name = "se-theory-identity-regimes"
-version = "0.4.0"
-license = "MIT"
+version = "0.5.0"
+license = "Apache-2.0"
 
 # ============================================================
 # === BUILD SURFACE ===
@@ -24,56 +23,21 @@ license = "MIT"
 
 defaultTargets = ["SE.IdentityRegimes"]
 testDriver = "SETest"
-lintDriver = "SELint"
 
 # ============================================================
 # === DEPENDENCIES ===
 # ============================================================
 
 [[require]]
+# Will be deleted
 name = "se-theory-neutral-substrate"
 git = "https://github.com/structural-explainability/se-theory-neutral-substrate"
-rev = "v0.11.0"
-
-[[require]]
-name = "se-theory-individuation"
-git = "https://github.com/structural-explainability/se-theory-individuation"
-rev = "v0.1.1"
-
-[[require]]
-name = "se-theory-coreference"
-git = "https://github.com/structural-explainability/se-theory-coreference"
-rev = "v0.1.0"
+rev = "v0.12.0"
 
 [[require]]
 name = "se-theory-persistence"
 git = "https://github.com/structural-explainability/se-theory-persistence"
 rev = "v0.5.0"
-
-[[require]]
-name = "se-theory-transformation-persistence"
-git = "https://github.com/structural-explainability/se-theory-transformation-persistence"
-rev = "v0.1.0"
-
-# ============================================================
-# === LEAN OPTIONS ===
-# ============================================================
-
-[leanOptions]
-weak.linter.mathlibStandardSet = true
-weak.linter.flexible = true
-weak.linter.style.header = false
-weak.linter.style.longLine = false
-
-# These linters are included in Mathlib's standard set but do
-# not currently operate correctly in downstream projects.
-weak.linter.pythonStyle = false
-weak.linter.checkInitImports = false
-weak.linter.allScriptsDocumented = false
-
-# This linter is not extensible for Unicode outside Mathlib's set.
-weak.linter.unicodeLinter = false
-
 
 # ============================================================
 # === PUBLIC LIBRARY ===
@@ -89,10 +53,6 @@ weak.linter.unicodeLinter = false
 #   "A.B"    only module A.B
 #   "A.B.*"  A.B and all its submodules
 #   "A.B.+"  all submodules of A.B, but not A.B itself
-#
-# Use ".*" when the family has a root module such as SE/Persistence.lean.
-# Use ".+" for a submodule directory that has no corresponding root .lean
-# file when that family is listed separately.
 
 [[lean_lib]]
 name = "SE.IdentityRegimes"
@@ -109,13 +69,3 @@ globs = ["SE.IdentityRegimes.*"]
 name = "SETest"
 roots = ["SETest.IdentityRegimes"]
 globs = ["SETest", "SETest.IdentityRegimes.*"]
-leanOptions = { weak.linter.style.header = false }
-
-# ============================================================
-# === LINT DRIVER ===
-# ============================================================
-
-[[lean_exe]]
-name = "SELint"
-root = "SELint"
-leanOptions = { Elab.inServer = true }

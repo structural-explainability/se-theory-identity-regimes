@@ -51,9 +51,9 @@ $ErrorActionPreference = "Stop"
 # Clean, update, install, synchronize, and audit dependencies.
 # ============================================================
 
-uvx pup-clean --delete
-uv self update
-uv python install
+# uvx pup-clean --delete
+# uv self update
+# uv python install
 uv lock --upgrade
 uv sync
 uv audit
