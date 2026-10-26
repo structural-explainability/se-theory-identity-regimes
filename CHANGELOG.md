@@ -58,7 +58,6 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 - The new results apply to identity bases given as invariants of presentations.
 - The new modules depend only on Lean core and `SE.Persistence`.
 
-
 ## Earlier changes also included (not actually tagged as 0.5.0)
 
 ### Updated
