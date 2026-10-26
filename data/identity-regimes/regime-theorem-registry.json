@@ -747,6 +747,136 @@
       "source_module": "SE.IdentityRegimes.Transform.PersistenceBridge",
       "status": "proved",
       "description": "CTX-S and NOR-S have distinct classification rows but identical generated identity relations on every shared dynamics."
+    },
+    {
+      "order": 75,
+      "id": "InvariantBasis_inv_eq_of_off_support",
+      "cite_id": "SEIR.THM.INV_EQ_OF_OFF_SUPPORT",
+      "name": "InvariantBasis.inv_eq_of_off_support",
+      "lean_symbol": "SE.IdentityRegimes.InvariantBasis.inv_eq_of_off_support",
+      "source_module": "SE.IdentityRegimes.Profile.Invariant",
+      "status": "proved",
+      "description": "A change that touches no supported field preserves the invariant."
+    },
+    {
+      "order": 76,
+      "id": "EffectModel_hasVerdict_exists",
+      "cite_id": "SEIR.THM.HAS_VERDICT_EXISTS",
+      "name": "EffectModel.hasVerdict_exists",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.hasVerdict_exists",
+      "source_module": "SE.IdentityRegimes.Transform.Effect",
+      "status": "proved",
+      "description": "Every transformation family has a verdict relative to an invariant basis."
+    },
+    {
+      "order": 77,
+      "id": "EffectModel_hasVerdict_unique",
+      "cite_id": "SEIR.THM.HAS_VERDICT_UNIQUE",
+      "name": "EffectModel.hasVerdict_unique",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.hasVerdict_unique",
+      "source_module": "SE.IdentityRegimes.Transform.Effect",
+      "status": "proved",
+      "description": "Verdicts are mutually exclusive: a family has at most one verdict relative to a basis."
+    },
+    {
+      "order": 78,
+      "id": "EffectModel_noneBreak_of_writes_off_support",
+      "cite_id": "SEIR.THM.NONE_BREAK_OF_WRITES_OFF_SUPPORT",
+      "name": "EffectModel.noneBreak_of_writes_off_support",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.noneBreak_of_writes_off_support",
+      "source_module": "SE.IdentityRegimes.Transform.Effect",
+      "status": "proved",
+      "description": "A family that may write no supported field never changes the invariant."
+    },
+    {
+      "order": 79,
+      "id": "EffectModel_stepIdentity_sound",
+      "cite_id": "SEIR.THM.STEP_IDENTITY_SOUND",
+      "name": "EffectModel.stepIdentity_sound",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.stepIdentity_sound",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "The invariant is constant on classes of the step-generated identity relation."
+    },
+    {
+      "order": 80,
+      "id": "EffectModel_collapse_iff_stepAgree",
+      "cite_id": "SEIR.THM.COLLAPSE_IFF_STEP_AGREE",
+      "name": "EffectModel.collapse_iff_stepAgree",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.collapse_iff_stepAgree",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "Two bases generate the same identity relation on a domain exactly when they agree on every step in the domain."
+    },
+    {
+      "order": 81,
+      "id": "EffectModel_separation_of_step",
+      "cite_id": "SEIR.THM.SEPARATION_OF_STEP",
+      "name": "EffectModel.separation_of_step",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.separation_of_step",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "A step that one basis preserves and the other changes relates its endpoints under the first basis and not under the second."
+    },
+    {
+      "order": 82,
+      "id": "EffectModel_not_collapse_mono",
+      "cite_id": "SEIR.THM.NOT_COLLAPSE_MONO",
+      "name": "EffectModel.not_collapse_mono",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.not_collapse_mono",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "If two bases do not collapse on a domain, they do not collapse on any larger domain."
+    },
+    {
+      "order": 83,
+      "id": "EffectModel_collapse_of_no_step",
+      "cite_id": "SEIR.THM.COLLAPSE_OF_NO_STEP",
+      "name": "EffectModel.collapse_of_no_step",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.collapse_of_no_step",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "Two bases collapse on a domain that contains no admissible step."
+    },
+    {
+      "order": 84,
+      "id": "EffectModel_exists_instance_of_split",
+      "cite_id": "SEIR.THM.EXISTS_INSTANCE_OF_SPLIT",
+      "name": "EffectModel.exists_instance_of_split",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.exists_instance_of_split",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "If a family never changes one basis invariant but sometimes changes another, some effective instance is preserved by the first and changed by the second."
+    },
+    {
+      "order": 85,
+      "id": "EffectModel_not_collapse_of_split",
+      "cite_id": "SEIR.THM.NOT_COLLAPSE_OF_SPLIT",
+      "name": "EffectModel.not_collapse_of_split",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.not_collapse_of_split",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "A domain containing an effective instance preserved by one basis and changed by the other separates the two bases."
+    },
+    {
+      "order": 86,
+      "id": "EffectModel_identityRel_le_stepIdentity",
+      "cite_id": "SEIR.THM.IDENTITY_REL_LE_STEP_IDENTITY",
+      "name": "EffectModel.identityRel_le_stepIdentity",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.identityRel_le_stepIdentity",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "The family-level identity relation is contained in the step-level identity relation."
+    },
+    {
+      "order": 87,
+      "id": "EffectModel_stepIdentity_eq_identityRel_of_uniform",
+      "cite_id": "SEIR.THM.STEP_IDENTITY_EQ_IDENTITY_REL_OF_UNIFORM",
+      "name": "EffectModel.stepIdentity_eq_identityRel_of_uniform",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel.stepIdentity_eq_identityRel_of_uniform",
+      "source_module": "SE.IdentityRegimes.Transform.StepIdentity",
+      "status": "proved",
+      "description": "When every family either preserves all its steps or changes all of them, the step-level and family-level identity relations coincide."
     }
   ]
 }

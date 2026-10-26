@@ -11,7 +11,7 @@ repo = "se-theory-identity-regimes"
 source = "se-theory-identity-regimes"
 namespace = "se.identity_regimes"
 artifact = "dependency-registry"
-version = "0.4.0"
+version = "0.6.0"
 status = "canonical"
 
 [dependency.neutral_substrate]
@@ -21,7 +21,7 @@ target_repo = "se-theory-neutral-substrate"
 dependency_kind = "lean-library"
 required = true
 allowed = true
-revision = "v0.9.0"
+revision = "v0.12.1"
 description = "Provides the neutral-substrate framework used by regime admissibility and embedding declarations."
 
 [dependency.reference_kit]
@@ -40,5 +40,5 @@ target_repo = "se-theory-persistence"
 dependency_kind = "lean-library"
 required = true
 allowed = true
-revision = "v0.4.0"
+revision = "v0.6.0"
 description = "Provides the canonical classification type, persistence relations, and non-collapse theorems used by the Identity Regimes persistence bridge."

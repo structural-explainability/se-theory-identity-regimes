@@ -150,6 +150,40 @@
       "lean_symbol": "SE.IdentityRegimes.RegimeGraph",
       "source_module": "SE.IdentityRegimes.Embedding",
       "description": "A directed multigraph over regime-typed vertices and admissible relations."
+    },
+    {
+      "order": 12,
+      "id": "InvariantBasis",
+      "cite_id": "SEIR.DEF.INVARIANT_BASIS",
+      "name": "Invariant basis",
+      "lean_symbol": "SE.IdentityRegimes.InvariantBasis",
+      "source_module": "SE.IdentityRegimes.Profile.Invariant",
+      "description": "An identity basis given as an invariant of presentations, together with the fields it reads."
+    },
+    {
+      "order": 13,
+      "id": "EffectModel",
+      "cite_id": "SEIR.DEF.EFFECT_MODEL",
+      "name": "Effect model",
+      "lean_symbol": "SE.IdentityRegimes.EffectModel",
+      "source_module": "SE.IdentityRegimes.Transform.Effect",
+      "description": "The admissible steps of each transformation family, together with the fields each family may write."
+    },
+    {
+      "order": 14,
+      "id": "Verdict",
+      "cite_id": "SEIR.DEF.VERDICT",
+      "name": "Verdict",
+      "lean_symbol": "SE.IdentityRegimes.Verdict",
+      "source_module": "SE.IdentityRegimes.Transform.Effect",
+      "description": "The derived verdict of a transformation family relative to an invariant basis: not applicable, breaking, mixed, preserving, or neutral.",
+      "constructors": [
+        "na",
+        "brk",
+        "mix",
+        "prs",
+        "neu"
+      ]
     }
   ]
 }
