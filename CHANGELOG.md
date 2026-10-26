@@ -58,9 +58,8 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 - The new results apply to identity bases given as invariants of presentations.
 - The new modules depend only on Lean core and `SE.Persistence`.
 
----
 
-## [0.5.0] - 2026-10-26
+## Earlier changes also included (not actually tagged as 0.5.0)
 
 ### Updated
 
@@ -619,7 +618,6 @@ git push origin :refs/tags/vX.Z.Y
 
 [Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.6.0...HEAD
 [0.6.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.6.0
-[0.5.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.5.0
 [0.4.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.4.0
 [0.3.1]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.3.1
 [0.3.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.3.0
