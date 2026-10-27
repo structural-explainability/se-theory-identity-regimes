@@ -887,3 +887,373 @@ lean_symbol = "SE.IdentityRegimes.EffectModel.stepIdentity_eq_identityRel_of_uni
 source_module = "SE.IdentityRegimes.Transform.StepIdentity"
 status = "proved"
 description = "When every family either preserves all its steps or changes all of them, the step-level and family-level identity relations coincide."
+
+[theorem.Model_Scope_strict_extension_prs]
+order = 88
+id = "Model_Scope_strict_extension_prs"
+cite_id = "SEIR.THM.SCOPE_AD_STRICT_EXTENSION_PRS"
+name = "Scope.strict_extension_prs"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.strict_extension_prs"
+source_module = "SE.IdentityRegimes.Model.Scope"
+status = "proved"
+description = "With a single organization field, strict AD has verdict prs for the extension basis."
+
+[theorem.Model_Scope_strict_structure_brk]
+order = 89
+id = "Model_Scope_strict_structure_brk"
+cite_id = "SEIR.THM.SCOPE_AD_STRICT_STRUCTURE_BRK"
+name = "Scope.strict_structure_brk"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.strict_structure_brk"
+source_module = "SE.IdentityRegimes.Model.Scope"
+status = "proved"
+description = "Strict AD has verdict brk for the structure basis."
+
+[theorem.Model_Scope_loose_extension_mix]
+order = 90
+id = "Model_Scope_loose_extension_mix"
+cite_id = "SEIR.THM.SCOPE_AD_LOOSE_EXTENSION_MIX"
+name = "Scope.loose_extension_mix"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.loose_extension_mix"
+source_module = "SE.IdentityRegimes.Model.Scope"
+status = "proved"
+description = "If AD may change coverage, it has verdict mix for the extension basis."
+
+[theorem.Model_Scope_loose_structure_brk]
+order = 91
+id = "Model_Scope_loose_structure_brk"
+cite_id = "SEIR.THM.SCOPE_AD_LOOSE_STRUCTURE_BRK"
+name = "Scope.loose_structure_brk"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.loose_structure_brk"
+source_module = "SE.IdentityRegimes.Model.Scope"
+status = "proved"
+description = "Loose AD has verdict brk for the structure basis."
+
+[theorem.Model_Scope_strict_separates]
+order = 92
+id = "Model_Scope_strict_separates"
+cite_id = "SEIR.THM.SCOPE_AD_STRICT_SEPARATES"
+name = "Scope.strict_separates"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.strict_separates"
+source_module = "SE.IdentityRegimes.Model.Scope"
+status = "proved"
+description = "A domain containing the strict AD step from one provision to two separates the extension and structure bases."
+
+[theorem.Model_Scope_strict_collapses_on_single]
+order = 93
+id = "Model_Scope_strict_collapses_on_single"
+cite_id = "SEIR.THM.SCOPE_AD_STRICT_COLLAPSES_ON_SINGLE"
+name = "Scope.strict_collapses_on_single"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.strict_collapses_on_single"
+source_module = "SE.IdentityRegimes.Model.Scope"
+status = "proved"
+description = "On a domain with no restructuring step the extension and structure bases collapse, although the verdicts of AD differ."
+
+[theorem.Model_Rule_strict_content_prs]
+order = 94
+id = "Model_Rule_strict_content_prs"
+cite_id = "SEIR.THM.RULE_RF_STRICT_CONTENT_PRS"
+name = "Rule.strict_content_prs"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.strict_content_prs"
+source_module = "SE.IdentityRegimes.Model.Rule"
+status = "proved"
+description = "Strict RF, which keeps coverage and every norm, has verdict prs for the content basis."
+
+[theorem.Model_Rule_strict_structure_brk]
+order = 95
+id = "Model_Rule_strict_structure_brk"
+cite_id = "SEIR.THM.RULE_RF_STRICT_STRUCTURE_BRK"
+name = "Rule.strict_structure_brk"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.strict_structure_brk"
+source_module = "SE.IdentityRegimes.Model.Rule"
+status = "proved"
+description = "Strict RF has verdict brk for the structure basis."
+
+[theorem.Model_Rule_loose_content_mix]
+order = 96
+id = "Model_Rule_loose_content_mix"
+cite_id = "SEIR.THM.RULE_RF_LOOSE_CONTENT_MIX"
+name = "Rule.loose_content_mix"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.loose_content_mix"
+source_module = "SE.IdentityRegimes.Model.Rule"
+status = "proved"
+description = "If RF may change norms, it has verdict mix for the content basis, given two distinct norms."
+
+[theorem.Model_Rule_loose_structure_brk]
+order = 97
+id = "Model_Rule_loose_structure_brk"
+cite_id = "SEIR.THM.RULE_RF_LOOSE_STRUCTURE_BRK"
+name = "Rule.loose_structure_brk"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.loose_structure_brk"
+source_module = "SE.IdentityRegimes.Model.Rule"
+status = "proved"
+description = "Loose RF has verdict brk for the structure basis."
+
+[theorem.Model_Rule_strict_separates]
+order = 98
+id = "Model_Rule_strict_separates"
+cite_id = "SEIR.THM.RULE_RF_STRICT_SEPARATES"
+name = "Rule.strict_separates"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.strict_separates"
+source_module = "SE.IdentityRegimes.Model.Rule"
+status = "proved"
+description = "A domain containing the strict refinement step separates the content and structure bases."
+
+[theorem.Model_Fork_locus_neu_of_colocated]
+order = 99
+id = "Model_Fork_locus_neu_of_colocated"
+cite_id = "SEIR.THM.FORK_LOCUS_NEU_OF_COLOCATED"
+name = "Fork.locus_neu_of_colocated"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.locus_neu_of_colocated"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "Under the colocated warrant, BF has verdict neu for the locus basis."
+
+[theorem.Model_Fork_object_brk_of_fresh]
+order = 100
+id = "Model_Fork_object_brk_of_fresh"
+cite_id = "SEIR.THM.FORK_OBJECT_BRK_OF_FRESH"
+name = "Fork.object_brk_of_fresh"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.object_brk_of_fresh"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "Under the fresh-object warrant, BF has verdict brk for the object basis."
+
+[theorem.Model_Fork_object_neu_of_same]
+order = 101
+id = "Model_Fork_object_neu_of_same"
+cite_id = "SEIR.THM.FORK_OBJECT_NEU_OF_SAME"
+name = "Fork.object_neu_of_same"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.object_neu_of_same"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "Under the same-object warrant, BF has verdict neu for the object basis."
+
+[theorem.Model_Fork_locus_mix_without_warrant]
+order = 102
+id = "Model_Fork_locus_mix_without_warrant"
+cite_id = "SEIR.THM.FORK_LOCUS_MIX_WITHOUT_WARRANT"
+name = "Fork.locus_mix_without_warrant"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.locus_mix_without_warrant"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "Without a warrant, BF has verdict mix for the locus basis, given two distinct loci and two distinct branches."
+
+[theorem.Model_Fork_object_mix_without_warrant]
+order = 103
+id = "Model_Fork_object_mix_without_warrant"
+cite_id = "SEIR.THM.FORK_OBJECT_MIX_WITHOUT_WARRANT"
+name = "Fork.object_mix_without_warrant"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.object_mix_without_warrant"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "Without a warrant, BF has verdict mix for the object basis, given two distinct objects and two distinct branches."
+
+[theorem.Model_Fork_separates_under_warrants]
+order = 104
+id = "Model_Fork_separates_under_warrants"
+cite_id = "SEIR.THM.FORK_SEPARATES_UNDER_WARRANTS"
+name = "Fork.separates_under_warrants"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.separates_under_warrants"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "Under the colocated and fresh-object warrants, a domain containing the fork separates the locus and object bases."
+
+[theorem.Model_Fork_collapses_under_same_object]
+order = 105
+id = "Model_Fork_collapses_under_same_object"
+cite_id = "SEIR.THM.FORK_COLLAPSES_UNDER_SAME_OBJECT"
+name = "Fork.collapses_under_same_object"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.collapses_under_same_object"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "Under the colocated and same-object warrants, the locus and object bases collapse on every domain."
+
+[theorem.Model_ScopeEntries_strict_extension_neu]
+order = 106
+id = "Model_ScopeEntries_strict_extension_neu"
+cite_id = "SEIR.THM.SCOPE_ENTRY_STRICT_EXTENSION_NEU"
+name = "ScopeEntries.strict_extension_neu"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.strict_extension_neu"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+status = "proved"
+description = "With one field per pair of cases, strict AD writes no diagonal pair and has verdict neu for the extension basis."
+
+[theorem.Model_ScopeEntries_strict_structure_brk]
+order = 107
+id = "Model_ScopeEntries_strict_structure_brk"
+cite_id = "SEIR.THM.SCOPE_ENTRY_STRICT_STRUCTURE_BRK"
+name = "ScopeEntries.strict_structure_brk"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.strict_structure_brk"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+status = "proved"
+description = "With one field per pair of cases, strict AD has verdict brk for the structure basis."
+
+[theorem.Model_ScopeEntries_loose_extension_mix]
+order = 108
+id = "Model_ScopeEntries_loose_extension_mix"
+cite_id = "SEIR.THM.SCOPE_ENTRY_LOOSE_EXTENSION_MIX"
+name = "ScopeEntries.loose_extension_mix"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.loose_extension_mix"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+status = "proved"
+description = "With one field per pair of cases, loose AD has verdict mix for the extension basis."
+
+[theorem.Model_ScopeEntries_loose_structure_brk]
+order = 109
+id = "Model_ScopeEntries_loose_structure_brk"
+cite_id = "SEIR.THM.SCOPE_ENTRY_LOOSE_STRUCTURE_BRK"
+name = "ScopeEntries.loose_structure_brk"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.loose_structure_brk"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+status = "proved"
+description = "With one field per pair of cases, loose AD has verdict brk for the structure basis."
+
+[theorem.Model_ScopeEntries_extensionBasis_minimal]
+order = 110
+id = "Model_ScopeEntries_extensionBasis_minimal"
+cite_id = "SEIR.THM.SCOPE_ENTRY_EXTENSION_MINIMAL"
+name = "ScopeEntries.extensionBasis_minimal"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.extensionBasis_minimal"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+status = "proved"
+description = "The support of the extension basis is justified: every diagonal pair can change coverage on its own."
+
+[theorem.Model_ScopeEntries_structureBasis_minimal]
+order = 111
+id = "Model_ScopeEntries_structureBasis_minimal"
+cite_id = "SEIR.THM.SCOPE_ENTRY_STRUCTURE_MINIMAL"
+name = "ScopeEntries.structureBasis_minimal"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.structureBasis_minimal"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+status = "proved"
+description = "The support of the structure basis is justified: every pair can change the organization on its own."
+
+[theorem.Model_RuleEntries_structureBasis_minimal]
+order = 112
+id = "Model_RuleEntries_structureBasis_minimal"
+cite_id = "SEIR.THM.RULE_ENTRY_STRUCTURE_MINIMAL"
+name = "RuleEntries.structureBasis_minimal"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.structureBasis_minimal"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+status = "proved"
+description = "The support of the rule structure basis is justified: every pair can change the rule's organization on its own."
+
+[theorem.Model_RuleEntries_contentBasis_minimal]
+order = 113
+id = "Model_RuleEntries_contentBasis_minimal"
+cite_id = "SEIR.THM.RULE_ENTRY_CONTENT_MINIMAL"
+name = "RuleEntries.contentBasis_minimal"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.contentBasis_minimal"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+status = "proved"
+description = "The support of the rule content basis is justified: every diagonal pair can change coverage and every norm can change a governed case's norm, each on its own."
+
+[theorem.Model_RuleEntries_strict_content_neu]
+order = 114
+id = "Model_RuleEntries_strict_content_neu"
+cite_id = "SEIR.THM.RULE_ENTRY_STRICT_CONTENT_NEU"
+name = "RuleEntries.strict_content_neu"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.strict_content_neu"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+status = "proved"
+description = "With one field per dependency, strict RF writes no diagonal pair and no norm, and has verdict neu for the content basis."
+
+[theorem.Model_RuleEntries_strict_structure_brk]
+order = 115
+id = "Model_RuleEntries_strict_structure_brk"
+cite_id = "SEIR.THM.RULE_ENTRY_STRICT_STRUCTURE_BRK"
+name = "RuleEntries.strict_structure_brk"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.strict_structure_brk"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+status = "proved"
+description = "With one field per dependency, strict RF has verdict brk for the structure basis."
+
+[theorem.Model_RuleEntries_loose_content_mix]
+order = 116
+id = "Model_RuleEntries_loose_content_mix"
+cite_id = "SEIR.THM.RULE_ENTRY_LOOSE_CONTENT_MIX"
+name = "RuleEntries.loose_content_mix"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.loose_content_mix"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+status = "proved"
+description = "With one field per dependency, loose RF has verdict mix for the content basis, given two distinct norms."
+
+[theorem.Model_RuleEntries_loose_structure_brk]
+order = 117
+id = "Model_RuleEntries_loose_structure_brk"
+cite_id = "SEIR.THM.RULE_ENTRY_LOOSE_STRUCTURE_BRK"
+name = "RuleEntries.loose_structure_brk"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.loose_structure_brk"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+status = "proved"
+description = "With one field per dependency, loose RF has verdict brk for the structure basis."
+
+[theorem.derived_agrees_on_breaking]
+order = 118
+id = "derived_agrees_on_breaking"
+cite_id = "SEIR.THM.DERIVED_AGREES_ON_BREAKING"
+name = "derived_agrees_on_breaking"
+lean_symbol = "SE.IdentityRegimes.derived_agrees_on_breaking"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+status = "proved"
+description = "Wherever a cell of the derived matrix exists, it is breaking exactly when the stipulated cell is breaking."
+
+[theorem.derivedCell_count]
+order = 119
+id = "derivedCell_count"
+cite_id = "SEIR.THM.DERIVED_CELL_COUNT"
+name = "derivedCell_count"
+lean_symbol = "SE.IdentityRegimes.derivedCell_count"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+status = "proved"
+description = "Six of the ninety cells of the classification matrix are derived."
+
+[theorem.derived_neu_cells_are_stipulated_prs]
+order = 120
+id = "derived_neu_cells_are_stipulated_prs"
+cite_id = "SEIR.THM.DERIVED_PRS_NEU_DIFFERENCES"
+name = "derived_neu_cells_are_stipulated_prs"
+lean_symbol = "SE.IdentityRegimes.derived_neu_cells_are_stipulated_prs"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+status = "proved"
+description = "The three derived neutral cells (CTX_E x AD, NOR_C x RF, ENR_L x BF) are preserving in the stipulated matrix."
+
+[theorem.derived_brk_cells_equal_stipulated]
+order = 121
+id = "derived_brk_cells_equal_stipulated"
+cite_id = "SEIR.THM.DERIVED_BRK_CELLS_EQUAL_STIPULATED"
+name = "derived_brk_cells_equal_stipulated"
+lean_symbol = "SE.IdentityRegimes.derived_brk_cells_equal_stipulated"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+status = "proved"
+description = "The three derived breaking cells (CTX_S x AD, NOR_S x RF, ENR_I x BF) equal the stipulated cells."
+
+[theorem.Model_Fork_locusBasis_minimal]
+order = 122
+id = "Model_Fork_locusBasis_minimal"
+cite_id = "SEIR.THM.FORK_LOCUS_MINIMAL"
+name = "Fork.locusBasis_minimal"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.locusBasis_minimal"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "The support of the fork locus basis is justified: the locus can change the invariant on its own, given two distinct loci."
+
+[theorem.Model_Fork_objectBasis_minimal]
+order = 123
+id = "Model_Fork_objectBasis_minimal"
+cite_id = "SEIR.THM.FORK_OBJECT_MINIMAL"
+name = "Fork.objectBasis_minimal"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.objectBasis_minimal"
+source_module = "SE.IdentityRegimes.Model.Fork"
+status = "proved"
+description = "The support of the fork object basis is justified: the object can change the invariant on its own, given two distinct objects."
+
+[theorem.derivedVerdict_cells]
+order = 124
+id = "derivedVerdict_cells"
+cite_id = "SEIR.THM.DERIVED_VERDICT_CELLS"
+name = "derivedVerdict_cells"
+lean_symbol = "SE.IdentityRegimes.derivedVerdict_cells"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+status = "proved"
+description = "The derived verdicts of the six modeled cells."

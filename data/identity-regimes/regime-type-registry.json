@@ -184,6 +184,42 @@
         "prs",
         "neu"
       ]
+    },
+    {
+      "order": 15,
+      "id": "Model_Scope_Scope",
+      "cite_id": "SEIR.DEF.SCOPE_PRESENTATION",
+      "name": "Scope presentation",
+      "lean_symbol": "SE.IdentityRegimes.Model.Scope.Scope",
+      "source_module": "SE.IdentityRegimes.Model.Scope",
+      "description": "A scope presentation: its organization, a relation between cases."
+    },
+    {
+      "order": 16,
+      "id": "Model_Rule_Rule",
+      "cite_id": "SEIR.DEF.RULE_PRESENTATION",
+      "name": "Rule presentation",
+      "lean_symbol": "SE.IdentityRegimes.Model.Rule.Rule",
+      "source_module": "SE.IdentityRegimes.Model.Rule",
+      "description": "A rule presentation: the organization of its provisions and a norm for each case."
+    },
+    {
+      "order": 17,
+      "id": "Model_Fork_Plain",
+      "cite_id": "SEIR.DEF.FORK_PRESENTATION",
+      "name": "Plain-referent presentation",
+      "lean_symbol": "SE.IdentityRegimes.Model.Fork.Plain",
+      "source_module": "SE.IdentityRegimes.Model.Fork",
+      "description": "A presentation of a plain referent: its locus, its object, and the branch of the record it belongs to."
+    },
+    {
+      "order": 18,
+      "id": "DerivedCell",
+      "cite_id": "SEIR.DEF.DERIVED_CELL",
+      "name": "Derived cell",
+      "lean_symbol": "SE.IdentityRegimes.DerivedCell",
+      "source_module": "SE.IdentityRegimes.Reference.DerivedMatrix",
+      "description": "A cell of the derived classification matrix: an effect model of one family, an invariant basis, and a proof of the verdict the model gives."
     }
   ]
 }

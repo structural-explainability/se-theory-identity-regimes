@@ -166,3 +166,228 @@ name = "Persistence classification"
 lean_symbol = "SE.IdentityRegimes.persistenceClassification"
 source_module = "SE.IdentityRegimes.Transform.PersistenceBridge"
 description = "Constructs a Persistence classification from a regime's matrix row while restoring the eight inapplicable cells."
+
+[vocabulary.Model_Scope_strictModel]
+order = 18
+id = "Model_Scope_strictModel"
+cite_id = "SEIR.DEF.SCOPE_AD_STRICT_MODEL"
+name = "Scope AD strict model"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.strictModel"
+source_module = "SE.IdentityRegimes.Model.Scope"
+description = "AD on scopes declared as restructuring that preserves coverage."
+
+[vocabulary.Model_Scope_looseModel]
+order = 19
+id = "Model_Scope_looseModel"
+cite_id = "SEIR.DEF.SCOPE_AD_LOOSE_MODEL"
+name = "Scope AD loose model"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.looseModel"
+source_module = "SE.IdentityRegimes.Model.Scope"
+description = "AD on scopes declared as restructuring that may also change coverage."
+
+[vocabulary.Model_Scope_extensionBasis]
+order = 20
+id = "Model_Scope_extensionBasis"
+cite_id = "SEIR.DEF.SCOPE_EXTENSION_BASIS"
+name = "Scope extension basis"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.extensionBasis"
+source_module = "SE.IdentityRegimes.Model.Scope"
+description = "Extension-fixed scope basis: the invariant is the set of covered cases."
+
+[vocabulary.Model_Scope_structureBasis]
+order = 21
+id = "Model_Scope_structureBasis"
+cite_id = "SEIR.DEF.SCOPE_STRUCTURE_BASIS"
+name = "Scope structure basis"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.structureBasis"
+source_module = "SE.IdentityRegimes.Model.Scope"
+description = "Structure-fixed scope basis: the invariant is the organization."
+
+[vocabulary.Model_Rule_strictModel]
+order = 22
+id = "Model_Rule_strictModel"
+cite_id = "SEIR.DEF.RULE_RF_STRICT_MODEL"
+name = "Rule RF strict model"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.strictModel"
+source_module = "SE.IdentityRegimes.Model.Rule"
+description = "RF on rules declared as a strict split that keeps coverage and every norm."
+
+[vocabulary.Model_Rule_looseModel]
+order = 23
+id = "Model_Rule_looseModel"
+cite_id = "SEIR.DEF.RULE_RF_LOOSE_MODEL"
+name = "Rule RF loose model"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.looseModel"
+source_module = "SE.IdentityRegimes.Model.Rule"
+description = "RF on rules declared as a strict split that keeps coverage and may change norms."
+
+[vocabulary.Model_Rule_contentBasis]
+order = 24
+id = "Model_Rule_contentBasis"
+cite_id = "SEIR.DEF.RULE_CONTENT_BASIS"
+name = "Rule content basis"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.contentBasis"
+source_module = "SE.IdentityRegimes.Model.Rule"
+description = "Content-fixed rule basis: the invariant relates each governed case to its norm."
+
+[vocabulary.Model_Rule_structureBasis]
+order = 25
+id = "Model_Rule_structureBasis"
+cite_id = "SEIR.DEF.RULE_STRUCTURE_BASIS"
+name = "Rule structure basis"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.structureBasis"
+source_module = "SE.IdentityRegimes.Model.Rule"
+description = "Structure-fixed rule basis: the invariant is the organization of the provisions."
+
+[vocabulary.Model_Fork_forkModel]
+order = 26
+id = "Model_Fork_forkModel"
+cite_id = "SEIR.DEF.FORK_MODEL"
+name = "Fork model"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.forkModel"
+source_module = "SE.IdentityRegimes.Model.Fork"
+description = "BF on plain referents under a warrant: a continuation belongs to a different branch and satisfies the warrant."
+
+[vocabulary.Model_Fork_locusBasis]
+order = 27
+id = "Model_Fork_locusBasis"
+cite_id = "SEIR.DEF.FORK_LOCUS_BASIS"
+name = "Fork locus basis"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.locusBasis"
+source_module = "SE.IdentityRegimes.Model.Fork"
+description = "Locus-fixed plain-referent basis: the invariant is the locus."
+
+[vocabulary.Model_Fork_objectBasis]
+order = 28
+id = "Model_Fork_objectBasis"
+cite_id = "SEIR.DEF.FORK_OBJECT_BASIS"
+name = "Fork object basis"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.objectBasis"
+source_module = "SE.IdentityRegimes.Model.Fork"
+description = "Object-fixed plain-referent basis: the invariant is the object."
+
+[vocabulary.Model_ScopeEntries_get]
+order = 29
+id = "Model_ScopeEntries_get"
+cite_id = "SEIR.DEF.SCOPE_ENTRY_FIELD"
+name = "Scope entry field"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.get"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+description = "The field for a pair of cases: whether the scope organization relates them."
+
+[vocabulary.Model_ScopeEntries_strictModel]
+order = 30
+id = "Model_ScopeEntries_strictModel"
+cite_id = "SEIR.DEF.SCOPE_ENTRY_STRICT_MODEL"
+name = "Scope entry strict model"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.strictModel"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+description = "AD on scopes with one field per pair of cases, declared to preserve coverage; it writes only off-diagonal pairs."
+
+[vocabulary.Model_ScopeEntries_looseModel]
+order = 31
+id = "Model_ScopeEntries_looseModel"
+cite_id = "SEIR.DEF.SCOPE_ENTRY_LOOSE_MODEL"
+name = "Scope entry loose model"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.looseModel"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+description = "AD on scopes with one field per pair of cases, declared so that it may also change coverage."
+
+[vocabulary.Model_ScopeEntries_extensionBasis]
+order = 32
+id = "Model_ScopeEntries_extensionBasis"
+cite_id = "SEIR.DEF.SCOPE_ENTRY_EXTENSION_BASIS"
+name = "Scope entry extension basis"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.extensionBasis"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+description = "Extension-fixed scope basis reading the diagonal pairs."
+
+[vocabulary.Model_ScopeEntries_structureBasis]
+order = 33
+id = "Model_ScopeEntries_structureBasis"
+cite_id = "SEIR.DEF.SCOPE_ENTRY_STRUCTURE_BASIS"
+name = "Scope entry structure basis"
+lean_symbol = "SE.IdentityRegimes.Model.ScopeEntries.structureBasis"
+source_module = "SE.IdentityRegimes.Model.ScopeEntries"
+description = "Structure-fixed scope basis reading every pair."
+
+[vocabulary.Model_RuleEntries_get]
+order = 34
+id = "Model_RuleEntries_get"
+cite_id = "SEIR.DEF.RULE_ENTRY_FIELD"
+name = "Rule entry field"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.get"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+description = "The fields of a rule presentation: a pair of cases (whether the organization relates them) or a case (its norm)."
+
+[vocabulary.Model_RuleEntries_strictModel]
+order = 35
+id = "Model_RuleEntries_strictModel"
+cite_id = "SEIR.DEF.RULE_ENTRY_STRICT_MODEL"
+name = "Rule entry strict model"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.strictModel"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+description = "RF on rules with one field per dependency, declared as a strict split that keeps coverage and every norm; it writes only off-diagonal pairs."
+
+[vocabulary.Model_RuleEntries_looseModel]
+order = 36
+id = "Model_RuleEntries_looseModel"
+cite_id = "SEIR.DEF.RULE_ENTRY_LOOSE_MODEL"
+name = "Rule entry loose model"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.looseModel"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+description = "RF on rules with one field per dependency, declared as a strict split that keeps coverage and may change norms."
+
+[vocabulary.Model_RuleEntries_contentBasis]
+order = 37
+id = "Model_RuleEntries_contentBasis"
+cite_id = "SEIR.DEF.RULE_ENTRY_CONTENT_BASIS"
+name = "Rule entry content basis"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.contentBasis"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+description = "Content-fixed rule basis reading the diagonal pairs and every norm."
+
+[vocabulary.Model_RuleEntries_structureBasis]
+order = 38
+id = "Model_RuleEntries_structureBasis"
+cite_id = "SEIR.DEF.RULE_ENTRY_STRUCTURE_BASIS"
+name = "Rule entry structure basis"
+lean_symbol = "SE.IdentityRegimes.Model.RuleEntries.structureBasis"
+source_module = "SE.IdentityRegimes.Model.RuleEntries"
+description = "Structure-fixed rule basis reading every pair and no norm."
+
+[vocabulary.Verdict_toValue]
+order = 39
+id = "Verdict_toValue"
+cite_id = "SEIR.DEF.VERDICT_TO_VALUE"
+name = "Verdict to value"
+lean_symbol = "SE.IdentityRegimes.Verdict.toValue"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+description = "Maps a verdict to its classification value; not applicable and mixed have none."
+
+[vocabulary.derivedMatrix]
+order = 40
+id = "derivedMatrix"
+cite_id = "SEIR.DEF.DERIVED_MATRIX"
+name = "Derived matrix"
+lean_symbol = "SE.IdentityRegimes.derivedMatrix"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+description = "The derived classification matrix: a derived cell where a model has been written, and none elsewhere."
+
+[vocabulary.derivedValue]
+order = 41
+id = "derivedValue"
+cite_id = "SEIR.DEF.DERIVED_VALUE"
+name = "Derived value"
+lean_symbol = "SE.IdentityRegimes.derivedValue"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+description = "The classification value of a derived cell, where there is one."
+
+[vocabulary.derivedVerdict]
+order = 42
+id = "derivedVerdict"
+cite_id = "SEIR.DEF.DERIVED_VERDICT"
+name = "Derived verdict"
+lean_symbol = "SE.IdentityRegimes.derivedVerdict"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+description = "The full derived verdict of a cell; none means no model has been written for it."

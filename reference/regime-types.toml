@@ -34,7 +34,17 @@ name = "Regime"
 lean_symbol = "SE.IdentityRegimes.Regime"
 source_module = "SE.IdentityRegimes.Vocab.Regimes"
 description = "The nine canonical identity regimes: OBL, OCC, REC, ENR_L, ENR_I, CTX_E, CTX_S, NOR_C, and NOR_S."
-constructors = ["OBL", "OCC", "REC", "ENR_L", "ENR_I", "CTX_E", "CTX_S", "NOR_C", "NOR_S"]
+constructors = [
+    "OBL",
+    "OCC",
+    "REC",
+    "ENR_L",
+    "ENR_I",
+    "CTX_E",
+    "CTX_S",
+    "NOR_C",
+    "NOR_S",
+]
 
 [type.Requirement]
 order = 3
@@ -63,7 +73,14 @@ name = "Identity basis"
 lean_symbol = "SE.IdentityRegimes.IdentityBasis"
 source_module = "SE.IdentityRegimes.Profile.Core"
 description = "The identity-bearing basis associated with a canonical regime profile."
-constructors = ["single", "content", "structure", "extension", "locus", "instrument"]
+constructors = [
+    "single",
+    "content",
+    "structure",
+    "extension",
+    "locus",
+    "instrument",
+]
 
 [type.ProfileAxes]
 order = 6
@@ -91,7 +108,13 @@ name = "Admissible relation"
 lean_symbol = "SE.IdentityRegimes.AdmissibleRelation"
 source_module = "SE.IdentityRegimes.Embedding"
 description = "The admissible edge-relation vocabulary used by regime graphs."
-constructors = ["participatesIn", "precedes", "scopedBy", "describedBy", "groundedIn"]
+constructors = [
+    "participatesIn",
+    "precedes",
+    "scopedBy",
+    "describedBy",
+    "groundedIn",
+]
 
 [type.RegimeVertex]
 order = 9
@@ -147,3 +170,39 @@ lean_symbol = "SE.IdentityRegimes.Verdict"
 source_module = "SE.IdentityRegimes.Transform.Effect"
 description = "The derived verdict of a transformation family relative to an invariant basis: not applicable, breaking, mixed, preserving, or neutral."
 constructors = ["na", "brk", "mix", "prs", "neu"]
+
+[type.Model_Scope_Scope]
+order = 15
+id = "Model_Scope_Scope"
+cite_id = "SEIR.DEF.SCOPE_PRESENTATION"
+name = "Scope presentation"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.Scope"
+source_module = "SE.IdentityRegimes.Model.Scope"
+description = "A scope presentation: its organization, a relation between cases."
+
+[type.Model_Rule_Rule]
+order = 16
+id = "Model_Rule_Rule"
+cite_id = "SEIR.DEF.RULE_PRESENTATION"
+name = "Rule presentation"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.Rule"
+source_module = "SE.IdentityRegimes.Model.Rule"
+description = "A rule presentation: the organization of its provisions and a norm for each case."
+
+[type.Model_Fork_Plain]
+order = 17
+id = "Model_Fork_Plain"
+cite_id = "SEIR.DEF.FORK_PRESENTATION"
+name = "Plain-referent presentation"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.Plain"
+source_module = "SE.IdentityRegimes.Model.Fork"
+description = "A presentation of a plain referent: its locus, its object, and the branch of the record it belongs to."
+
+[type.DerivedCell]
+order = 18
+id = "DerivedCell"
+cite_id = "SEIR.DEF.DERIVED_CELL"
+name = "Derived cell"
+lean_symbol = "SE.IdentityRegimes.DerivedCell"
+source_module = "SE.IdentityRegimes.Reference.DerivedMatrix"
+description = "A cell of the derived classification matrix: an effect model of one family, an invariant basis, and a proof of the verdict the model gives."

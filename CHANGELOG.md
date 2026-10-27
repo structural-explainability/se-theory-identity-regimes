@@ -11,6 +11,64 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
+### Added
+
+- `Model/Scope`: AD on scopes with the whole organization in a single field.
+  - AD is declared in two ways: strict (preserves coverage) and loose (may also
+    change coverage).
+  - Extension-fixed and structure-fixed bases.
+  - Derived verdicts: strict AD is `prs` for the extension basis and `brk` for
+    the structure basis; loose AD is `mix` for the extension basis.
+  - A domain containing the AD step separates the bases; a domain without it
+    collapses them.
+- `Model/ScopeEntries`: AD on scopes with one field per pair of cases.
+  - The extension basis reads the diagonal pairs; the structure basis reads every
+    pair. Both supports are proven minimal.
+  - Strict AD is proven to write only off-diagonal pairs, so its verdict for the
+    extension basis is `neu`.
+- `Model/Rule` and `Model/RuleEntries`: RF on rules, with the same two
+  granularities.
+  - Strict RF keeps coverage and every norm; loose RF may change norms.
+  - Content-fixed and structure-fixed bases.
+  - Strict RF is `neu` for the content basis with field-level supports, `prs`
+    with a single field, and `brk` for the structure basis.
+  - Loose RF is `mix` for the content basis.
+  - The content and structure supports are proven minimal.
+- `Model/Fork`: BF on plain referents, with branching represented independently
+  of identity.
+  - A fork changes only the branch. Whether a continuation stays at the locus or
+    is the same object is a named warrant (`Colocated`, `FreshObject`,
+    `SameObject`) taken as an explicit hypothesis.
+  - Without a warrant BF is `mix` for both the locus and object bases.
+  - Under `Colocated` and `FreshObject`: locus `neu`, object `brk`.
+  - Under `Colocated` and `SameObject`: locus `neu`, object `neu`, and the two
+    bases collapse on every domain.
+- `Reference/DerivedMatrix`: the derived classification matrix, kept beside the
+  stipulated one.
+  - A derived cell is an effect model of one family, an invariant basis, and a
+    proof of the verdict the model gives.
+  - Six cells are derived: CTX_E, CTX_S, NOR_C, NOR_S, ENR_L and ENR_I at the
+    families AD, RF and BF respectively. Every other cell is `none`.
+  - Derived and stipulated cells agree on breaking for the six derived cells;
+    84 remain unexamined (`derived_agrees_on_breaking`).
+- RR annotations and reference registry entries for the new models and the
+  derived matrix.
+- A derived cell requires a justified (minimal) support for its basis. The fork
+  bases have minimality proofs.
+- `derivedVerdict` exposes the full five-valued verdict: `none` means no model has
+  been written, and `some .na` and `some .mix` are modeled results.
+
+### Notes
+
+- The stipulated matrix in `Transform/Core` is unchanged.
+- The three derived `neu` cells are `prs` in the stipulated matrix. The
+  difference comes from field granularity; both are non-breaking.
+- The ENR_L and ENR_I cells hold only under the named fork warrants.
+- RF as defined in the transformation basis includes normative detail. Read that
+  way it is `mix` for the content basis, and the family must be refined before it
+  can be entered in a classification table.
+- The remaining cells have no derived model yet.
+
 ---
 
 ## [0.6.0] - 2026-10-26

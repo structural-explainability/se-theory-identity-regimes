@@ -5,23 +5,42 @@ and the relations they induce over a supplied carrier.
 
 ## Applicability and Classification
 
-A classification distinguishes:
+A persistence classification records applicability and, when applicable,
+one of three values:
+identity-ignoring (IGN),
+identity-preserving (PRS),
+or identity-breaking (BRK).
 
-- **N/A**: no applicable classification;
-- **IGN**: applicable and identity-ignoring;
-- **PRS**: applicable and identity-preserving;
-- **BRK**: applicable and identity-breaking.
+Lean represents this as `T → Option ClassificationValue`.
+Inapplicability is represented by `none`, not by a fourth value.
 
-N/A is represented separately from the three classification values.
+Persistence uses `ClassificationValue.ign` for identity-ignoring behavior.
+The companion paper *Referential Regimes* (Paper 200) uses `NEU`
+for identity-neutral behavior.
+
+In the invariant-based Identity Regimes models, `neu` has a more
+specific meaning:
+an applicable transformation whose effective instances
+preserve the identity invariant without changing
+any supported field.
+
+These classifications should not be treated as interchangeable
+without verifying their underlying semantics.
 
 ## Continuation Licences
 
 A licence specifies which individual transformation steps count as
-continuations. The same operator can receive different continuation judgments
+continuations.
+The same operator can receive different continuation judgments
 on different steps.
 
-Operator-level classifications express licences only where the required
-operator-level uniformity holds.
+Operator-level classifications express licences only
+where the required operator-level uniformity holds.
+
+A preserving classification does not itself establish a continuation licence.
+`Classification.WellFormed` requires every declared persistence transformation
+to be classified as preserving, but does not require every preserving
+transformation to be licensed.
 
 ## Identity Commitments
 

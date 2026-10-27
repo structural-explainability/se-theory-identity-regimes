@@ -159,3 +159,75 @@ name = "Step agreement"
 lean_symbol = "SE.IdentityRegimes.EffectModel.StepAgree"
 source_module = "SE.IdentityRegimes.Transform.StepIdentity"
 description = "Every step inside a domain is preserved by both bases or changed by both."
+
+[predicate.Model_Scope_IsPartition]
+order = 17
+id = "Model_Scope_IsPartition"
+cite_id = "SEIR.DEF.SCOPE_IS_PARTITION"
+name = "Scope organization is a partition"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.IsPartition"
+source_module = "SE.IdentityRegimes.Model.Scope"
+description = "A scope organization is a partial equivalence: symmetric and transitive."
+
+[predicate.Model_Scope_SameCoverage]
+order = 18
+id = "Model_Scope_SameCoverage"
+cite_id = "SEIR.DEF.SCOPE_SAME_COVERAGE"
+name = "Same coverage"
+lean_symbol = "SE.IdentityRegimes.Model.Scope.SameCoverage"
+source_module = "SE.IdentityRegimes.Model.Scope"
+description = "Two scope organizations cover the same cases."
+
+[predicate.Model_Rule_Refines]
+order = 19
+id = "Model_Rule_Refines"
+cite_id = "SEIR.DEF.RULE_REFINES"
+name = "Rule refines"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.Refines"
+source_module = "SE.IdentityRegimes.Model.Rule"
+description = "The second rule splits every provision of the first into provisions of its own."
+
+[predicate.Model_Rule_StrictlyRefines]
+order = 20
+id = "Model_Rule_StrictlyRefines"
+cite_id = "SEIR.DEF.RULE_STRICTLY_REFINES"
+name = "Rule strictly refines"
+lean_symbol = "SE.IdentityRegimes.Model.Rule.StrictlyRefines"
+source_module = "SE.IdentityRegimes.Model.Rule"
+description = "The second rule splits at least one provision of the first."
+
+[predicate.Model_Fork_NoWarrant]
+order = 21
+id = "Model_Fork_NoWarrant"
+cite_id = "SEIR.DEF.FORK_NO_WARRANT"
+name = "No warrant"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.NoWarrant"
+source_module = "SE.IdentityRegimes.Model.Fork"
+description = "The trivial fork warrant: the fork is only a change of branch."
+
+[predicate.Model_Fork_Colocated]
+order = 22
+id = "Model_Fork_Colocated"
+cite_id = "SEIR.DEF.FORK_COLOCATED"
+name = "Colocated warrant"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.Colocated"
+source_module = "SE.IdentityRegimes.Model.Fork"
+description = "Warrant that a continuation stays at the locus of the original."
+
+[predicate.Model_Fork_FreshObject]
+order = 23
+id = "Model_Fork_FreshObject"
+cite_id = "SEIR.DEF.FORK_FRESH_OBJECT"
+name = "Fresh-object warrant"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.FreshObject"
+source_module = "SE.IdentityRegimes.Model.Fork"
+description = "Warrant that a continuation is a different object from the original."
+
+[predicate.Model_Fork_SameObject]
+order = 24
+id = "Model_Fork_SameObject"
+cite_id = "SEIR.DEF.FORK_SAME_OBJECT"
+name = "Same-object warrant"
+lean_symbol = "SE.IdentityRegimes.Model.Fork.SameObject"
+source_module = "SE.IdentityRegimes.Model.Fork"
+description = "Warrant that a continuation is the same object as the original."
