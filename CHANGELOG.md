@@ -11,6 +11,47 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
+### Planned
+
+- Evaluate removal of the direct Neutral Substrate dependency.
+  - Separate substrate-specific admissibility from the core identity-regime
+    theory, potentially through a downstream integration layer.
+  - Reassess `RequirementSatisfied`, currently defined as `True`, and
+    `RegimeApplicationAdmissible`, currently defined by substrate neutrality.
+  - Preserve any scientifically meaningful connections and account for
+    changes to public Lean interfaces, tests, and reference registries.
+
+- Reconcile legacy classification declarations with derived verdicts.
+  - Distinguish stipulated matrix entries from model-derived results.
+  - Review claims that transformation families necessarily force
+    identity distinctions; such claims may require explicit warrants.
+  - Preserve the distinctions among NA, MIX, NEU, PRS, and BRK and
+    between family-level and step-level identity relations.
+
+- Investigate coherence across the derived classification matrix.
+  - Establish when separately certified cells admit a compatible
+    interpretation of their transformation families and identity bases.
+  - Make field granularity, applicability, and additional warrants explicit.
+  - Extend derivations selectively where adequate models can be justified,
+    rather than treating completion of all 90 cells as a scientific goal.
+
+- Investigate formal interoperability with Transformation theory.
+  - Establish justified correspondences between structural operators,
+    presentation effects, and identity-regime transformation families.
+  - Prefer a downstream bridge that preserves the independence of both
+    theories and proves conditional results.
+
+- Evaluate scientific adequacy against concrete transformation cases.
+  - Identify intended referents and independently justified identity criteria.
+  - Compare modeled steps and verdicts with observable system behavior.
+  - Distinguish formal correctness, model conformance, and warranted
+    real-world identity judgments.
+
+- Strengthen Lean-to-reference traceability.
+  - Detect missing or stale reference entries for public definitions
+    and theorems in both directions.
+  - Preserve Lean source and hand-maintained RR annotations as authoritative.
+
 ---
 
 ## [0.7.0] - 2026-10-27
@@ -632,6 +673,7 @@ uvx gha-tools autoupdate --pin=all --write .github/workflows
 # Audit the resulting GitHub configuration for security findings.
 # NO .github\workflows\deploy-zensical.yml
 # YES  .github\workflows\deploy-zensical-lean.yml
+# NOTE: Some suppressed are still okay
 uvx zizmor@latest .github/
 
 # Validate.
@@ -671,8 +713,8 @@ gh release create v0.7.0 --verify-tag --title "0.7.0"  --generate-notes
 ## Only As Needed (delete a tag)
 
 ```shell
-git tag -d vX.Z.Y
-git push origin :refs/tags/vX.Z.Y
+git tag -d vX.Y.Z
+git push origin :refs/tags/vX.Y.Z
 ```
 
 ## Links

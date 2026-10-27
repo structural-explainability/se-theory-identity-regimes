@@ -29,7 +29,8 @@ testDriver = "SETest"
 # ============================================================
 
 [[require]]
-# Will be deleted
+# TODO: Evaluate moving substrate-specific interfaces downstream.
+# Retain until refactor is verified.
 name = "se-theory-neutral-substrate"
 git = "https://github.com/structural-explainability/se-theory-neutral-substrate"
 rev = "v0.12.1"

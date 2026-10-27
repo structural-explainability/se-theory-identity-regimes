@@ -22,7 +22,7 @@ class = "theory"
 kind = "foundation"
 status = "active"
 since = "2026"
-summary = "Develops and justifies identity regimes from individuation, co-reference, and persistence foundations, and derives their behavior under transformation."
+summary = "Formalizes candidate identity regimes, derives conditional transformation classifications, and studies generated identity relations and their limits."
 
 # === Layer Position ===
 
@@ -35,8 +35,8 @@ role = "theory"
 [depends]
 # Required upstream repository dependencies.
 required = [
-  { repository = "se-theory-neutral-substrate", kind = "semantic", version = "v0.11.0" },
-  { repository = "se-theory-persistence", kind = "semantic", version = "v0.5.0" },
+    { repository = "se-theory-neutral-substrate", kind = "semantic", version = "v0.12.1" },
+    { repository = "se-theory-persistence", kind = "semantic", version = "v0.6.0" },
 ]
 
 # Optional upstream repository dependencies.
@@ -48,37 +48,39 @@ optional = []
 # Logical artifacts exposed by this repository.
 # These are stable identifiers, not file paths.
 artifacts = [
-  "lean-library",
-  "theorem-set",
-  "regime-classification-matrix",
-  "regime-families",
-  "regime-profile-derivation",
-  "regime-profiles",
-  "regime-transformations",
+    "lean-library",
+    "theorem-set",
+    "regime-classification-matrix",
+    "regime-families",
+    "regime-profile-derivation",
+    "regime-profiles",
+    "regime-transformations",
 ]
 
 # === Scope ===
 
 [scope]
 includes = [
-  "canonical identity regimes",
-  "regime requirement structure",
-  "regime-profile structure",
-  "neutral-substrate-relative regime application admissibility",
-  "admissibility conditions for regime application over neutral substrates",
-  "row-level lower-bound and representation theorems for the fixed taxonomy",
-  "machine-checked Lean theorems",
-  "machine-readable reference artifacts for transformation and classification layers",
+    "canonical identity regimes",
+    "regime requirement structure",
+    "regime-profile structure",
+    "neutral-substrate-relative regime application admissibility",
+    "admissibility conditions for regime application over neutral substrates",
+    "finite profile-count and classification-distinction results",
+    "proof-certified derived classifications from invariant bases and effect models",
+    "conditional equality and separation results for step-generated identity relations",
+    "machine-checked Lean theorems",
+    "machine-readable reference artifacts for transformation and classification layers",
 ]
 
 excludes = [
-  "neutral substrate primitives",
-  "foundational definitions of individuation, co-reference, and persistence",
-  "mapping semantics",
-  "repository governance rules",
-  "schema definitions for other repositories",
-  "domain-specific mappings or data",
-  "runtime systems",
+    "neutral substrate primitives",
+    "foundational definitions of individuation, co-reference, and persistence",
+    "mapping semantics",
+    "repository governance rules",
+    "schema definitions for other repositories",
+    "domain-specific mappings or data",
+    "runtime systems",
 ]
 
 # === Validation ===

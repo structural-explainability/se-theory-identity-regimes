@@ -72,7 +72,7 @@ ai_max_authority = "drafting"
 id = "lean-build-configuration"
 object_kind = "file"
 paths = [
-"lakefile.lean",
+"lakefile.toml",
 "lean-toolchain",
 "lake-manifest.json",
 ]
