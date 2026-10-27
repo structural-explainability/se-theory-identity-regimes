@@ -7,7 +7,7 @@
 
 [![CI-Lean](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-lean.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-lean.yml)
 [![CI](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-python-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/ci-python-zensical.yml)
-[![Docs](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/deploy-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/deploy-zensical.yml)
+[![Docs](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/deploy-zensical-lean.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/deploy-zensical-lean.yml)
 [![Links](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-theory-identity-regimes/actions/workflows/links.yml)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/structural-explainability/se-theory-identity-regimes/security)
 

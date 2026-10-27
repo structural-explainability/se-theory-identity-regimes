@@ -11,6 +11,10 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
+---
+
+## [0.7.0] - 2026-10-27
+
 ### Added
 
 - `Model/Scope`: AD on scopes with the whole organization in a single field.
@@ -661,7 +665,7 @@ git push origin vX.Y.Z
 Create GitHub Release after pushing tag, for example with a command like this:
 
 ```shell
-gh release create v0.6.0 --verify-tag --title "0.6.0"  --generate-notes
+gh release create v0.7.0 --verify-tag --title "0.7.0"  --generate-notes
 ```
 
 ## Only As Needed (delete a tag)
@@ -673,7 +677,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.7.0
 [0.6.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.6.0
 [0.4.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.4.0
 [0.3.1]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.3.1

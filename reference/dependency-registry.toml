@@ -11,7 +11,7 @@ repo = "se-theory-identity-regimes"
 source = "se-theory-identity-regimes"
 namespace = "se.identity_regimes"
 artifact = "dependency-registry"
-version = "0.6.0"
+version = "0.7.0"
 status = "canonical"
 
 [dependency.neutral_substrate]
