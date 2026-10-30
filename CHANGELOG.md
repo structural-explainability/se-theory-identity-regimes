@@ -54,6 +54,20 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.7.1] - 2026-10-30
+
+### Updated
+
+- Updated the Lean toolchain (see `lean-toolchain`).
+- `rel.ps1`: added `lake clean`, `CITATION.cff` validation, and Markdown lint.
+- `ci-lean.yml`: added `CITATION.cff` validation, SE manifest validation,
+  Markdown lint, and cancellation of superseded runs on the same branch.
+- `leanchecker` and the axiom audit are skipped in this repo because it
+  depends on other SE theory packages. A source scan for `axiom`
+  declarations and `native_decide` runs instead.
+
+---
+
 ## [0.7.0] - 2026-10-27
 
 ### Added
@@ -631,17 +645,19 @@ They must not define theory semantics independently of Lean.
 ## Notes on versioning and releases
 
 - We use **SemVer**:
-  - **MAJOR** - breaking changes to artifact structure or validation semantics
-  - **MINOR** - backward-compatible additions to schema or validation rules
+  - **MAJOR** - breaking changes
+  - **MINOR** - backward-compatible additions
   - **PATCH** - fixes, documentation, tooling
-- Versions are driven by git tags. Tag `vX.Y.Z` to release.
-- Docs are deployed per version tag and aliased to **latest**.
+- Versions are driven by git tags.
+- Tag `vX.Y.Z` to release.
+- During `0.x` development, breaking formal-surface changes
+  may occur in a **MINOR** release.
 
 ## Release Procedure (Required)
 
 Follow these steps exactly when creating a new release.
 
-### Optional: One-Time Zenodo Authorization
+### One-Time Zenodo Authorization
 
 1. Sign in to Zenodo.
 2. Open your profile menu in the upper-right.
@@ -655,14 +671,13 @@ Follow these steps exactly when creating a new release.
 ### Task 1. Update release metadata (manual edits)
 
 1.1. CITATION.cff: update version and date-released
-1.2. lakefile.toml: update version and dep versions
-1.3. CHANGELOG.md: add section, move unreleased entries, update links, update released command
+1.2. lakefile.toml: update version
+1.3. CHANGELOG.md: add section, move unreleased entries, update links, update release command
 1.4. pyproject.toml: update version (near top of the file)
-1.5. reference\dependency-registry.toml - update version and dep versions
 
 ### Task 2. Set up and Validate
 
-```shell
+```pwsh
 # set up or update Python environment
 # Run repository checks.
 .\sit.ps1
@@ -673,8 +688,8 @@ uvx gha-tools autoupdate --pin=all --write .github/workflows
 # Audit the resulting GitHub configuration for security findings.
 # NO .github\workflows\deploy-zensical.yml
 # YES  .github\workflows\deploy-zensical-lean.yml
-# NOTE: Some suppressed are still okay
 uvx zizmor@latest .github/
+# Some suppressed are still okay
 
 # Validate.
 uvx cffconvert --validate
@@ -707,7 +722,7 @@ git push origin vX.Y.Z
 Create GitHub Release after pushing tag, for example with a command like this:
 
 ```shell
-gh release create v0.7.0 --verify-tag --title "0.7.0"  --generate-notes
+gh release create v0.7.1 --verify-tag --title "0.7.1"  --generate-notes
 ```
 
 ## Only As Needed (delete a tag)
@@ -719,7 +734,8 @@ git push origin :refs/tags/vX.Y.Z
 
 ## Links
 
-[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/structural-explainability/se-theory-identity-regimes/compare/v0.7.1...HEAD
+[0.7.1]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.7.1
 [0.7.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.7.0
 [0.6.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.6.0
 [0.4.0]: https://github.com/structural-explainability/se-theory-identity-regimes/releases/tag/v0.4.0

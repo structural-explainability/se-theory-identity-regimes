@@ -35,8 +35,8 @@ role = "theory"
 [depends]
 # Required upstream repository dependencies.
 required = [
-    { repository = "se-theory-neutral-substrate", kind = "semantic", version = "v0.12.1" },
-    { repository = "se-theory-persistence", kind = "semantic", version = "v0.6.0" },
+    { repository = "se-theory-neutral-substrate", kind = "semantic" },
+    { repository = "se-theory-persistence", kind = "semantic"},
 ]
 
 # Optional upstream repository dependencies.

@@ -1,40 +1,15 @@
 # ============================================================
 # .github/workflows/deploy-zensical-lean.yml (CUSTOM LEAN+ALL-PY-REPOS)
 # ============================================================
-# Updated: 2026-10-26 CUSTOM
+# Updated: 2026-10-30
 #
-# WHAT: A GitHub Actions workflow that automatically publishes project documentation.
-#       GitHub Actions is GitHub's built-in project automation service.
-#       This YAML file tells GitHub what commands to run and when to run them.
-#
-# WHEN: Use for projects that use Python tooling and Zensical to publish a
-#       professional documentation website describing the project,
-#       its data, methods, processes, and results.
-#       Projects do not need a src/ Python application.
-#
-# TRIGGER: Runs automatically when changes are pushed to the main branch.
-#          It can also be started manually from the GitHub Actions tab.
-#
-# WHY: Publishing documentation makes project work accessible to others.
-#      Automated deployment keeps the public website current without
-#      requiring the developer to rebuild and upload it manually.
-#
-# CI/CD: Continuous Integration (CI) automatically checks changes.
-#        Continuous Delivery/Deployment (CD) prepares or publishes work.
-#        This workflow performs CD by building and publishing the website.
-#        A separate workflow handles CI.
-#
-# SKILLS: Git, GitHub, GitHub Actions, CI/CD, automated deployment,
-#         project automation, and professional documentation.
-#
-# TOOLS: Zensical builds the documentation website.
-#        GitHub Pages hosts the published website.
-#
-# REQ: Repository MUST contain .python-version, uv.lock, and zensical.toml.
-# REQ: Repository Settings > Pages > Build and deployment > Source:
-#      GitHub Actions.
+# WHY: Build and deploy documentation to GitHub Pages on pushes to main.
+# REQ: Repo Settings -> Pages -> Build and deployment -> Source:
+#      GitHub Actions
+# WHY: Without this setting, the deploy-pages action will fail with a 403.
+# REQ: Repository MUST contain .python-version.
+# WHY: The repository declares the Python version used locally and by CI.
 # REQ: Deployment MUST use the committed uv.lock without updating it.
-# ============================================================
 
 # Name shown in the repo Actions tab.
 name: Docs Deploy (Zensical and Lean)
@@ -96,7 +71,8 @@ jobs:
 
       - name: A5) Install dependencies from committed lockfile
         run: uv sync --frozen
-        # WHY: Install dependencies from the committed uv.lock without updating it.
+        # WHY: Install all configured dependency groups exactly from uv.lock.
+        # REQ: Deployment MUST fail rather than update a stale lockfile.
 
       - name: A6) Show tool versions
         run: |
@@ -108,7 +84,7 @@ jobs:
         # WHY: Version output makes deployment logs easier to debug when tools change.
 
       # ============================================================
-      # AA) ASSEMBLE: Checkout code and set up environment
+      # AA) ASSEMBLE LEAN ENVIRONMENT
       # ============================================================
 
       - name: AA1) Set up Lean
@@ -117,11 +93,21 @@ jobs:
           build: false
           test: false
           lint: false
+        # WHY: Install the repository's declared Lean toolchain for API docs.
+        # OBS: Build, test, and lint are handled by the Lean CI workflow.
 
       - name: AA2) Install native build tools
         run: |
           sudo apt-get update
           sudo apt-get install --yes build-essential
+        # WHY: Lean API documentation generation requires native build tooling
+        # on the Linux GitHub Actions runner.
+
+      - name: AA3) Show lean tool versions
+        run: |
+          lean --version
+          lake --version
+          # WHY: Version output makes Lean documentation failures easier to diagnose.
 
       # ============================================================
       # B) BUILD ZENSICAL SITE
@@ -165,7 +151,6 @@ jobs:
           cat > docbuild/lakefile.toml <<EOF
           name = "docbuild"
           reservoir = false
-          version = "0.1.0"
           packagesDir = "../.lake/packages"
 
           [[require]]
@@ -248,6 +233,7 @@ jobs:
           rm -rf site/lean
           mkdir -p site/lean
           cp -R docbuild/.lake/build/doc/. site/lean/
+        # WHY: Publish generated Lean API documentation under /lean/.
 
       - name: BB5) Verify combined documentation site
         run: |
@@ -259,6 +245,7 @@ jobs:
             >> "$GITHUB_STEP_SUMMARY"
           echo "- Lean API reference: site/lean/index.html" \
             >> "$GITHUB_STEP_SUMMARY"
+        # WHY: Confirm both documentation surfaces exist before deployment.
 
       # ============================================================
       # D) DEPLOY

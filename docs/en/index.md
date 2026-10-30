@@ -11,6 +11,8 @@ predicates, assumptions, theorems, and proof obligations.
 - [Lean API Reference](https://structural-explainability.github.io/se-theory-identity-regimes/lean/)
 - [GitHub Repository](https://github.com/structural-explainability/se-theory-identity-regimes)
 - [Citation Metadata](https://github.com/structural-explainability/se-theory-identity-regimes/blob/main/CITATION.cff)
+- [Research Doubts and Open Questions](https://github.com/structural-explainability/se-theory-identity-regimes/blob/main/DOUBTS.md)
+- [Research Decisions](https://github.com/structural-explainability/se-theory-identity-regimes/blob/main/DECISIONS.md)
 
 ## Authority
 
@@ -26,18 +28,6 @@ import SE.IdentityRegimes
 ```
 
 If documentation and Lean differ, the Lean source is authoritative.
-
-## Scope
-
-This repository formalizes identity regimes,
-their classification behavior under transformation, and
-the identity relations those classifications generate.
-
-The formal results are relative to the identity bases,
-transformation effect models, and classifications declared in Lean.
-They do not establish that any particular set of identity criteria is
-scientifically necessary or exhaustive for intended referent kinds, or that
-distinct classifications generate distinct identity relations.
 
 ### Stipulated and Derived Classification Matrices
 
@@ -138,6 +128,14 @@ The roles of related theory repositories are documented in those repositories.
 ## Formal Theory
 
 See the Lean source under `SE/IdentityRegimes/`.
+
+## Scope
+
+Repository scope is defined in `SE_MANIFEST.toml`.
+
+## Exclusions
+
+Repository exclusions are defined in `SE_MANIFEST.toml`.
 
 ## Import
 

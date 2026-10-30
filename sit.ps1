@@ -43,9 +43,6 @@ OBS: Some commands update project files or delete generated files.
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-Set-StrictMode -Version Latest
-$ErrorActionPreference = "Stop"
-
 # ============================================================
 # A) PYTHON ENVIRONMENT
 # Clean, update, install, synchronize, and audit dependencies.

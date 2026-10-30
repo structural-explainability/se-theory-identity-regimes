@@ -13,7 +13,7 @@
 # ============================================================
 
 name = "se-theory-identity-regimes"
-version = "0.7.0"
+version = "0.7.1" # CUSTOM: Sets the current release version
 license = "Apache-2.0"
 
 # ============================================================
@@ -33,12 +33,12 @@ testDriver = "SETest"
 # Retain until refactor is verified.
 name = "se-theory-neutral-substrate"
 git = "https://github.com/structural-explainability/se-theory-neutral-substrate"
-rev = "v0.12.1"
+rev = "v0.13.0"
 
 [[require]]
 name = "se-theory-persistence"
 git = "https://github.com/structural-explainability/se-theory-persistence"
-rev = "v0.6.0"
+rev = "v0.6.1"
 
 # ============================================================
 # === PUBLIC LIBRARY ===
@@ -58,7 +58,7 @@ rev = "v0.6.0"
 [[lean_lib]]
 name = "SE.IdentityRegimes"
 roots = ["SE.IdentityRegimes"]
-globs = ["SE.IdentityRegimes.*"]
+globs = ["SE", "SE.IdentityRegimes.*"]
 
 
 # ============================================================
